@@ -1,0 +1,18 @@
+{
+    "manifest_version": 2,
+    "name": "Auth Autofill",
+    "description": "한국 휴대전화 본인인증 서비스 자동완성 브라우저 확장 프로그램",
+    "version": "1.0",
+    "browser_action": {
+        "default_icon": "icon.png",
+        "default_popup": "popup.html"
+    },
+    "permissions": [
+        "activeTab",
+        "storage"
+    ],
+    "content_scripts": [ {
+        "js": [ "autofill.js" ],
+        "matches": [ "http://*/*", "https://*/*"]
+    }]
+}
