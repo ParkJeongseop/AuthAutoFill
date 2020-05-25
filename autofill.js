@@ -47,6 +47,47 @@ window.onload = function () {
                     this.document.getElementById('mobileno').value = profilesOb[0].phone_number;
                     this.document.getElementById('answer').focus();
                 }
+            } else if (window.location.hostname == 'pcc.siren24.com') {
+                this.console.log('서울신용평가정보');
+
+                if (this.document.getElementById('agency-sk')) { //통신사 선택페이지
+                    if (this.document.getElementById('agency-sk').value == 'SKT') {
+                        if (profilesOb[0].carrier == '1') {
+                            var carrier = 'agency-sk';
+                        } else if (profilesOb[0].carrier == '2') {
+                            var carrier = 'agency-kt';
+                        } else if (profilesOb[0].carrier == '3') {
+                            var carrier = 'agency-lgu';
+                        } else {
+                            var carrier = 'agency-and';
+                        }
+                    } else { // 알뜰폰 통신사 선택페이지
+                        if (profilesOb[0].carrier == '4') {
+                            var carrier = 'agency-sk';
+                        } else if (profilesOb[0].carrier == '5') {
+                            var carrier = 'agency-kt';
+                        } else if (profilesOb[0].carrier == '6') {
+                            var carrier = 'agency-lgu';
+                        }
+                    }
+                    this.document.getElementById(carrier).click();
+                    for (var i = 0; i < 4; i++) {
+                        this.document.querySelector('#agreelist > li:nth-child(' + (i+1) + ') > span > label').click();
+                    };
+                    this.document.querySelector('#ct > fieldset > button').click();
+                } else if (!this.document.querySelector('#header > ul > li:nth-child(3)').classList.length) { //sms아닐때
+                    this.document.querySelector('#header > ul > li:nth-child(3) > a').click();
+                } else {
+                    this.document.getElementById('userName').value = profilesOb[0].name;
+                    this.document.getElementById('birthDay1').value = profilesOb[0].birth.substr(2, 6);
+                    if (profilesOb[0].birth[0] = '1') {
+                        this.document.getElementById('birthDay2').value = profilesOb[0].gender;
+                    } else {
+                        this.document.getElementById('birthDay2').value = Number(profilesOb[0].gender) + 2;
+                    }
+                    this.document.getElementsByName('No')[0].value = profilesOb[0].phone_number;
+                    this.document.getElementById('secur').focus();
+                }
             } else if (window.location.hostname == 'safe.ok-name.co.kr') {
                 this.console.log('코리아크레딧뷰로');
 
