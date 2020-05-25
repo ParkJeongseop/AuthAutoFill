@@ -15,6 +15,8 @@
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
     <script src="script.js"></script>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"
+        type='text/css'>
     <style>
         body {
             height: 500px;
@@ -22,13 +24,10 @@
             padding: 1.5rem;
         }
     </style>
+    <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 
 <body>
-    <!-- <h1>Auth Autofill</h1>
-    <h2>(본인인증 자동완성)</h2> -->
-
-    <!-- <br> -->
     <div class="profiles">
         <ul id='profilesUL' class="list-group">
         </ul>
@@ -39,7 +38,7 @@
         <h5>자동완성 프로필 추가</h5>
         <div class="input-group mb-3">
             <input id='name' type="text" class="form-control" placeholder="이름" aria-label="Username"
-                aria-describedby="basic-addon1">
+                aria-describedby="basic-addon1" required="required">
         </div>
 
         <div class="input-group mb-3">
@@ -55,13 +54,13 @@
             </select>
 
             <input id='phone_number' type="number" class="form-control" placeholder="휴대폰번호 ('-'없이숫자만입력)"
-                aria-label="Username" aria-describedby="basic-addon1">
+                aria-label="Username" aria-describedby="basic-addon1" minlength="10" maxlength="11">
 
         </div>
 
         <div class="input-group mb-3">
             <input id='birth' type="number" class="form-control" placeholder="생년월일 (8자리)" aria-label="Username"
-                aria-describedby="basic-addon1">
+                aria-describedby="basic-addon1" minlength="8" maxlength="8">
         </div>
 
         <div class="input-group mb-3">
@@ -72,8 +71,8 @@
             </select>
 
             <select id='gender' class="custom-select" id="inputGroupSelect04"
-                aria-label="Example select with button addon">
-                <option selected>성별</option>
+                aria-label="Example select with button addon" required>
+                <option value="" selected>성별</option>
                 <option value="1">남성</option>
                 <option value="2">여성</option>
             </select>
@@ -88,7 +87,7 @@
             </select>
         </div>
 
-        <button id='addProfile'>프로필 추가</button>
+        <button id='addProfile' type="button" class="btn btn-light">프로필 추가</button>
     </div>
 
 </body>

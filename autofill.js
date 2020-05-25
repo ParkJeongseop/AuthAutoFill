@@ -47,15 +47,15 @@
 // 7: 2000 ~ 2099년에 태어난 외국인 남성<br>
 // 8: 2000 ~ 2099년에 태어난 외국인 여성으로 분류된다.<br>
 function get_RRN_GenderNum(birth, gender, foreigner) {
-    if (birth.substr(0,2) == '18') {
-        var num = gender == '1'? 9 : 0;
-    } else if (birth.substr(0,2) == '19' && foreigner == '0') {
+    if (birth.substr(0, 2) == '18') {
+        var num = gender == '1' ? 9 : 0;
+    } else if (birth.substr(0, 2) == '19' && foreigner == '0') {
         var num = gender;
-    } else if (birth.substr(0,2) == '20' && foreigner == '0') {
+    } else if (birth.substr(0, 2) == '20' && foreigner == '0') {
         var num = Number(gender) + 2;
-    } else if (birth.substr(0,2) == '19' && foreigner == '1') {
+    } else if (birth.substr(0, 2) == '19' && foreigner == '1') {
         var num = Number(gender) + 4;;
-    } else if (birth.substr(0,2) == '20' && foreigner == '1') {
+    } else if (birth.substr(0, 2) == '20' && foreigner == '1') {
         var num = Number(gender) + 6;
     }
     return num;
@@ -74,27 +74,32 @@ window.onload = function () {
     chrome.storage.sync.get(function (data) {
         if (data.profiles) {
             var profilesOb = JSON.parse(data.profiles).profiles;
+            var spI = data.selectedProfile;
+            
+            
+            console.log('spI');
+            console.log(spI);
 
             if (window.location.hostname == 'nice.checkplus.co.kr') {
                 this.console.log('나이스신용평가정보');
 
                 if (this.document.getElementById('agency-sk')) { //통신사 선택페이지
                     if (this.document.getElementById('agency-sk').value == 'SKT') {
-                        if (profilesOb[0].carrier == '1') {
+                        if (profilesOb[spI].carrier == '1') {
                             var carrier = 'agency-sk';
-                        } else if (profilesOb[0].carrier == '2') {
+                        } else if (profilesOb[spI].carrier == '2') {
                             var carrier = 'agency-kt';
-                        } else if (profilesOb[0].carrier == '3') {
+                        } else if (profilesOb[spI].carrier == '3') {
                             var carrier = 'agency-lgu';
                         } else {
                             var carrier = 'agency-and';
                         }
                     } else { // 알뜰폰 통신사 선택페이지
-                        if (profilesOb[0].carrier == '4') {
+                        if (profilesOb[spI].carrier == '4') {
                             var carrier = 'agency-sk';
-                        } else if (profilesOb[0].carrier == '5') {
+                        } else if (profilesOb[spI].carrier == '5') {
                             var carrier = 'agency-kt';
-                        } else if (profilesOb[0].carrier == '6') {
+                        } else if (profilesOb[spI].carrier == '6') {
                             var carrier = 'agency-lgu';
                         }
                     }
@@ -104,10 +109,10 @@ window.onload = function () {
                 } else if (this.document.getElementById('sms_auth').title != '선택됨') {
                     this.document.getElementById('sms_auth').click();
                 } else {
-                    this.document.getElementById('username').value = profilesOb[0].name;
-                    this.document.getElementById('mynum1').value = profilesOb[0].birth.substr(2, 6);
-                    this.document.getElementById('mynum2').value = get_RRN_GenderNum(profilesOb[0].birth, profilesOb[0].gender, profilesOb[0].foreigner)
-                    this.document.getElementById('mobileno').value = profilesOb[0].phone_number;
+                    this.document.getElementById('username').value = profilesOb[spI].name;
+                    this.document.getElementById('mynum1').value = profilesOb[spI].birth.substr(2, 6);
+                    this.document.getElementById('mynum2').value = get_RRN_GenderNum(profilesOb[spI].birth, profilesOb[spI].gender, profilesOb[spI].foreigner)
+                    this.document.getElementById('mobileno').value = profilesOb[spI].phone_number;
                     this.document.getElementById('answer').focus();
                 }
             } else if (window.location.hostname == 'pcc.siren24.com') {
@@ -115,21 +120,21 @@ window.onload = function () {
 
                 if (this.document.getElementById('agency-sk')) { //통신사 선택페이지
                     if (this.document.getElementById('agency-sk').value == 'SKT') {
-                        if (profilesOb[0].carrier == '1') {
+                        if (profilesOb[spI].carrier == '1') {
                             var carrier = 'agency-sk';
-                        } else if (profilesOb[0].carrier == '2') {
+                        } else if (profilesOb[spI].carrier == '2') {
                             var carrier = 'agency-kt';
-                        } else if (profilesOb[0].carrier == '3') {
+                        } else if (profilesOb[spI].carrier == '3') {
                             var carrier = 'agency-lgu';
                         } else {
                             var carrier = 'agency-and';
                         }
                     } else { // 알뜰폰 통신사 선택페이지
-                        if (profilesOb[0].carrier == '4') {
+                        if (profilesOb[spI].carrier == '4') {
                             var carrier = 'agency-sk';
-                        } else if (profilesOb[0].carrier == '5') {
+                        } else if (profilesOb[spI].carrier == '5') {
                             var carrier = 'agency-kt';
-                        } else if (profilesOb[0].carrier == '6') {
+                        } else if (profilesOb[spI].carrier == '6') {
                             var carrier = 'agency-lgu';
                         }
                     }
@@ -141,41 +146,28 @@ window.onload = function () {
                 } else if (!this.document.querySelector('#header > ul > li:nth-child(3)').classList.length) { //sms아닐때
                     this.document.querySelector('#header > ul > li:nth-child(3) > a').click();
                 } else {
-                    this.document.getElementById('userName').value = profilesOb[0].name;
-                    this.document.getElementById('birthDay1').value = profilesOb[0].birth.substr(2, 6);
-                    this.document.getElementById('birthDay2').value = get_RRN_GenderNum(profilesOb[0].birth, profilesOb[0].gender, profilesOb[0].foreigner)
-                    this.document.getElementsByName('No')[0].value = profilesOb[0].phone_number;
+                    this.document.getElementById('userName').value = profilesOb[spI].name;
+                    this.document.getElementById('birthDay1').value = profilesOb[spI].birth.substr(2, 6);
+                    this.document.getElementById('birthDay2').value = get_RRN_GenderNum(profilesOb[spI].birth, profilesOb[spI].gender, profilesOb[spI].foreigner)
+                    this.document.getElementsByName('No')[0].value = profilesOb[spI].phone_number;
                     this.document.getElementById('secur').focus();
                 }
             } else if (window.location.hostname == 'safe.ok-name.co.kr') {
                 this.console.log('코리아크레딧뷰로');
 
                 if (this.document.querySelector('#layerPop > div.popContent > div.telecomSelect')) { //통신사 선택페이지
-                    // if(profilesOb[0].carrier > 3){
-                    //     var carrier = '55';
-                    // }else{
-                    //     var carrier = profilesOb[0].carrier;
-                    // }
-                    //jsSubmitMblTelCmm(carrier);
-                    // chrome.tabs.executeScript({
-                    //     code: 'jsSubmitMblTelCmm(' + carrier + ');'
-                    // });
-                    // chrome.runtime.sendMessage({ from: 'content_script', message: 'Information from webpage.' });
-                    // chrome.tabs.executeScript({code:"console.log('content_script')"});
-                    // this.console.log(jsSubmitMblTelCmm);
-
-                    if (profilesOb[0].carrier == '1') {
+                    if (profilesOb[spI].carrier == '1') {
                         var carrier = 'skt';
-                    } else if (profilesOb[0].carrier == '2') {
+                    } else if (profilesOb[spI].carrier == '2') {
                         var carrier = 'kt';
-                    } else if (profilesOb[0].carrier == '3') {
+                    } else if (profilesOb[spI].carrier == '3') {
                         var carrier = 'lgu';
                     } else {
                         var carrier = 'mvno';
                     }
                     this.document.querySelector('#layerPop > div.popContent > div.telecomSelect > ul > li.' + carrier + ' > a').click();
                 } else if (this.document.querySelector('#layerPop > div.popContent > div.mvnoSelectBox')) { //알뜰폰 통신사 선택페이지
-                    this.document.getElementById('radio0' + (profilesOb[0].carrier - 3)).click();
+                    this.document.getElementById('radio0' + (profilesOb[spI].carrier - 3)).click();
                     // jsSubmitMblTelCmm('');
                     this.document.querySelector('#layerPop > div.popContent > div.btnArea.big > a.btn.btnGray').click();
                 } else if (this.document.querySelector('body > form > div > div.popContent > div.tab > a.tabText')) {
@@ -183,11 +175,11 @@ window.onload = function () {
                         // changeHsCnfrm();
                         this.document.querySelector('body > form > div > div.popContent > div.tab > a.tabText').click();
                     } else { // SMS
-                        this.document.getElementById('nm').value = profilesOb[0].name;
-                        this.document.getElementById('brdt').value = profilesOb[0].birth;
-                        this.document.querySelector('body > form > div > div.popContent > div.formTbl > table > tbody > tr:nth-child(1) > td > span.selectboxWrap > div > ul > li:nth-child(' + (Number(profilesOb[0].foreigner) + 1) + ') > a').click();
-                        this.document.querySelector('body > form > div > div.popContent > div.formTbl > table > tbody > tr:nth-child(2) > td > div > a:nth-child(' + profilesOb[0].gender + ')').click();
-                        this.document.getElementById('mbphn_no').value = profilesOb[0].phone_number;
+                        this.document.getElementById('nm').value = profilesOb[spI].name;
+                        this.document.getElementById('brdt').value = profilesOb[spI].birth;
+                        this.document.querySelector('body > form > div > div.popContent > div.formTbl > table > tbody > tr:nth-child(1) > td > span.selectboxWrap > div > ul > li:nth-child(' + (Number(profilesOb[spI].foreigner) + 1) + ') > a').click();
+                        this.document.querySelector('body > form > div > div.popContent > div.formTbl > table > tbody > tr:nth-child(2) > td > div > a:nth-child(' + profilesOb[spI].gender + ')').click();
+                        this.document.getElementById('mbphn_no').value = profilesOb[spI].phone_number;
                         for (var i = 0; i < 4; i++) {
                             this.document.getElementById('certi0' + (i + 1)).click();
                         };
@@ -203,21 +195,21 @@ window.onload = function () {
 
                 if (this.document.getElementById('agency-sk')) { //통신사 선택페이지
                     if (this.document.getElementById('agency-sk').value == 'SKT') {
-                        if (profilesOb[0].carrier == '1') {
+                        if (profilesOb[spI].carrier == '1') {
                             var carrier = 'agency-sk';
-                        } else if (profilesOb[0].carrier == '2') {
+                        } else if (profilesOb[spI].carrier == '2') {
                             var carrier = 'agency-kt';
-                        } else if (profilesOb[0].carrier == '3') {
+                        } else if (profilesOb[spI].carrier == '3') {
                             var carrier = 'agency-lgu';
                         } else {
                             var carrier = 'agency-and';
                         }
                     } else { // 알뜰폰 통신사 선택페이지
-                        if (profilesOb[0].carrier == '4') {
+                        if (profilesOb[spI].carrier == '4') {
                             var carrier = 'agency-sk';
-                        } else if (profilesOb[0].carrier == '5') {
+                        } else if (profilesOb[spI].carrier == '5') {
                             var carrier = 'agency-kt';
-                        } else if (profilesOb[0].carrier == '6') {
+                        } else if (profilesOb[spI].carrier == '6') {
                             var carrier = 'agency-lgu';
                         }
                     }
@@ -229,84 +221,84 @@ window.onload = function () {
                 } else if (this.document.querySelector("#header > ul > li:nth-child(3) > a").title != '선택됨') { //sms아닐때
                     this.document.querySelector("#header > ul > li:nth-child(3) > a").click();
                 } else {
-                    this.document.getElementById('name').value = profilesOb[0].name;
-                    this.document.getElementById('mynum1').value = profilesOb[0].birth.substr(2, 6);
-                    this.document.getElementById('mynum2').value = get_RRN_GenderNum(profilesOb[0].birth, profilesOb[0].gender, profilesOb[0].foreigner)
-                    this.document.getElementById('phone').value = profilesOb[0].phone_number;
+                    this.document.getElementById('name').value = profilesOb[spI].name;
+                    this.document.getElementById('mynum1').value = profilesOb[spI].birth.substr(2, 6);
+                    this.document.getElementById('mynum2').value = get_RRN_GenderNum(profilesOb[spI].birth, profilesOb[spI].gender, profilesOb[spI].foreigner)
+                    this.document.getElementById('phone').value = profilesOb[spI].phone_number;
                     this.document.getElementById('secur').focus();
                 }
             } else if (window.location.hostname == 'www.kmcert.com') {
                 this.console.log('한국모바일인증');
-                
+
                 if (this.document.getElementById('agency-sk')) { //통신사 선택페이지
                     if (this.document.getElementById('agency-sk').value == 'SKT') {
-                        if (profilesOb[0].carrier == '1') {
+                        if (profilesOb[spI].carrier == '1') {
                             var carrier = 'agency-sk';
-                        } else if (profilesOb[0].carrier == '2') {
+                        } else if (profilesOb[spI].carrier == '2') {
                             var carrier = 'agency-kt';
-                        } else if (profilesOb[0].carrier == '3') {
+                        } else if (profilesOb[spI].carrier == '3') {
                             var carrier = 'agency-lgu';
                         } else {
                             var carrier = 'agency-and';
                         }
                     } else { // 알뜰폰 통신사 선택페이지
-                        if (profilesOb[0].carrier == '4') {
+                        if (profilesOb[spI].carrier == '4') {
                             var carrier = 'agency-sk';
-                        } else if (profilesOb[0].carrier == '5') {
+                        } else if (profilesOb[spI].carrier == '5') {
                             var carrier = 'agency-kt';
-                        } else if (profilesOb[0].carrier == '6') {
+                        } else if (profilesOb[spI].carrier == '6') {
                             var carrier = 'agency-lgu';
                         }
                     }
                     this.document.getElementById(carrier).click();
                     for (var i = 0; i < 4; i++) {
-                        this.document.getElementById('agree_list0' + (i + 1) ).click();
+                        this.document.getElementById('agree_list0' + (i + 1)).click();
                     };
                     this.document.querySelector('#ct > fieldset > button').click();
                 } else if (this.document.querySelector("#header > ul > li:nth-child(3) > a").title != '문자인증 선택됨') { //sms아닐때
                     this.document.querySelector("#header > ul > li:nth-child(3) > a").click();
                 } else {
-                    this.document.getElementById('userName').value = profilesOb[0].name;
-                    this.document.getElementById('Birth').value = profilesOb[0].birth.substr(2, 6);
-                    this.document.getElementById('Sex').value = get_RRN_GenderNum(profilesOb[0].birth, profilesOb[0].gender, profilesOb[0].foreigner);
-                    this.document.getElementById('No').value = profilesOb[0].phone_number;
+                    this.document.getElementById('userName').value = profilesOb[spI].name;
+                    this.document.getElementById('Birth').value = profilesOb[spI].birth.substr(2, 6);
+                    this.document.getElementById('Sex').value = get_RRN_GenderNum(profilesOb[spI].birth, profilesOb[spI].gender, profilesOb[spI].foreigner);
+                    this.document.getElementById('No').value = profilesOb[spI].phone_number;
                     this.document.getElementById('securityNum').focus();
                 }
             } else if (window.location.hostname == 'cert.kcp.co.kr') {
                 this.console.log('한국사이버결제');
-                
+
                 if (this.document.getElementById('agency-sk')) { //통신사 선택페이지
                     if (!document.querySelector("#ct > fieldset > ul.licensee-list")) { // MNO 사업자
-                        if (profilesOb[0].carrier == '1') {
+                        if (profilesOb[spI].carrier == '1') {
                             var carrier = 'agency-sk';
-                        } else if (profilesOb[0].carrier == '2') {
+                        } else if (profilesOb[spI].carrier == '2') {
                             var carrier = 'agency-kt';
-                        } else if (profilesOb[0].carrier == '3') {
+                        } else if (profilesOb[spI].carrier == '3') {
                             var carrier = 'agency-lgu';
                         } else {
                             var carrier = 'agency-and';
                         }
                     } else { // 알뜰폰 통신사 선택페이지
-                        if (profilesOb[0].carrier == '4') {
+                        if (profilesOb[spI].carrier == '4') {
                             var carrier = 'agency-sk';
-                        } else if (profilesOb[0].carrier == '5') {
+                        } else if (profilesOb[spI].carrier == '5') {
                             var carrier = 'agency-kt';
-                        } else if (profilesOb[0].carrier == '6') {
+                        } else if (profilesOb[spI].carrier == '6') {
                             var carrier = 'agency-lgu';
                         }
                     }
                     this.document.getElementById(carrier).click();
                     for (var i = 0; i < 4; i++) {
-                        this.document.getElementById('agree' + (i + 1) ).click();
+                        this.document.getElementById('agree' + (i + 1)).click();
                     };
                     this.document.querySelector('#ct > fieldset > button').click();
                 } else if (this.document.querySelector("#header > ul > li:nth-child(3) > a").title != '선택 됨') { //sms아닐때
                     this.document.querySelector("#header > ul > li:nth-child(3) > a").click();
                 } else {
-                    this.document.getElementById('name').value = profilesOb[0].name;
-                    this.document.getElementById('mynum1').value = profilesOb[0].birth.substr(2, 6);
-                    this.document.getElementById('mynum2').value = get_RRN_GenderNum(profilesOb[0].birth, profilesOb[0].gender, profilesOb[0].foreigner);
-                    this.document.getElementById('phone_no_rKey').value = profilesOb[0].phone_number;
+                    this.document.getElementById('name').value = profilesOb[spI].name;
+                    this.document.getElementById('mynum1').value = profilesOb[spI].birth.substr(2, 6);
+                    this.document.getElementById('mynum2').value = get_RRN_GenderNum(profilesOb[spI].birth, profilesOb[spI].gender, profilesOb[spI].foreigner);
+                    this.document.getElementById('phone_no_rKey').value = profilesOb[spI].phone_number;
                     this.document.getElementById('secur').focus();
                 }
             }

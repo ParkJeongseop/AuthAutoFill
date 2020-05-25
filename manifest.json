@@ -25,10 +25,5 @@
             "https://cert.kcp.co.kr/kcp_cert_pass/*"
         ],
         "run_at": "document_start"
-        // "run_at": "document_end"
-    }],
-    "background": {
-        "scripts": ["background.js"],
-        "persistent": true
-      }    
+    }]
 }
