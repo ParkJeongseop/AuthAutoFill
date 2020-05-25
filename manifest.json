@@ -19,9 +19,12 @@
         "matches": [ 
             "https://safe.ok-name.co.kr/CommonSvl",
             "https://pcc.siren24.com/pcc_V3/passWeb/*",
-            "https://nice.checkplus.co.kr/CheckPlusSafeModel/*"
+            "https://nice.checkplus.co.kr/CheckPlusSafeModel/*",
+            "https://www.mobile-ok.com/QRPASS",
+            "https://www.kmcert.com/kmcis/*"
         ],
-        "run_at": "document_end"
+        "run_at": "document_start"
+        // "run_at": "document_end"
     }],
     "background": {
         "scripts": ["background.js"],

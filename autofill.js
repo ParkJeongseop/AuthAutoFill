@@ -223,6 +223,47 @@ window.onload = function () {
                     this.document.getElementById('phone').value = profilesOb[0].phone_number;
                     this.document.getElementById('secur').focus();
                 }
+            } else if (window.location.hostname == 'www.kmcert.com') {
+                this.console.log('한국모바일인증');
+                
+                if (this.document.getElementById('agency-sk')) { //통신사 선택페이지
+                    if (this.document.getElementById('agency-sk').value == 'SKT') {
+                        if (profilesOb[0].carrier == '1') {
+                            var carrier = 'agency-sk';
+                        } else if (profilesOb[0].carrier == '2') {
+                            var carrier = 'agency-kt';
+                        } else if (profilesOb[0].carrier == '3') {
+                            var carrier = 'agency-lgu';
+                        } else {
+                            var carrier = 'agency-and';
+                        }
+                    } else { // 알뜰폰 통신사 선택페이지
+                        if (profilesOb[0].carrier == '4') {
+                            var carrier = 'agency-sk';
+                        } else if (profilesOb[0].carrier == '5') {
+                            var carrier = 'agency-kt';
+                        } else if (profilesOb[0].carrier == '6') {
+                            var carrier = 'agency-lgu';
+                        }
+                    }
+                    this.document.getElementById(carrier).click();
+                    for (var i = 0; i < 4; i++) {
+                        this.document.getElementById('agree_list0' + (i + 1) ).click();
+                    };
+                    this.document.querySelector('#ct > fieldset > button').click();
+                } else if (this.document.querySelector("#header > ul > li:nth-child(3) > a").title != '문자인증 선택됨') { //sms아닐때
+                    this.document.querySelector("#header > ul > li:nth-child(3) > a").click();
+                } else {
+                    this.document.getElementById('userName').value = profilesOb[0].name;
+                    this.document.getElementById('Birth').value = profilesOb[0].birth.substr(2, 6);
+                    if (profilesOb[0].birth[0] = '1') {
+                        this.document.getElementById('Sex').value = profilesOb[0].gender;
+                    } else {
+                        this.document.getElementById('Sex').value = Number(profilesOb[0].gender) + 2;
+                    }
+                    this.document.getElementById('No').value = profilesOb[0].phone_number;
+                    this.document.getElementById('securityNum').focus();
+                }
             }
         }
     });
