@@ -36,6 +36,31 @@
 // // });
 
 
+// 9: 1800 ~ 1899년에 태어난 남성<br>
+// 0: 1800 ~ 1899년에 태어난 여성<br>
+// 1: 1900 ~ 1999년에 태어난 남성<br>
+// 2: 1900 ~ 1999년에 태어난 여성<br>
+// 3: 2000 ~ 2099년에 태어난 남성<br>
+// 4: 2000 ~ 2099년에 태어난 여성<br>
+// 5: 1900 ~ 1999년에 태어난 외국인 남성<br>
+// 6: 1900 ~ 1999년에 태어난 외국인 여성<br>
+// 7: 2000 ~ 2099년에 태어난 외국인 남성<br>
+// 8: 2000 ~ 2099년에 태어난 외국인 여성으로 분류된다.<br>
+function get_RRN_GenderNum(birth, gender, foreigner) {
+    if (birth.substr(0,2) == '18') {
+        var num = gender == '1'? 9 : 0;
+    } else if (birth.substr(0,2) == '19' && foreigner == '0') {
+        var num = gender;
+    } else if (birth.substr(0,2) == '20' && foreigner == '0') {
+        var num = Number(gender) + 2;
+    } else if (birth.substr(0,2) == '19' && foreigner == '1') {
+        var num = Number(gender) + 4;;
+    } else if (birth.substr(0,2) == '20' && foreigner == '1') {
+        var num = Number(gender) + 6;
+    }
+    return num;
+};
+
 window.onload = function () {
     // if (window.location.hostname == 'www.mobile-ok.com') {
     //     this.console.log('드림시큐러티');
@@ -81,11 +106,7 @@ window.onload = function () {
                 } else {
                     this.document.getElementById('username').value = profilesOb[0].name;
                     this.document.getElementById('mynum1').value = profilesOb[0].birth.substr(2, 6);
-                    if (profilesOb[0].birth[0] = '1') {
-                        this.document.getElementById('mynum2').value = profilesOb[0].gender;
-                    } else {
-                        this.document.getElementById('mynum2').value = Number(profilesOb[0].gender) + 2;
-                    }
+                    this.document.getElementById('mynum2').value = get_RRN_GenderNum(profilesOb[0].birth, profilesOb[0].gender, profilesOb[0].foreigner)
                     this.document.getElementById('mobileno').value = profilesOb[0].phone_number;
                     this.document.getElementById('answer').focus();
                 }
@@ -122,11 +143,7 @@ window.onload = function () {
                 } else {
                     this.document.getElementById('userName').value = profilesOb[0].name;
                     this.document.getElementById('birthDay1').value = profilesOb[0].birth.substr(2, 6);
-                    if (profilesOb[0].birth[0] = '1') {
-                        this.document.getElementById('birthDay2').value = profilesOb[0].gender;
-                    } else {
-                        this.document.getElementById('birthDay2').value = Number(profilesOb[0].gender) + 2;
-                    }
+                    this.document.getElementById('birthDay2').value = get_RRN_GenderNum(profilesOb[0].birth, profilesOb[0].gender, profilesOb[0].foreigner)
                     this.document.getElementsByName('No')[0].value = profilesOb[0].phone_number;
                     this.document.getElementById('secur').focus();
                 }
@@ -171,10 +188,9 @@ window.onload = function () {
                         this.document.querySelector('body > form > div > div.popContent > div.formTbl > table > tbody > tr:nth-child(1) > td > span.selectboxWrap > div > ul > li:nth-child(' + (Number(profilesOb[0].foreigner) + 1) + ') > a').click();
                         this.document.querySelector('body > form > div > div.popContent > div.formTbl > table > tbody > tr:nth-child(2) > td > div > a:nth-child(' + profilesOb[0].gender + ')').click();
                         this.document.getElementById('mbphn_no').value = profilesOb[0].phone_number;
-                        this.document.getElementById('certi01').click();
-                        this.document.getElementById('certi02').click();
-                        this.document.getElementById('certi03').click();
-                        this.document.getElementById('certi04').click();
+                        for (var i = 0; i < 4; i++) {
+                            this.document.getElementById('certi0' + (i + 1)).click();
+                        };
                         this.document.getElementById('nm').focus();
                         this.document.getElementById('brdt').focus();
                         this.document.getElementById('mbphn_no').focus();
@@ -215,11 +231,7 @@ window.onload = function () {
                 } else {
                     this.document.getElementById('name').value = profilesOb[0].name;
                     this.document.getElementById('mynum1').value = profilesOb[0].birth.substr(2, 6);
-                    if (profilesOb[0].birth[0] = '1') {
-                        this.document.getElementById('mynum2').value = profilesOb[0].gender;
-                    } else {
-                        this.document.getElementById('mynum2').value = Number(profilesOb[0].gender) + 2;
-                    }
+                    this.document.getElementById('mynum2').value = get_RRN_GenderNum(profilesOb[0].birth, profilesOb[0].gender, profilesOb[0].foreigner)
                     this.document.getElementById('phone').value = profilesOb[0].phone_number;
                     this.document.getElementById('secur').focus();
                 }
@@ -256,11 +268,7 @@ window.onload = function () {
                 } else {
                     this.document.getElementById('userName').value = profilesOb[0].name;
                     this.document.getElementById('Birth').value = profilesOb[0].birth.substr(2, 6);
-                    if (profilesOb[0].birth[0] = '1') {
-                        this.document.getElementById('Sex').value = profilesOb[0].gender;
-                    } else {
-                        this.document.getElementById('Sex').value = Number(profilesOb[0].gender) + 2;
-                    }
+                    this.document.getElementById('Sex').value = get_RRN_GenderNum(profilesOb[0].birth, profilesOb[0].gender, profilesOb[0].foreigner);
                     this.document.getElementById('No').value = profilesOb[0].phone_number;
                     this.document.getElementById('securityNum').focus();
                 }
