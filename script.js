@@ -114,7 +114,7 @@ window.onload = function () {
                                 <div class="widget-content p-0">\
                                     <div class="widget-content-wrapper">\
                                         <div class="widget-content-left">\
-                                            <div class="widget-heading">' + profilesOb.profiles[i].name + '(01020771234)</div>\
+                                            <div class="widget-heading">' + profilesOb.profiles[i].name + '(' + profilesOb.profiles[i].phone_number + ')</div>\
                                             <div class="widget-subheading">\
                                                 <div class="badge badge-pill badge-info">' + getCarrierName(profilesOb.profiles[i].carrier) + '</div>\
                                             </div>\
