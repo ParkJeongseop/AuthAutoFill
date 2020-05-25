@@ -1,10 +1,13 @@
 {
     "manifest_version": 2,
     "name": "Auth Autofill",
-    "version": "1.0",
+    "version": "0.0.1",
     "description": "한국 휴대전화 본인인증 서비스 자동완성 브라우저 확장 프로그램",
     "homepage_url": "https://github.com/ParkJeongseop/AuthAutoFill",
     "author": "박정섭",
+    "icons": {
+        "128": "icon.png"
+    },
     "browser_action": {
         "default_icon": "icon.png",
         "default_popup": "popup.html"
@@ -14,16 +17,20 @@
         "storage",
         "tabs"
     ],
-    "content_scripts": [ {
-        "js": [ "autofill.js" ],
-        "matches": [ 
-            "https://safe.ok-name.co.kr/CommonSvl",
-            "https://pcc.siren24.com/pcc_V3/passWeb/*",
-            "https://nice.checkplus.co.kr/CheckPlusSafeModel/*",
-            "https://www.mobile-ok.com/QRPASS",
-            "https://www.kmcert.com/kmcis/*",
-            "https://cert.kcp.co.kr/kcp_cert_pass/*"
-        ],
-        "run_at": "document_start"
-    }]
+    "content_scripts": [
+        {
+            "js": [
+                "autofill.js"
+            ],
+            "matches": [
+                "https://safe.ok-name.co.kr/CommonSvl",
+                "https://pcc.siren24.com/pcc_V3/passWeb/*",
+                "https://nice.checkplus.co.kr/CheckPlusSafeModel/*",
+                "https://www.mobile-ok.com/QRPASS",
+                "https://www.kmcert.com/kmcis/*",
+                "https://cert.kcp.co.kr/kcp_cert_pass/*"
+            ],
+            "run_at": "document_start"
+        }
+    ]
 }
