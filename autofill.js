@@ -272,6 +272,43 @@ window.onload = function () {
                     this.document.getElementById('No').value = profilesOb[0].phone_number;
                     this.document.getElementById('securityNum').focus();
                 }
+            } else if (window.location.hostname == 'cert.kcp.co.kr') {
+                this.console.log('한국사이버결제');
+                
+                if (this.document.getElementById('agency-sk')) { //통신사 선택페이지
+                    if (!document.querySelector("#ct > fieldset > ul.licensee-list")) { // MNO 사업자
+                        if (profilesOb[0].carrier == '1') {
+                            var carrier = 'agency-sk';
+                        } else if (profilesOb[0].carrier == '2') {
+                            var carrier = 'agency-kt';
+                        } else if (profilesOb[0].carrier == '3') {
+                            var carrier = 'agency-lgu';
+                        } else {
+                            var carrier = 'agency-and';
+                        }
+                    } else { // 알뜰폰 통신사 선택페이지
+                        if (profilesOb[0].carrier == '4') {
+                            var carrier = 'agency-sk';
+                        } else if (profilesOb[0].carrier == '5') {
+                            var carrier = 'agency-kt';
+                        } else if (profilesOb[0].carrier == '6') {
+                            var carrier = 'agency-lgu';
+                        }
+                    }
+                    this.document.getElementById(carrier).click();
+                    for (var i = 0; i < 4; i++) {
+                        this.document.getElementById('agree' + (i + 1) ).click();
+                    };
+                    this.document.querySelector('#ct > fieldset > button').click();
+                } else if (this.document.querySelector("#header > ul > li:nth-child(3) > a").title != '선택 됨') { //sms아닐때
+                    this.document.querySelector("#header > ul > li:nth-child(3) > a").click();
+                } else {
+                    this.document.getElementById('name').value = profilesOb[0].name;
+                    this.document.getElementById('mynum1').value = profilesOb[0].birth.substr(2, 6);
+                    this.document.getElementById('mynum2').value = get_RRN_GenderNum(profilesOb[0].birth, profilesOb[0].gender, profilesOb[0].foreigner);
+                    this.document.getElementById('phone_no_rKey').value = profilesOb[0].phone_number;
+                    this.document.getElementById('secur').focus();
+                }
             }
         }
     });
