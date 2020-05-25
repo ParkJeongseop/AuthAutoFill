@@ -1,4 +1,46 @@
+// // if (window.location.hostname == 'www.mobile-ok.com') {
+// //     this.console.log('드림시큐러티');
+// //     this.document.querySelector('head > script:nth-child(15)').text = this.document.querySelector('head > script:nth-child(15)').text.replace('confirm("고객님의 정보보호를 위해\\n보안 프로그램을 설치하시겠습니까?")','false');
+// // }
+// console.log("FIRST");
+// // this.document.head.textContent.text = this.document.head.textContent.text.replace('confirm("고객님의 정보보호를 위해\\n보안 프로그램을 설치하시겠습니까?")', 'false');
+
+// if (window.location.hostname == 'www.mobile-ok.com') {
+//     // this.document.querySelector('head').innerHTML += '<script>confirm = function() {};</script>';
+//     // this.confirm = function() {};
+//     remove_ad = setInterval(function () {
+//         try {
+//             console.log("1");
+
+//             this.document.querySelector('head').innerHTML += '<script>confirm = function() {};</script>';
+//             // this.document.head.textContent = this.document.head.textContent.replace('confirm("고객님의 정보보호를 위해\\n보안 프로그램을 설치하시겠습니까?")', 'false');
+//             this.document.querySelector('head > script:nth-child(15)').text = this.document.querySelector('head > script:nth-child(15)').text.replace('confirm("고객님의 정보보호를 위해\\n보안 프로그램을 설치하시겠습니까?")', 'false');
+//             console.log("2");
+//             clearInterval(remove_ad);
+//             console.log("3");
+//             // throw "myException"; // generates an exception
+//         } catch (e) {
+//             console.log("4");
+//             console.log(e);
+//             // statements to handle any exceptions
+//             // logMyErrors(e); // pass exception object to error handler
+//         }
+
+
+//     }, 1);
+
+// }
+// // document.addEventListener("DOMContentLoaded", function () {
+// //     this.console.log('드림시큐러티');
+// //     this.document.head.textContent.text = this.document.head.textContent.text.replace('confirm("고객님의 정보보호를 위해\\n보안 프로그램을 설치하시겠습니까?")', 'false');
+// // });
+
+
 window.onload = function () {
+    // if (window.location.hostname == 'www.mobile-ok.com') {
+    //     this.console.log('드림시큐러티');
+    //     this.document.querySelector('head > script:nth-child(15)').text = this.document.querySelector('head > script:nth-child(15)').text.replace('confirm("고객님의 정보보호를 위해\\n보안 프로그램을 설치하시겠습니까?")', 'false');
+    // }
     this.console.log(location.href);
     this.console.log(window.location.hostname);
 
@@ -72,7 +114,7 @@ window.onload = function () {
                     }
                     this.document.getElementById(carrier).click();
                     for (var i = 0; i < 4; i++) {
-                        this.document.querySelector('#agreelist > li:nth-child(' + (i+1) + ') > span > label').click();
+                        this.document.querySelector('#agreelist > li:nth-child(' + (i + 1) + ') > span > label').click();
                     };
                     this.document.querySelector('#ct > fieldset > button').click();
                 } else if (!this.document.querySelector('#header > ul > li:nth-child(3)').classList.length) { //sms아닐때
@@ -138,6 +180,48 @@ window.onload = function () {
                         this.document.getElementById('mbphn_no').focus();
                         this.document.getElementById('captchaCode').focus();
                     }
+                }
+            } else if (window.location.hostname == 'www.mobile-ok.com') {
+                this.console.log('드림시큐러티');
+                this.document.querySelector('head > script:nth-child(15)').text = this.document.querySelector('head > script:nth-child(15)').text.replace('confirm("고객님의 정보보호를 위해\\n보안 프로그램을 설치하시겠습니까?")', 'false');
+
+                if (this.document.getElementById('agency-sk')) { //통신사 선택페이지
+                    if (this.document.getElementById('agency-sk').value == 'SKT') {
+                        if (profilesOb[0].carrier == '1') {
+                            var carrier = 'agency-sk';
+                        } else if (profilesOb[0].carrier == '2') {
+                            var carrier = 'agency-kt';
+                        } else if (profilesOb[0].carrier == '3') {
+                            var carrier = 'agency-lgu';
+                        } else {
+                            var carrier = 'agency-and';
+                        }
+                    } else { // 알뜰폰 통신사 선택페이지
+                        if (profilesOb[0].carrier == '4') {
+                            var carrier = 'agency-sk';
+                        } else if (profilesOb[0].carrier == '5') {
+                            var carrier = 'agency-kt';
+                        } else if (profilesOb[0].carrier == '6') {
+                            var carrier = 'agency-lgu';
+                        }
+                    }
+                    this.document.getElementById(carrier).click();
+                    for (var i = 0; i < 4; i++) {
+                        this.document.querySelector('#agreelist_chk > li:nth-child(' + (i + 2) + ') > span > label').click();
+                    };
+                    this.document.querySelector('#ct > fieldset > button').click();
+                } else if (this.document.querySelector("#header > ul > li.tab_sms > a").title != '선택됨') { //sms아닐때
+                    this.document.querySelector("#header > ul > li.tab_sms > a").click();
+                } else {
+                    this.document.getElementById('userName').value = profilesOb[0].name;
+                    this.document.getElementById('birthDay1').value = profilesOb[0].birth.substr(2, 6);
+                    if (profilesOb[0].birth[0] = '1') {
+                        this.document.getElementById('birthDay2').value = profilesOb[0].gender;
+                    } else {
+                        this.document.getElementById('birthDay2').value = Number(profilesOb[0].gender) + 2;
+                    }
+                    this.document.getElementsByName('No')[0].value = profilesOb[0].phone_number;
+                    this.document.getElementById('secur').focus();
                 }
             }
         }
