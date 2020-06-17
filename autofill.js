@@ -429,6 +429,43 @@ window.onload = function () {
                             }
                         }
                     }
+                } else if (window.location.hostname == 'nid.naver.com') {
+                    this.console.log('네이버');
+                    
+                    this.document.getElementById('chk_agree3').click();
+                    this.document.getElementById('nm').value = profilesOb[spI].name;
+                    this.document.getElementById('foreignYn').value = (profilesOb[spI].foreigner == '0' ? 'N' : 'Y')
+                    this.document.getElementById(profilesOb[spI].gender == '1' ? 'man' : 'woman').click()
+                    this.document.getElementById('birth_year').value = profilesOb[spI].birth.substr(0, 4);
+                    this.document.getElementById('birth_month').value = Number(profilesOb[spI].birth.substr(4, 2));
+                    this.document.getElementById('birth_day').value = Number(profilesOb[spI].birth.substr(6, 2));
+
+                    if (profilesOb[spI].carrier == '1') {
+                        var carrier = 'SKT';
+                        this.document.getElementById('mobile_cd').value = carrier;
+                    } else if (profilesOb[spI].carrier == '2') {
+                        var carrier = 'KTF';
+                        this.document.getElementById('mobile_cd').value = carrier;
+                    } else if (profilesOb[spI].carrier == '3') {
+                        var carrier = 'LGT';
+                        this.document.getElementById('mobile_cd').value = carrier;
+                    } else {
+                        var carrier = 'MVNO';
+                        this.document.getElementById('mobile_cd').value = carrier;
+                        this.document.getElementById('mobile_cd').click();
+
+                        if (profilesOb[spI].carrier == '4') {
+                            var carrier = 'mvno_sk';
+                        } else if (profilesOb[spI].carrier == '5') {
+                            var carrier = 'mvno_kt';
+                        } else if (profilesOb[spI].carrier == '6') {
+                            var carrier = 'mvno_lg';
+                        }
+                        this.document.getElementById(carrier).click();
+                    }
+
+                    this.document.getElementById('phone_no').value = profilesOb[spI].phone_number;
+                    this.document.querySelector('#content > div > fieldset > div.mobile_box > div > div.join_row.join_mobile > a').focus();
                 }
             }
         } else {
