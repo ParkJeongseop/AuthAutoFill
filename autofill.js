@@ -114,15 +114,28 @@ window.onload = function () {
                         this.document.getElementById(carrier).click();
                         this.document.querySelector('#ct > form > fieldset > ul.agreelist.all > li > span > label:nth-child(2)').click();
                         this.document.getElementById('btnSubmit').click();
-                    } else if (this.document.getElementById('sms_auth').title != '선택됨') {
-                        this.document.getElementById('sms_auth').click();
                     } else {
-                        this.document.getElementById('username').value = profilesOb[spI].name;
-                        this.document.getElementById('mynum1').value = profilesOb[spI].birth.substr(2, 6);
-                        this.document.getElementById('mynum2').value = get_RRN_GenderNum(profilesOb[spI].birth, profilesOb[spI].gender, profilesOb[spI].foreigner)
-                        this.document.getElementById('mobileno').value = profilesOb[spI].phone_number;
-                        this.document.getElementById('answer').focus();
+                        if(profilesOb[spI].way == '1') { // SMS인증을 원하는 경우
+                            if (this.document.getElementById('sms_auth').title != '선택됨') { //sms아닐때
+                                this.document.getElementById('sms_auth').click();
+                            } else {
+                                this.document.getElementById('username').value = profilesOb[spI].name;
+                                this.document.getElementById('mynum1').value = profilesOb[spI].birth.substr(2, 6);
+                                this.document.getElementById('mynum2').value = get_RRN_GenderNum(profilesOb[spI].birth, profilesOb[spI].gender, profilesOb[spI].foreigner)
+                                this.document.getElementById('mobileno').value = profilesOb[spI].phone_number;
+                                this.document.getElementById('answer').focus();
+                            }
+                        }else if(profilesOb[spI].way == '2') { // PASS인증을 원하는 경우
+                            if (this.document.getElementById('simple_auth').title != '선택됨') { //PASS아닐때
+                                this.document.getElementById('simple_auth').click();
+                            } else {
+                                this.document.getElementById('username').value = profilesOb[spI].name;
+                                this.document.getElementById('mobileno').value = profilesOb[spI].phone_number;
+                                this.document.getElementById('answer').focus();
+                            }
+                        }
                     }
+                    
                 } else if (window.location.hostname == 'pcc.siren24.com') {
                     this.console.log('서울신용평가정보');
 
