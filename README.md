@@ -16,5 +16,5 @@
 
 # 설치
 [Chrome](https://chrome.google.com/webstore/detail/auth-autofill/picheccdgiofpnkjbkekgkcighblblem)
-[whale](https://store.whale.naver.com/detail/ncfnbaompehfhemgcpfkokcecnmohigo)
+[Whale](https://store.whale.naver.com/detail/ncfnbaompehfhemgcpfkokcecnmohigo)
 [Firefox](https://addons.mozilla.org/ko/firefox/addon/auth-autofill/)

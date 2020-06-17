@@ -19,6 +19,10 @@
 </head>
 
 <body>
+    <div class="custom-control custom-switch">
+        <input type="checkbox" class="custom-control-input" id="onoffswitch">
+        <label class="custom-control-label" for="onoffswitch">ON/OFF</label>
+    </div>
     <div class="profiles">
         <ul id='profilesUL' class="list-group">
         </ul>
@@ -26,7 +30,7 @@
     <br>
     <hr>
     <div class="addProfileDiv">
-        <h5>자동완성 프로필 추가</h5>
+        <h5>프로필 추가</h5>
         <div class="input-group mb-3">
             <input id='name' type="text" class="form-control" placeholder="이름" aria-label="Username"
                 aria-describedby="basic-addon1" required="required">
@@ -35,7 +39,7 @@
         <div class="input-group mb-3">
             <select id='carrier' class="custom-select" id="inputGroupSelect04"
                 aria-label="Example select with button addon">
-                <option selected>통신사</option>
+                <option value="-1" selected>통신사</option>
                 <option value="1">SKT</option>
                 <option value="2">KT</option>
                 <option value="3">LGU+</option>
@@ -63,7 +67,7 @@
 
             <select id='gender' class="custom-select" id="inputGroupSelect04"
                 aria-label="Example select with button addon" required>
-                <option value="" selected>성별</option>
+                <option value="-1" selected>성별</option>
                 <option value="1">남성</option>
                 <option value="2">여성</option>
             </select>
@@ -72,7 +76,7 @@
         <div class="input-group mb-3">
             <select id='way' class="custom-select" id="inputGroupSelect04"
                 aria-label="Example select with button addon">
-                <option value="1" selected>인증방식</option>
+                <option value="-1" selected>인증방식</option>
                 <option value="1">SMS</option>
                 <option value="2">통신사 PASS앱</option>
             </select>

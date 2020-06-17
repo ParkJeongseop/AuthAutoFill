@@ -82,6 +82,12 @@ window.onload = function () {
         }
     }, false);
 
+    this.document.getElementById('onoffswitch').addEventListener('change', function () {
+        chrome.storage.sync.set({
+            on: (this.checked ? 1 : 0)
+        });
+    });
+
     document.getElementById('addProfile').addEventListener('click', function () {
         var name = document.getElementById('name');
         var carrier = document.getElementById('carrier');
@@ -144,6 +150,16 @@ window.onload = function () {
     });
 
     chrome.storage.sync.get(function (data) {
+        if (!(data.on === undefined)) {
+            document.getElementById('onoffswitch').checked = (data.on ? true : false);
+        } else {
+            document.getElementById('onoffswitch').checked = true;
+
+            chrome.storage.sync.set({
+                on: 1
+            });
+        }
+        
         if (data.profiles) {
             var profilesOb = JSON.parse(data.profiles);
         } else {
