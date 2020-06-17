@@ -45,7 +45,8 @@ function addProfile(prof) {
 
 function selectProfile(id) {
     chrome.storage.sync.set({
-        selectedProfile: id
+        selectedProfile: id,
+        on: 1
     }, location.reload(true));
 }
 
