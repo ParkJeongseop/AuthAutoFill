@@ -136,6 +136,13 @@ window.onload = function () {
             return false;
         }
 
+        if (carrier.value == '4' && way.value == '2'){
+            window.alert("SKT망 알뜰폰은 PASS앱 인증을 지원하지 않습니다.\nSMS인증을 이용해주세요.");
+            way.value = '1';
+            way.focus();
+            return false;
+        }
+
         profile = {
             "name": name.value,
             "carrier": carrier.value,
