@@ -158,8 +158,9 @@ window.onload = function () {
                         }
                     } else {
                         if (profilesOb[spI].way == '1') { // SMS인증을 원하는 경우
-                            if (profilesOb[spI].carrier != '4' && !this.document.querySelector('#header > ul > li:nth-child(3)').classList.length) { //sms아닐때
-                                this.document.querySelector('#header > ul > li:nth-child(3) > a').click();
+                            var location = this.document.querySelectorAll('#header > ul > li').length; //알뜰폰의 경우 location이 2 통신사의 경우 3
+                            if (profilesOb[spI].carrier != '4' && !this.document.querySelector('#header > ul > li:nth-child(' + location + ')').classList.length) { //sms아닐때
+                                this.document.querySelector('#header > ul > li:nth-child(' + location + ') > a').click();
                             } else {
                                 this.document.getElementById('userName').value = profilesOb[spI].name;
                                 this.document.getElementById('birthDay1').value = profilesOb[spI].birth.substr(2, 6);
@@ -168,10 +169,12 @@ window.onload = function () {
                                 this.document.getElementById('secur').focus();
                             }
                         } else if (profilesOb[spI].way == '2') { // PASS인증을 원하는 경우
-                            if (!this.document.querySelector('#header > ul > li:nth-child(2)').classList.length) { //PASS아닐때
-                                this.document.querySelector('#header > ul > li:nth-child(2) > a').click();
+                            var location = this.document.querySelectorAll('#header > ul > li').length - 1; //알뜰폰의 경우 location이 1 통신사의 경우 2
+                            if (!this.document.querySelector('#header > ul > li:nth-child(' + location +')').classList.length) { //PASS아닐때
+                                this.document.querySelector('#header > ul > li:nth-child(' + location +')').click();
                             } else {
-                                this.document.getElementById('userName').value = profilesOb[spI].name;
+                                //this.document.getElementById('userName').value = profilesOb[spI].name; //알뜰폰과 통신사의 위치가 다름
+                                this.document.getElementsByName('userName')[0].value = profilesOb[spI].name;
                                 this.document.getElementsByName('No')[0].value = profilesOb[spI].phone_number;
                                 this.document.getElementById('secur').focus();
                             }
