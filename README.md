@@ -20,6 +20,11 @@
 
 # 설치
 ![소개이미지](./publish/img/small_promotion_tile.png)
+
 [Chrome](https://chrome.google.com/webstore/detail/auth-autofill/picheccdgiofpnkjbkekgkcighblblem)
+
 [Whale](https://store.whale.naver.com/detail/ncfnbaompehfhemgcpfkokcecnmohigo)
+
 [Firefox](https://addons.mozilla.org/ko/firefox/addon/auth-autofill/)
+
+[Edge]https://microsoftedge.microsoft.com/addons/detail/본인인증-자동완성-auth-autofill/lifloelaookkeeajgkoobphhdkinfhlp?hl=ko
