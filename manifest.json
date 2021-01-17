@@ -29,7 +29,9 @@
                 "https://www.mobile-ok.com/QRPASS",
                 "https://www.kmcert.com/kmcis/*",
                 "https://cert.kcp.co.kr/kcp_cert_pass/*",
-                "https://nid.naver.com/user2/ncheckdi/authMobile.nhn?*"
+                "https://nid.naver.com/user2/ncheckdi/authMobile.nhn?*",
+                "https://pay.toss.im/*",
+                "https://wauth.teledit.com/*"
             ],
             "run_at": "document_start"
         }
