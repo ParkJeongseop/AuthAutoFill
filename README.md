@@ -37,3 +37,5 @@
 [Firefox](https://addons.mozilla.org/ko/firefox/addon/auth-autofill/)
 
 [Edge](https://microsoftedge.microsoft.com/addons/detail/본인인증-자동완성-auth-autofill/lifloelaookkeeajgkoobphhdkinfhlp?hl=ko)
+
+[Opera](https://addons.opera.com/ko/extensions/details/bonininjeung-jadongwanseong-auth-autofill/)
