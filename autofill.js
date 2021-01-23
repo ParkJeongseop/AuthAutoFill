@@ -54,7 +54,7 @@ function is_MVNO(carrier_code) {
 window.onload = function () {
     this.console.log('Auth Autofill (본인인증 자동완성)\n한국 휴대전화 본인인증 서비스 자동완성 브라우저 확장 프로그램');
 
-    chrome.storage.sync.get(function (data) {
+    browser.storage.sync.get(function (data) {
         if (data.on) {
             this.console.log('ON');
             if (data.profiles) {
