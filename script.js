@@ -1,16 +1,16 @@
 function getCarrierName(carrierCode) {
     if (carrierCode == '1') {
-        var name = 'SKT';
+        var name = browser.i18n.getMessage('carrier_SKT');
     } else if (carrierCode == '2') {
-        var name = 'KT';
+        var name = browser.i18n.getMessage('carrier_KT');
     } else if (carrierCode == '3') {
-        var name = 'LGU+';
+        var name = browser.i18n.getMessage('carrier_LGU');
     } else if (carrierCode == '4') {
-        var name = 'SKT망 알뜰폰';
+        var name = browser.i18n.getMessage('carrier_SKT_MNVO');
     } else if (carrierCode == '5') {
-        var name = 'KT망 알뜰폰';
+        var name = browser.i18n.getMessage('carrier_KT_MNVO');
     } else if (carrierCode == '6') {
-        var name = 'LGU+망 알뜰폰';
+        var name = browser.i18n.getMessage('carrier_LGU_MNVO');
     }
     return name;
 }
@@ -133,46 +133,46 @@ window.onload = function () {
         var way = document.getElementById('way');
 
         if (name.value.length < 2) {
-            window.alert("이름을 입력하시오");
+            window.alert(browser.i18n.getMessage('enter_name'));
             name.focus();
             name.select();
             return false;
         }
         
         if (carrier.value == '-1') {
-            window.alert("통신사를 선택하시오");
+            window.alert(browser.i18n.getMessage('select_carrier'));
             carrier.focus();
             return false;
         }
 
         if (phone_number.value.length < 10 || phone_number.value.length > 11) {
-            window.alert("휴대폰번호를 확인하시오");
+            window.alert(browser.i18n.getMessage('check_number'));
             phone_number.focus();
             phone_number.select();
             return false;
         }
 
         if (birth.value.length != 8) {
-            window.alert("생일을 확인하시오 (8자리) (예, 19990204)");
+            window.alert(browser.i18n.getMessage('check_birthday'));
             birth.focus();
             birth.select();
             return false;
         }
 
         if (gender.value == '-1') {
-            window.alert("성별을 선택하시오");
+            window.alert(browser.i18n.getMessage('select_gender'));
             gender.focus();
             return false;
         }
 
         if (way.value == '-1') {
-            window.alert("인증방식을 선택하시오");
+            window.alert(browser.i18n.getMessage('select_auth_method'));
             way.focus();
             return false;
         }
 
         if (carrier.value == '4' && way.value == '2'){
-            window.alert("SKT망 알뜰폰은 PASS앱 인증을 지원하지 않습니다.\nSMS인증을 이용해주세요.");
+            window.alert(browser.i18n.getMessage('skt_MNVO_do_not_support_pass'));
             way.value = '1';
             way.focus();
             return false;

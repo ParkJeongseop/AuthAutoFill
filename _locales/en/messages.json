@@ -86,5 +86,33 @@
     "pass": {
         "message": "Carrier's PASS app",
         "description": ""
+    },
+    "enter_name": {
+        "message": "Please enter a name",
+        "description": ""
+    },
+    "select_carrier": {
+        "message": "Please select a carrier",
+        "description": ""
+    },
+    "check_number": {
+        "message": "Please check your mobile phone number",
+        "description": ""
+    },
+    "check_birthday": {
+        "message": "Please check your birthday (8 digits) (eg 19990204)",
+        "description": ""
+    },
+    "select_gender": {
+        "message": "Please select a gender",
+        "description": ""
+    },
+    "select_auth_method": {
+        "message": "Please select an authentication method",
+        "description": ""
+    },
+    "skt_MNVO_do_not_support_pass": {
+        "message": "SKT network MVNO does not support PASS app authentication.\nYou can only use SMS authentication.",
+        "description": ""
     }
 }

@@ -86,5 +86,33 @@
     "pass": {
         "message": "통신사 PASS앱",
         "description": ""
+    },
+    "enter_name": {
+        "message": "이름을 입력하시오",
+        "description": ""
+    },
+    "select_carrier": {
+        "message": "통신사를 선택하시오",
+        "description": ""
+    },
+    "check_number": {
+        "message": "휴대폰번호를 확인하시오",
+        "description": ""
+    },
+    "check_birthday": {
+        "message": "생일을 확인하시오 (8자리) (예, 19990204)",
+        "description": ""
+    },
+    "select_gender": {
+        "message": "성별을 선택하시오",
+        "description": ""
+    },
+    "select_auth_method": {
+        "message": "인증방식을 선택하시오",
+        "description": ""
+    },
+    "skt_MNVO_do_not_support_pass": {
+        "message": "SKT망 알뜰폰은 PASS앱 인증을 지원하지 않습니다.\nSMS인증을 이용해주세요.",
+        "description": ""
     }
 }
