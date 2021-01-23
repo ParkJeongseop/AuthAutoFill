@@ -21,7 +21,7 @@
 <body>
     <div class="custom-control custom-switch">
         <input type="checkbox" class="custom-control-input" id="onoffswitch">
-        <label class="custom-control-label" for="onoffswitch" style="font-size: large;font-weight: bold;">본인인증 자동완성 ON/OFF</label>
+        <label id="auth_toggle" class="custom-control-label" for="onoffswitch" style="font-size: large;font-weight: bold;">본인인증 자동완성 ON/OFF</label>
     </div>
     <div class="profiles">
         <ul id='profilesUL' class="list-group">
@@ -30,7 +30,7 @@
     <br>
     <hr>
     <div class="addProfileDiv">
-        <h5>프로필 추가</h5>
+        <h5 id='add_profile_header'>프로필 추가</h5>
         <div class="input-group mb-3">
             <input id='name' type="text" class="form-control" placeholder="이름" aria-label="Username"
                 aria-describedby="basic-addon1" required="required">
@@ -39,13 +39,13 @@
         <div class="input-group mb-3">
             <select id='carrier' class="custom-select" id="inputGroupSelect04"
                 aria-label="Example select with button addon">
-                <option value="-1" selected>통신사</option>
-                <option value="1">SKT</option>
-                <option value="2">KT</option>
-                <option value="3">LGU+</option>
-                <option value="4">SKT망 알뜰폰</option>
-                <option value="5">KT망 알뜰폰</option>
-                <option value="6">LGU+망 알뜰폰</option>
+                <option id="op_carrier" value="-1" selected>통신사</option>
+                <option id="op_skt" value="1">SKT</option>
+                <option id="op_kt" value="2">KT</option>
+                <option id="op_lgu" value="3">LGU+</option>
+                <option id="op_skt_mvno" value="4">SKT망 알뜰폰</option>
+                <option id="op_kt_mvno" value="5">KT망 알뜰폰</option>
+                <option id="op_lgu_mvno" value="6">LGU+망 알뜰폰</option>
             </select>
 
             <input id='phone_number' type="number" class="form-control" placeholder="휴대폰번호 ('-'없이숫자만입력)"
@@ -61,24 +61,24 @@
         <div class="input-group mb-3">
             <select id='foreigner' class="custom-select" id="inputGroupSelect04"
                 aria-label="Example select with button addon">
-                <option value="0">내국인</option>
-                <option value="1">외국인</option>
+                <option id="op_citizen" value="0">내국인</option>
+                <option id="op_foreigner" value="1">외국인</option>
             </select>
 
             <select id='gender' class="custom-select" id="inputGroupSelect04"
                 aria-label="Example select with button addon" required>
-                <option value="-1" selected>성별</option>
-                <option value="1">남성</option>
-                <option value="2">여성</option>
+                <option id="op_gender" value="-1" selected>성별</option>
+                <option id="op_male" value="1">남성</option>
+                <option id="op_female" value="2">여성</option>
             </select>
         </div>
 
         <div class="input-group mb-3">
             <select id='way' class="custom-select" id="inputGroupSelect04"
                 aria-label="Example select with button addon">
-                <option value="-1" selected>인증방식</option>
-                <option value="1">SMS</option>
-                <option value="2">통신사 PASS앱</option>
+                <option id="op_method" value="-1" selected>인증방식</option>
+                <option id="op_sms" value="1">SMS</option>
+                <option id="op_pass" value="2">통신사 PASS앱</option>
             </select>
         </div>
 

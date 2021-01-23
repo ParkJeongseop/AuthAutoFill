@@ -2,6 +2,7 @@
     "manifest_version": 2,
     "name": "본인인증 자동완성 (Auth Autofill)",
     "version": "0.0.4",
+    "default_locale": "ko",
     "description": "한국 휴대전화 본인인증 자동완성 브라우저 확장 프로그램",
     "homepage_url": "https://github.com/ParkJeongseop/AuthAutoFill",
     "author": "박정섭",
@@ -30,7 +31,6 @@
                 "https://www.kmcert.com/kmcis/*",
                 "https://cert.kcp.co.kr/kcp_cert_pass/*",
                 "https://nid.naver.com/user2/ncheckdi/authMobile.nhn?*",
-                "https://pay.toss.im/*",
                 "https://wauth.teledit.com/*"
             ],
             "run_at": "document_start"

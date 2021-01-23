@@ -26,7 +26,7 @@ function getWay(wayCode) {
 
 
 function addProfile(prof) {
-    chrome.storage.sync.get(function (data) {
+    browser.storage.sync.get(function (data) {
         if (data.profiles) {
             var profilesOb = JSON.parse(data.profiles);
         } else {
@@ -35,7 +35,7 @@ function addProfile(prof) {
 
         profilesOb.profiles.push(prof);
 
-        chrome.storage.sync.set({
+        browser.storage.sync.set({
             profiles: JSON.stringify(profilesOb)
         }, location.reload(true));
         selectProfile(profilesOb.profiles.length - 1);
@@ -44,14 +44,14 @@ function addProfile(prof) {
 
 
 function selectProfile(id) {
-    chrome.storage.sync.set({
+    browser.storage.sync.set({
         selectedProfile: id,
         on: 1
     }, location.reload(true));
 }
 
 function deleteProfile(id) {
-    chrome.storage.sync.get(function (data) {
+    browser.storage.sync.get(function (data) {
         var profilesOb = JSON.parse(data.profiles);
 
         if (data.selectedProfile == id) {
@@ -60,10 +60,44 @@ function deleteProfile(id) {
 
         delete profilesOb.profiles[id];
 
-        chrome.storage.sync.set({
+        browser.storage.sync.set({
             profiles: JSON.stringify(profilesOb)
         }, location.reload(true));
     });
+}
+
+function getBrowser() {
+    if(typeof browser !== 'undefined') {
+        return browser
+    }else if(typeof chrome !== 'undefined') {
+        return chrome
+    }
+}
+
+browser = getBrowser();
+
+function i18n() {
+    this.document.getElementById('auth_toggle').innerText = browser.i18n.getMessage('auth_autofill') +  " ON/OFF";
+    this.document.getElementById('add_profile_header').innerText = browser.i18n.getMessage('add_profile');
+    this.document.getElementById('name').placeholder = browser.i18n.getMessage('full_name');
+    this.document.getElementById('op_carrier').innerText = browser.i18n.getMessage('carrier');
+    this.document.getElementById('op_skt').innerText = browser.i18n.getMessage('carrier_SKT');
+    this.document.getElementById('op_kt').innerText = browser.i18n.getMessage('carrier_KT');
+    this.document.getElementById('op_lgu').innerText = browser.i18n.getMessage('carrier_LGU');
+    this.document.getElementById('op_skt_mvno').innerText = browser.i18n.getMessage('carrier_SKT_MNVO');
+    this.document.getElementById('op_kt_mvno').innerText = browser.i18n.getMessage('carrier_KT_MNVO');
+    this.document.getElementById('op_lgu_mvno').innerText = browser.i18n.getMessage('carrier_LGU_MNVO');
+    this.document.getElementById('phone_number').placeholder = browser.i18n.getMessage('phone_number');
+    this.document.getElementById('birth').placeholder = browser.i18n.getMessage('birthday');
+    this.document.getElementById('op_citizen').innerText = browser.i18n.getMessage('citizen');
+    this.document.getElementById('op_foreigner').innerText = browser.i18n.getMessage('foreigner');
+    this.document.getElementById('op_gender').innerText = browser.i18n.getMessage('gender');
+    this.document.getElementById('op_male').innerText = browser.i18n.getMessage('male');
+    this.document.getElementById('op_female').innerText = browser.i18n.getMessage('female');
+    this.document.getElementById('op_method').innerText = browser.i18n.getMessage('auth_method');
+    this.document.getElementById('op_sms').innerText = browser.i18n.getMessage('sms');
+    this.document.getElementById('op_pass').innerText = browser.i18n.getMessage('pass');
+    this.document.getElementById('addProfile').innerText = browser.i18n.getMessage('add_profile');
 }
 
 window.onload = function () {
@@ -84,7 +118,7 @@ window.onload = function () {
     }, false);
 
     this.document.getElementById('onoffswitch').addEventListener('change', function () {
-        chrome.storage.sync.set({
+        browser.storage.sync.set({
             on: (this.checked ? 1 : 0)
         });
     });
@@ -157,13 +191,13 @@ window.onload = function () {
         addProfile(profile);
     });
 
-    chrome.storage.sync.get(function (data) {
+    browser.storage.sync.get(function (data) {
         if (!(data.on === undefined)) {
             document.getElementById('onoffswitch').checked = (data.on ? true : false);
         } else {
             document.getElementById('onoffswitch').checked = true;
 
-            chrome.storage.sync.set({
+            browser.storage.sync.set({
                 on: 1
             });
         }
@@ -201,4 +235,5 @@ window.onload = function () {
             }
         }
     });
+    i18n();
 };

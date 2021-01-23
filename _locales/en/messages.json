@@ -1,0 +1,90 @@
+{
+    "extension_name": {
+        "message": "Auth Autofill",
+        "description": "The display name for the extension."
+    },
+    "extension_description": {
+        "message": "This is AuthAutofill Extension. You should tell us what your extension does here.",
+        "description": "Description of what the extension does."
+    },
+    "auth_autofill": {
+        "message": "Auth Autofill",
+        "description": ""
+    },
+    "add_profile": {
+        "message": "Add profile",
+        "description": ""
+    },
+    "carrier": {
+        "message": "Carrier",
+        "description": ""
+    },
+    "carrier_SKT": {
+        "message": "SKT",
+        "description": ""
+    },
+    "carrier_KT": {
+        "message": "KT",
+        "description": ""
+    },
+    "carrier_LGU": {
+        "message": "LGU+",
+        "description": ""
+    },
+    "carrier_SKT_MNVO": {
+        "message": "SKT network MVNO",
+        "description": ""
+    },
+    "carrier_KT_MNVO": {
+        "message": "KT network MVNO",
+        "description": ""
+    },
+    "carrier_LGU_MNVO": {
+        "message": "LGU+ network MVNO",
+        "description": ""
+    },
+    "full_name": {
+        "message": "Full name",
+        "description": ""
+    },
+    "phone_number": {
+        "message": "Mobile number",
+        "description": ""
+    },
+    "birthday": {
+        "message": "Birthday",
+        "description": ""
+    },
+    "citizen": {
+        "message": "Korean citizen",
+        "description": ""
+    },
+    "foreigner": {
+        "message": "Foreigner",
+        "description": ""
+    },
+    "gender": {
+        "message": "Gender",
+        "description": ""
+    },
+    "male": {
+        "message": "Male",
+        "description": ""
+    },
+    "female": {
+        "message": "Female",
+        "description": ""
+    },
+    "auth_method": {
+        "message": "Auth Method",
+        "description": ""
+    },
+    "sms": {
+        "message": "SMS text message",
+        "description": ""
+    },
+    "pass": {
+        "message": "Carrier's PASS app",
+        "description": ""
+    }
+}

@@ -1,0 +1,90 @@
+{
+    "extension_name": {
+        "message": "본인인증 자동완성",
+        "description": "The display name for the extension."
+    },
+    "extension_description": {
+        "message": "한국 휴대전화 본인인증 자동완성 브라우저 확장 프로그램",
+        "description": "Description of what the extension does."
+    },
+    "auth_autofill": {
+        "message": "본인인증 자동완성",
+        "description": ""
+    },
+    "add_profile": {
+        "message": "프로필 추가",
+        "description": ""
+    },
+    "carrier": {
+        "message": "통신사",
+        "description": ""
+    },
+    "carrier_SKT": {
+        "message": "SKT",
+        "description": ""
+    },
+    "carrier_KT": {
+        "message": "KT",
+        "description": ""
+    },
+    "carrier_LGU": {
+        "message": "LGU+",
+        "description": ""
+    },
+    "carrier_SKT_MNVO": {
+        "message": "SKT망 알뜰폰",
+        "description": ""
+    },
+    "carrier_KT_MNVO": {
+        "message": "KT망 알뜰폰",
+        "description": ""
+    },
+    "carrier_LGU_MNVO": {
+        "message": "LGU+망 알뜰폰",
+        "description": ""
+    },
+    "full_name": {
+        "message": "이름",
+        "description": ""
+    },
+    "phone_number": {
+        "message": "휴대폰 번호",
+        "description": ""
+    },
+    "birthday": {
+        "message": "생년월일",
+        "description": ""
+    },
+    "citizen": {
+        "message": "내국인",
+        "description": ""
+    },
+    "foreigner": {
+        "message": "외국인",
+        "description": ""
+    },
+    "gender": {
+        "message": "성별",
+        "description": ""
+    },
+    "male": {
+        "message": "남성",
+        "description": ""
+    },
+    "female": {
+        "message": "여성",
+        "description": ""
+    },
+    "auth_method": {
+        "message": "인증방식",
+        "description": ""
+    },
+    "sms": {
+        "message": "SMS 문자메시지",
+        "description": ""
+    },
+    "pass": {
+        "message": "통신사 PASS앱",
+        "description": ""
+    }
+}

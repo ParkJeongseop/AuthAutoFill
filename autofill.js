@@ -1,3 +1,13 @@
+function getBrowser() {
+    if(typeof browser !== 'undefined') {
+        return browser
+    }else if(typeof chrome !== 'undefined') {
+        return chrome
+    }
+}
+
+browser = getBrowser();
+
 var carrier = {
     SKT: '1',
     KT: '2',
