@@ -34,6 +34,8 @@
 
 [Whale](https://store.whale.naver.com/detail/ncfnbaompehfhemgcpfkokcecnmohigo)
 
+[Safari (macOS)](https://apps.apple.com/kr/app/본인인증-자동완성-for-safari/id1550426920)
+
 [Firefox](https://addons.mozilla.org/ko/firefox/addon/auth-autofill/)
 
 [Edge](https://microsoftedge.microsoft.com/addons/detail/본인인증-자동완성-auth-autofill/lifloelaookkeeajgkoobphhdkinfhlp?hl=ko)
