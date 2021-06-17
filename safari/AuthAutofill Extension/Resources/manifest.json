@@ -1,0 +1,49 @@
+{
+    "manifest_version": 2,
+    "default_locale": "ko",
+
+    "name": "본인인증 자동완성 (Auth Autofill)",
+    "description": "한국 휴대전화 본인인증 자동완성 브라우저 확장 프로그램",
+    "version": "1.0",
+
+    "icons": {
+        "48": "images/icon-48.png",
+        "96": "images/icon-96.png",
+        "128": "images/icon-128.png",
+        "256": "images/icon-256.png",
+        "512": "images/icon-512.png"
+    },
+
+    "background": {
+        "scripts": [ "background.js" ]
+    },
+
+    "content_scripts": [{
+        "js": [ "content.js" ],
+        "matches": [
+            "https://safe.ok-name.co.kr/CommonSvl",
+            "https://pcc.siren24.com/pcc_V3/passWeb/*",
+            "https://nice.checkplus.co.kr/CheckPlusSafeModel/*",
+            "https://www.mobile-ok.com/QRPASS",
+            "https://www.kmcert.com/kmcis/*",
+            "https://cert.kcp.co.kr/kcp_cert_pass/*",
+            "https://nid.naver.com/user2/ncheckdi/authMobile.nhn?*",
+            "https://wauth.teledit.com/*"
+        ]
+    }],
+
+    "browser_action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "images/toolbar-icon-16.png",
+            "19": "images/toolbar-icon-19.png",
+            "32": "images/toolbar-icon-32.png",
+            "38": "images/toolbar-icon-38.png"
+        }
+    },
+
+    "permissions": [
+        "activeTab",
+        "storage",
+        "tabs"]
+}

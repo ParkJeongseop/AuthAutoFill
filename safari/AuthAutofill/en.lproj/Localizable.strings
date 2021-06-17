@@ -1,0 +1,11 @@
+/*
+  Localizable.strings
+  AuthAutofill
+
+  Created by 박정섭 on 2021/01/23.
+  
+*/
+
+"appName" = "Auth Autofill for Safari";
+"extension_on" = "Auth Autofill for Safari is currently on.";
+"extension_off" = "Auth Autofill for Safari is currently off. You can turn it on in Safari Extensions preferences.";
