@@ -79,14 +79,6 @@
         "message": "인증방식",
         "description": ""
     },
-    "sms": {
-        "message": "SMS 문자메시지",
-        "description": ""
-    },
-    "pass": {
-        "message": "통신사 PASS앱",
-        "description": ""
-    },
     "enter_name": {
         "message": "이름을 입력하시오",
         "description": ""
@@ -113,6 +105,58 @@
     },
     "skt_MNVO_do_not_support_pass": {
         "message": "SKT망 알뜰폰은 PASS앱 인증을 지원하지 않습니다.\nSMS인증을 이용해주세요.",
+        "description": ""
+    },
+    "sms": {
+        "message": "문자메시지 인증",
+        "description": "레거시"
+    },
+    "pass": {
+        "message": "통신사 PASS앱",
+        "description": "레거시"
+    },
+    "SMS": {
+        "message": "문자메시지 인증",
+        "description": ""
+    },
+    "PASS": {
+        "message": "통신사 PASS",
+        "description": ""
+    },
+    "KAKAO": {
+        "message": "카카오(지갑/페이)",
+        "description": ""
+    },
+    "NAVER": {
+        "message": "네이버",
+        "description": ""
+    },
+    "SAMSUNG": {
+        "message": "삼성PASS",
+        "description": ""
+    },
+    "PAYCO": {
+        "message": "페이코",
+        "description": ""
+    },
+    "KB": {
+        "message": "KB모바일인증서",
+        "description": ""
+    },
+    "NPKI": {
+        "message": "공동인증서(구 공인인증서)",
+        "description": ""
+    },
+    "YESKEY": {
+        "message": "금융인증서",
+        "description": ""
+    },
+    "ONEPASS": {
+        "message": "디지털원패스",
+        "description": ""
+    },
+    "IPIN": {
+        "message": "아이핀",
         "description": ""
     }
 }

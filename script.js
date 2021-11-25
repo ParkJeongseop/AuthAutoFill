@@ -1,3 +1,30 @@
+$(function() {
+
+    $("#sortable").sortable();
+
+    $("#sortable").disableSelection();
+
+    //순서 변동시
+    $("#sortable").sortable({
+        update: function( event, ui ) {
+            //순서 업데이트
+            updateAuthOrder();
+        }
+      });
+});
+
+
+function updateAuthOrder() {
+    var orders = [];
+    var lis = this.document.getElementById('sortable').getElementsByTagName('li');
+    for (var i=0; i<lis.length; i++) {
+        orders[i] = lis[i].id;
+    }
+    browser.storage.sync.set({
+        authOrder: orders
+    }, location.reload(false));
+}
+
 function getCarrierName(carrierCode) {
     if (carrierCode == '1') {
         var name = browser.i18n.getMessage('carrier_SKT');
@@ -234,6 +261,23 @@ window.onload = function () {
                 ul.appendChild(li);
             }
         }
+
+
+        if (data.authOrder) {
+            var orderOb = data.authOrder;
+        } else {
+            var orderOb = ["SMS", "PASS", "KAKAO", "NAVER", "SAMSUNG", "PAYCO", "KB", "NPKI", "YESKEY", "ONEPASS", "IPIN"]
+        }
+
+        var orderUL = document.getElementById('sortable');
+        for (var i=0; i<orderOb.length; i++) {
+            var li = document.createElement('li');
+            li.id = orderOb[i];
+            li.className = 'ui-state-default';
+            li.innerHTML = '<span class="ui-icon ui-icon-arrowthick-2-n-s"></span>' + browser.i18n.getMessage(orderOb[i]);
+            orderUL.appendChild(li);
+        }
+
     });
     i18n();
 };

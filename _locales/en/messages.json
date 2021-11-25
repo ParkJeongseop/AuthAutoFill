@@ -79,14 +79,6 @@
         "message": "Auth Method",
         "description": ""
     },
-    "sms": {
-        "message": "SMS text message",
-        "description": ""
-    },
-    "pass": {
-        "message": "Carrier's PASS app",
-        "description": ""
-    },
     "enter_name": {
         "message": "Please enter a name",
         "description": ""
@@ -113,6 +105,58 @@
     },
     "skt_MNVO_do_not_support_pass": {
         "message": "SKT network MVNO does not support PASS app authentication.\nYou can only use SMS authentication.",
+        "description": ""
+    },
+    "sms": {
+        "message": "Text messaging",
+        "description": ""
+    },
+    "pass": {
+        "message": "Carrier's PASS app",
+        "description": ""
+    },
+    "SMS": {
+        "message": "Text messaging",
+        "description": ""
+    },
+    "PASS": {
+        "message": "Carrier's PASS",
+        "description": ""
+    },
+    "KAKAO": {
+        "message": "Kakao(Wallet/Pay)",
+        "description": ""
+    },
+    "NAVER": {
+        "message": "NAVER",
+        "description": ""
+    },
+    "SAMSUNG": {
+        "message": "Samsung PASS",
+        "description": ""
+    },
+    "PAYCO": {
+        "message": "PAYCO",
+        "description": ""
+    },
+    "KB": {
+        "message": "KB Mobile Certificate",
+        "description": ""
+    },
+    "NPKI": {
+        "message": "Joint Certificate(former Accredited Certificate)",
+        "description": ""
+    },
+    "YESKEY": {
+        "message": "Financial Certificate",
+        "description": ""
+    },
+    "ONEPASS": {
+        "message": "DIGITAL ONE PASS",
+        "description": ""
+    },
+    "IPIN": {
+        "message": "i-PIN",
         "description": ""
     }
 }

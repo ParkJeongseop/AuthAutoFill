@@ -7,6 +7,11 @@
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"
         type='text/css'>
+
+    <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <script src="jquery-1.12.4.min.js"></script>
+    <script src="jquery-ui.js"></script>
+
     <script src="script.js"></script>
     <style>
         body {
@@ -21,7 +26,8 @@
 <body>
     <div class="custom-control custom-switch">
         <input type="checkbox" class="custom-control-input" id="onoffswitch">
-        <label id="auth_toggle" class="custom-control-label" for="onoffswitch" style="font-size: large;font-weight: bold;">본인인증 자동완성 ON/OFF</label>
+        <label id="auth_toggle" class="custom-control-label" for="onoffswitch"
+            style="font-size: large;font-weight: bold;">본인인증 자동완성 ON/OFF</label>
     </div>
     <div class="profiles">
         <ul id='profilesUL' class="list-group">
@@ -29,6 +35,15 @@
     </div>
     <br>
     <hr>
+    <div class="setAuthOrder">
+        <h5 id='set_auth_order_header'>선호 인증 방식</h5>
+        <ul id="sortable">
+        </ul>
+    </div>
+
+    <br>
+    <hr>
+
     <div class="addProfileDiv">
         <h5 id='add_profile_header'>프로필 추가</h5>
         <div class="input-group mb-3">
