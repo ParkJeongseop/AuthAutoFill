@@ -493,57 +493,55 @@ window.onload = function () {
                     this.document.querySelector('#content > div > fieldset > div.mobile_box > div > div.join_row.join_mobile > a').focus();
                 } else if (window.location.hostname == 'wauth.teledit.com') {
                     this.console.log('다날');
-
-                    if (document.querySelector("#sectionStart01 > form > fieldset > ul.agency_select__items")) { //통신사 선택페이지
-        
-                        if (profilesOb[spI].carrier == carrier.SKT) {
-                            var carrierBtn = 'agency-sk';
-                        } else if (profilesOb[spI].carrier == carrier.KT) {
-                            var carrierBtn = 'agency-kt';
-                        } else if (profilesOb[spI].carrier == carrier.LGU) {
-                            var carrierBtn = 'agency-lgu';
-                        } else {
-                            var carrierBtn = 'agency-and';
-                        }
-                        this.document.getElementById(carrierBtn).click();
-                        if (!is_MNO(profilesOb[spI].carrier)) {
-                            if (profilesOb[spI].carrier == carrier.SKT_MVNO) {
-                                this.document.querySelector("#layerPopupMvno > div.layer-pop.agency_select__popup > form > div.pop-con_02 > ul > li.first-item > div.licensee_title > a > label").click();
-                            } else if (profilesOb[spI].carrier == carrier.KT_MVNO) {
-                                this.document.querySelector("#layerPopupMvno > div.layer-pop.agency_select__popup > form > div.pop-con_02 > ul > li:nth-child(2) > div.licensee_title > a > label").click();
-                            } else if (profilesOb[spI].carrier == carrier.LGU_MVNO) {
-                                this.document.querySelector("#layerPopupMvno > div.layer-pop.agency_select__popup > form > div.pop-con_02 > ul > li:nth-child(3) > div.licensee_title > a > label").click();
-                            }
-                            this.document.querySelector("#btnSelectMvno").click();
-                        }
-
-                        // 약관 동의
-                        this.document.querySelector("#sectionStart01 > form > fieldset > ul.agreelist.all > li > span > label:nth-child(2)").click();
-                        
-                        if (profilesOb[spI].way == way.SMS) { // SMS인증을 원하는 경우
-                            this.document.querySelector("#btnSms").click();
-                        } else if (profilesOb[spI].way == way.PASS) { // PASS인증을 원하는 경우
-                            this.document.querySelector("#btnPass").click();
-                        }
+                    if (profilesOb[spI].carrier == carrier.SKT) {
+                        var carrierBtn = 'agency-sk';
+                    } else if (profilesOb[spI].carrier == carrier.KT) {
+                        var carrierBtn = 'agency-kt';
+                    } else if (profilesOb[spI].carrier == carrier.LGU) {
+                        var carrierBtn = 'agency-lgu';
                     } else {
-                        if (profilesOb[spI].way == way.SMS) { // SMS인증을 원하는 경우
-                            if (this.document.querySelector("#authTabSms > a").title != '선택됨') { //sms아닐때
-                                this.document.getElementById('authTabSms').click();
-                            } else {
-                                this.document.getElementById('sms_username').value = profilesOb[spI].name;
-                                this.document.getElementById('sms_mynum1').value = profilesOb[spI].birth.substr(2, 6);
-                                this.document.getElementById('sms_mynum2').value = get_RRN_GenderNum(profilesOb[spI].birth, profilesOb[spI].gender, profilesOb[spI].foreigner);
-                                this.document.getElementById('sms_mobileno').value = profilesOb[spI].phone_number;
-                                this.document.getElementById('inputCaptcha').focus();
-                            }
-                        } else if (profilesOb[spI].way == way.PASS) { // PASS인증을 원하는 경우
-                            if (this.document.querySelector("#authTabPass > a").title != '선택됨') { //sms아닐때
-                                this.document.getElementById('authTabPass').click();
-                            } else {
-                                this.document.getElementById('push_username').value = profilesOb[spI].name;
-                                this.document.getElementById('push_mobileno').value = profilesOb[spI].phone_number;
-                                this.document.getElementById('inputCaptcha').focus();
-                            }
+                        var carrierBtn = 'agency-and';
+                    }
+                    this.document.getElementById(carrierBtn).click();
+                    if (!is_MNO(profilesOb[spI].carrier)) {
+                        if (profilesOb[spI].carrier == carrier.SKT_MVNO) {
+                            this.document.querySelector("#layerPopupMvno > div.layer-pop.agency_select__popup > form > div.pop-con_02 > ul > li.first-item > div.licensee_title > a > label").click();
+                        } else if (profilesOb[spI].carrier == carrier.KT_MVNO) {
+                            this.document.querySelector("#layerPopupMvno > div.layer-pop.agency_select__popup > form > div.pop-con_02 > ul > li:nth-child(2) > div.licensee_title > a > label").click();
+                        } else if (profilesOb[spI].carrier == carrier.LGU_MVNO) {
+                            this.document.querySelector("#layerPopupMvno > div.layer-pop.agency_select__popup > form > div.pop-con_02 > ul > li:nth-child(3) > div.licensee_title > a > label").click();
+                        }
+                        this.document.querySelector("#btnSelectMvno").click();
+                    }
+
+                    // 약관 동의
+                    this.document.querySelector("#sectionStart01 > form > fieldset > ul.agreelist.all > li > span > label:nth-child(2)").click();
+                    
+                    if (profilesOb[spI].way == way.SMS) { // SMS인증을 원하는 경우
+                        this.document.querySelector("#btnSms").click();
+                    } else if (profilesOb[spI].way == way.PASS) { // PASS인증을 원하는 경우
+                        this.document.querySelector("#btnPass").click();
+                    }
+                    this.console.log('인증페이지');
+                    if (profilesOb[spI].way == way.SMS) { // SMS인증을 원하는 경우
+                        if (this.document.querySelector("#authTabSms > a").title != '선택됨') { //sms아닐때
+                            this.document.getElementById('authTabSms').click();
+                        } else {
+                            this.console.log('SMS 인증');
+                            this.console.log(this.document.getElementById('sms_username').value);
+                            this.document.getElementById('sms_username').value = profilesOb[spI].name;
+                            this.document.getElementById('sms_mynum1').value = profilesOb[spI].birth.substr(2, 6);
+                            this.document.getElementById('sms_mynum2').value = get_RRN_GenderNum(profilesOb[spI].birth, profilesOb[spI].gender, profilesOb[spI].foreigner);
+                            this.document.getElementById('sms_mobileno').value = profilesOb[spI].phone_number;
+                            this.document.getElementById('inputCaptcha').focus();
+                        }
+                    } else if (profilesOb[spI].way == way.PASS) { // PASS인증을 원하는 경우
+                        if (this.document.querySelector("#authTabPass > a").title != '선택됨') { //sms아닐때
+                            this.document.getElementById('authTabPass').click();
+                        } else {
+                            this.document.getElementById('push_username').value = profilesOb[spI].name;
+                            this.document.getElementById('push_mobileno').value = profilesOb[spI].phone_number;
+                            this.document.getElementById('inputCaptcha').focus();
                         }
                     }
                 }
