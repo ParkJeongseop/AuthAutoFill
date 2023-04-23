@@ -1,17 +1,18 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "본인인증 자동완성 (Auth Autofill)",
-    "version": "0.0.4",
+    "version": "2.0.0",
     "default_locale": "ko",
-    "description": "한국 휴대전화 본인인증 자동완성 브라우저 확장 프로그램",
+    "description": "한국 본인인증 자동완성 브라우저 확장 프로그램",
     "homepage_url": "https://github.com/ParkJeongseop/AuthAutoFill",
     "author": "박정섭",
     "icons": {
         "128": "icon.png"
     },
-    "browser_action": {
-        "default_icon": "icon.png",
-        "default_popup": "popup.html"
+    "action": {
+        "default_title": "본인인증 자동완성 (Auth Autofill)",
+        "default_popup": "popup.html",
+        "default_icon": "icon.png"
     },
     "permissions": [
         "activeTab",
