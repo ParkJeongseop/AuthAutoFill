@@ -103,16 +103,14 @@ function i18n() {
 window.onload = function () {
     var list = document.getElementById('profilesUL');
     list.addEventListener('click', function (ev) {
-        if (ev.target.tagName === 'BUTTON') {
-            var btn = ev.path[0].classList[0];
-            var id = ev.path[4].id;
-        } else if (ev.target.tagName === 'I') {
-            var btn = ev.path[1].classList[0];
-            var id = ev.path[5].id;
-        }
-        if (btn == 'SelectBtn') {
+        var id = ev.target.id;
+        var btn = ev.target.classList[0];
+        console.log(ev.target);
+        console.log(id);
+        console.log(btn);
+        if (btn == 'select') {
             selectProfile(id);
-        } else if (btn == 'DeleteBtn') {
+        } else if (btn == 'delete') {
             deleteProfile(id);
         }
     }, false);
@@ -171,13 +169,6 @@ window.onload = function () {
             return false;
         }
 
-        if (carrier.value == '4' && way.value == '2'){
-            window.alert(browser.i18n.getMessage('skt_MNVO_do_not_support_pass'));
-            way.value = '1';
-            way.focus();
-            return false;
-        }
-
         profile = {
             "name": name.value,
             "carrier": carrier.value,
@@ -226,9 +217,9 @@ window.onload = function () {
                                                 <div class="badge badge-pill badge-warning">' + getWay(profilesOb.profiles[i].way) + '</div>\
                                             </div>\
                                         </div>\
-                                        <div class="widget-content-right">' + (selectedProfile != i ? '  <button class="SelectBtn border-0 btn-transition btn btn-outline-success">\
-                                        <i class="fa fa-check"></i></button>' : '') + ' <button class="DeleteBtn border-0 btn-transition btn btn-outline-danger">\
-                                        <i class="fa fa-trash"></i> </button> </div>\
+                                        <div class="widget-content-right">' + (selectedProfile != i ? '  <button id="' + i + '" class="select SelectBtn border-0 btn-transition btn btn-outline-success">\
+                                        <i id="' + i + '" class="select fa fa-check"></i></button>' : '') + ' <button id="' + i + '" class="delete DeleteBtn border-0 btn-transition btn btn-outline-danger">\
+                                        <i id="' + i + '" class="delete fa fa-trash"></i> </button> </div>\
                                     </div>\
                                 </div>';
                 ul.appendChild(li);
