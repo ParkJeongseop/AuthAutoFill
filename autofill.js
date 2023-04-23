@@ -233,7 +233,7 @@ window.onload = function () {
                                 this.document.getElementById('sms_auth').click();
                             } else {
                                 this.document.getElementById('nm').value = profilesOb[spI].name;
-                                this.document.getElementById('ssn6').value = profilesOb[spI].birth;
+                                this.document.getElementById('ssn6').value = profilesOb[spI].birth.substr(2, 6);;
                                 this.document.getElementById('ssn1').value = get_RRN_GenderNum(profilesOb[spI].birth, profilesOb[spI].gender, profilesOb[spI].foreigner);
                                 this.document.getElementById('mbphn_no').value = profilesOb[spI].phone_number;
                                 this.document.getElementById('nm').focus();
@@ -530,7 +530,7 @@ window.onload = function () {
                             if (this.document.querySelector("#authTabSms > a").title != '선택됨') { //sms아닐때
                                 this.document.getElementById('authTabSms').click();
                             } else {
-                                this.document.getElementById('SMSName').value = profilesOb[spI].name;
+                                this.document.getElementById('sms_username').value = profilesOb[spI].name;
                                 this.document.getElementById('sms_mynum1').value = profilesOb[spI].birth.substr(2, 6);
                                 this.document.getElementById('sms_mynum2').value = get_RRN_GenderNum(profilesOb[spI].birth, profilesOb[spI].gender, profilesOb[spI].foreigner);
                                 this.document.getElementById('sms_mobileno').value = profilesOb[spI].phone_number;
