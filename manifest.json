@@ -32,7 +32,8 @@
                 "https://www.kmcert.com/kmcis/*",
                 "https://cert.kcp.co.kr/cert/*",
                 "https://nid.naver.com/user2/help/authMobile*",
-                "https://wauth.teledit.com/*"
+                "https://wauth.teledit.com/*",
+                "https://www.gov.kr/*"
             ],
             "run_at": "document_start"
         }
