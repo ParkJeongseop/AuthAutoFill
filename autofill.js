@@ -409,8 +409,8 @@ window.onload = function () {
                     }
                 } else if (window.location.hostname == 'nid.naver.com') {
                     this.console.log('네이버');
-
-                    this.document.getElementById('chk_agree3').click();
+                    
+                    this.document.querySelector("#chk_agree3Lb").click();
                     this.document.getElementById('nm').value = profilesOb[spI].name;
                     this.document.getElementById('foreignYn').value = (profilesOb[spI].foreigner == '0' ? 'N' : 'Y')
                     this.document.getElementById(profilesOb[spI].gender == '1' ? 'man' : 'woman').click()
@@ -419,31 +419,31 @@ window.onload = function () {
                     this.document.getElementById('birth_day').value = Number(profilesOb[spI].birth.substr(6, 2));
 
                     if (profilesOb[spI].carrier == carrier.SKT) {
-                        var carrier = 'SKT';
-                        this.document.getElementById('mobile_cd').value = carrier;
+                        var carrierBtn = 'SKT';
+                        this.document.getElementById('mobile_cd').value = carrierBtn;
                     } else if (profilesOb[spI].carrier == carrier.KT) {
-                        var carrier = 'KTF';
-                        this.document.getElementById('mobile_cd').value = carrier;
+                        var carrierBtn = 'KTF';
+                        this.document.getElementById('mobile_cd').value = carrierBtn;
                     } else if (profilesOb[spI].carrier == carrier.LGU) {
-                        var carrier = 'LGT';
-                        this.document.getElementById('mobile_cd').value = carrier;
+                        var carrierBtn = 'LGT';
+                        this.document.getElementById('mobile_cd').value = carrierBtn;
                     } else {
-                        var carrier = 'MVNO';
-                        this.document.getElementById('mobile_cd').value = carrier;
+                        var carrierBtn = 'MVNO';
+                        this.document.getElementById('mobile_cd').value = carrierBtn;
                         this.document.getElementById('mobile_cd').click();
 
                         if (profilesOb[spI].carrier == carrier.SKT_MVNO) {
-                            var carrier = 'mvno_sk';
+                            var carrierBtn = 'mvno_skLb';
                         } else if (profilesOb[spI].carrier == carrier.KT_MVNO) {
-                            var carrier = 'mvno_kt';
+                            var carrierBtn = 'mvno_ktLb';
                         } else if (profilesOb[spI].carrier == carrier.LGU_MVNO) {
-                            var carrier = 'mvno_lg';
+                            var carrierBtn = 'mvno_lgLb';
                         }
-                        this.document.getElementById(carrier).click();
+                        this.document.getElementById(carrierBtn).click();
                     }
 
                     this.document.getElementById('phone_no').value = profilesOb[spI].phone_number;
-                    this.document.querySelector('#content > div > fieldset > div.mobile_box > div > div.join_row.join_mobile > a').focus();
+                    this.document.querySelector("#auth_no").focus();
                 } else if (window.location.hostname == 'wauth.teledit.com') {
                     this.console.log('다날');
                     if (profilesOb[spI].carrier == carrier.SKT) {
