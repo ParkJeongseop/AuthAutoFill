@@ -36,7 +36,8 @@
                 "https://www.gov.kr/*",
                 "https://easysign.anyid.go.kr/esign/",
                 "https://efamily.scourt.go.kr/*",
-                "https://www.efine.go.kr/login/loginUser.do"
+                "https://www.efine.go.kr/login/loginUser.do",
+                "https://www.egroup.go.kr/egps/ps/io/lgn/loginScrin.do"
             ],
             "run_at": "document_start"
         }
