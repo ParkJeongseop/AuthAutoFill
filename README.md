@@ -16,14 +16,18 @@
 이 프로젝트에 관심이 있으신 경우, 직접 참여하여 프로젝트에 기여하실 수 있습니다. 개발 직접 참여 뿐만아니라 이용 후 피드백도 경청하여 듣겠습니다.
 
 
-# 지원 본인인증 업체 목록
- * [정부24](https://www.gov.kr)
+# 지원 본인인증 서비스 목록
+## 행정안전부 ‘민간 간편인증 서비스’
  * [행정안전부 ‘Any-ID’ 간편 로그인 서비스](https://www.mois.go.kr/frt/bbs/type010/commonSelectBoardArticle.do?bbsId=BBSMSTR_000000000008&nttId=97826)
+ * [정부24](https://www.gov.kr)
  * [가족관계등록시스템](https://efamily.scourt.go.kr)
  * [교통민원24](https://www.efine.go.kr)
  * [기업집단포털](https://www.egroup.go.kr)
  * [학자금상환 시스템](https://www.icl.go.kr)
  * [법무부 온라인민원서비스](https://minwon.moj.go.kr)
+ * [한국장학재단](https://www.kosaf.go.kr)
+
+## 이동통신사 휴대전화 본인인증
  * [나이스신용평가정보](http://www.namecheck.co.kr)
  * [서울신용평가정보](http://www.seoulcredit.co.kr)
  * [코리아크레딧뷰로](http://ok-name.co.kr)
@@ -31,6 +35,8 @@
  * [한국모바일인증](http://www.kmcert.com)
  * [한국사이버결제](http://www.kcp.co.kr)
  * [다날](https://www.danal.co.kr)
+
+## 기타
  * [네이버](https://nid.naver.com)
 
 
