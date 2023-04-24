@@ -34,7 +34,8 @@
                 "https://nid.naver.com/user2/help/authMobile*",
                 "https://wauth.teledit.com/*",
                 "https://www.gov.kr/*",
-                "https://efamily.scourt.go.kr/*"
+                "https://efamily.scourt.go.kr/*",
+                "https://www.efine.go.kr/login/loginUser.do"
             ],
             "run_at": "document_start"
         }
