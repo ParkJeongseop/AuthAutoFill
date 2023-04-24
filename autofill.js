@@ -534,6 +534,35 @@ window.onload = function () {
                         }
                     }, 500);
                     
+                } else if (window.location.hostname == 'efamily.scourt.go.kr') {
+                    this.console.log('가족관계등록시스템');
+                    
+                    setInterval(function() {
+                        var phone1Input = this.document.querySelector("#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(4) > div.ul-td > select:nth-child(2)");
+                        var phone2Input = this.document.querySelector("#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(4) > div.ul-td > input");
+                        var carrierInput = this.document.querySelector("#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li.telecom > div.ul-td > select.one-third");
+                        var agreeInput = this.document.querySelector("#totalAgree");
+
+                        if(phone1Input) {
+                            phone1Input.value = profilesOb[spI].phone_number.substr(0, 3);
+                        }
+                        if(phone2Input) {
+                            phone2Input.value = profilesOb[spI].phone_number.substr(3, 8);
+                        }
+                        if(carrierInput) {
+                            if (profilesOb[spI].carrier == carrier.SKT || profilesOb[spI].carrier == carrier.SKT_MVNO) {
+                                carrierInput.value = 'S';
+                            } else if (profilesOb[spI].carrier == carrier.KT || profilesOb[spI].carrier == carrier.KT_MVNO) {
+                                carrierInput.value = 'K';
+                            } else if (profilesOb[spI].carrier == carrier.LGU || profilesOb[spI].carrier == carrier.LGU_MVNO) {
+                                carrierInput.value = 'L';
+                            }
+                        }
+                        if(agreeInput && !agreeInput.checked) {
+                            agreeInput.click();
+                        }
+                    }, 500);
+                    
                 }
             }
         } else {

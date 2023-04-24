@@ -33,7 +33,8 @@
                 "https://cert.kcp.co.kr/cert/*",
                 "https://nid.naver.com/user2/help/authMobile*",
                 "https://wauth.teledit.com/*",
-                "https://www.gov.kr/*"
+                "https://www.gov.kr/*",
+                "https://efamily.scourt.go.kr/*"
             ],
             "run_at": "document_start"
         }
