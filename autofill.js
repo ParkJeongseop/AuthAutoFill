@@ -61,6 +61,14 @@ function is_MVNO(carrier_code) {
     return !is_MNO(carrier_code);
 }
 
+function trigger_input_event(element) {
+    element.dispatchEvent(new Event('input', {bubbles:true}));
+}
+
+function trigger_change_event(element) {
+    element.dispatchEvent(new Event('change', {bubbles:true}));
+}
+
 window.onload = function () {
     this.console.log('Auth Autofill (본인인증 자동완성)\n한국 휴대전화 본인인증 서비스 자동완성 브라우저 확장 프로그램');
 
@@ -510,15 +518,19 @@ window.onload = function () {
 
                         if(nameInput) {
                             nameInput.value = profilesOb[spI].name;
+                            trigger_input_event(nameInput);
                         }
                         if(birthDateInput) {
                             birthDateInput.value = profilesOb[spI].birth;
+                            trigger_input_event(birthDateInput);
                         }
                         if(phone1Input) {
                             phone1Input.value = profilesOb[spI].phone_number.substr(0, 3);
+                            trigger_change_event(phone1Input);
                         }
                         if(phone2Input) {
                             phone2Input.value = profilesOb[spI].phone_number.substr(3, 8);
+                            trigger_input_event(phone2Input);
                         }
                         if(carrierInput) {
                             if (profilesOb[spI].carrier == carrier.SKT || profilesOb[spI].carrier == carrier.SKT_MVNO) {
@@ -528,6 +540,7 @@ window.onload = function () {
                             } else if (profilesOb[spI].carrier == carrier.LGU || profilesOb[spI].carrier == carrier.LGU_MVNO) {
                                 carrierInput.value = 'L';
                             }
+                            trigger_change_event(carrierInput);
                         }
                         if(agreeInput && !agreeInput.checked) {
                             agreeInput.click();
@@ -548,15 +561,19 @@ window.onload = function () {
 
                         if(nameInput) {
                             nameInput.value = profilesOb[spI].name;
+                            trigger_input_event(nameInput);
                         }
                         if(birthDateInput) {
                             birthDateInput.value = profilesOb[spI].birth.substr(2, 6);
+                            trigger_input_event(birthDateInput);
                         }
                         if(phone1Input) {
                             phone1Input.value = profilesOb[spI].phone_number.substr(0, 3);
+                            trigger_change_event(phone1Input);
                         }
                         if(phone2Input) {
                             phone2Input.value = profilesOb[spI].phone_number.substr(3, 8);
+                            trigger_input_event(phone2Input);
                         }
                         if(carrierInput) {
                             if (profilesOb[spI].carrier == carrier.SKT || profilesOb[spI].carrier == carrier.SKT_MVNO) {
@@ -566,6 +583,7 @@ window.onload = function () {
                             } else if (profilesOb[spI].carrier == carrier.LGU || profilesOb[spI].carrier == carrier.LGU_MVNO) {
                                 carrierInput.value = 'L';
                             }
+                            trigger_change_event(carrierInput);
                         }
                         if(agreeInput && !agreeInput.checked) {
                             agreeInput.click();
@@ -586,9 +604,11 @@ window.onload = function () {
 
                         if(phone1Input) {
                             phone1Input.value = profilesOb[spI].phone_number.substr(0, 3);
+                            trigger_change_event(phone1Input);
                         }
                         if(phone2Input) {
                             phone2Input.value = profilesOb[spI].phone_number.substr(3, 8);
+                            trigger_input_event(phone2Input);
                         }
                         if(carrierInput) {
                             if (profilesOb[spI].carrier == carrier.SKT || profilesOb[spI].carrier == carrier.SKT_MVNO) {
@@ -598,6 +618,7 @@ window.onload = function () {
                             } else if (profilesOb[spI].carrier == carrier.LGU || profilesOb[spI].carrier == carrier.LGU_MVNO) {
                                 carrierInput.value = 'L';
                             }
+                            trigger_change_event(carrierInput);
                         }
                         if(agreeInput && !agreeInput.checked) {
                             agreeInput.click();
@@ -620,21 +641,27 @@ window.onload = function () {
 
                         if(nameInput) {
                             nameInput.value = profilesOb[spI].name;
+                            trigger_input_event(nameInput);
                         }
                         if(birthDateInput) {
                             birthDateInput.value = profilesOb[spI].birth.substr(2, 6);
+                            trigger_input_event(birthDateInput);
                         }
                         if(phone1Input) {
                             phone1Input.value = profilesOb[spI].phone_number.substr(0, 3);
+                            trigger_change_event(phone1Input);
                         }
                         if(phone1Input2) {
                             phone1Input2.value = profilesOb[spI].phone_number.substr(0, 3);
+                            trigger_change_event(phone1Input2);
                         }
                         if(phone2Input) {
                             phone2Input.value = profilesOb[spI].phone_number.substr(3, 8);
+                            trigger_input_event(phone2Input);
                         }
                         if(phone2Input2) {
                             phone2Input2.value = profilesOb[spI].phone_number.substr(3, 8);
+                            trigger_input_event(phone2Input2);
                         }
                         if(carrierInput) {
                             if (profilesOb[spI].carrier == carrier.SKT || profilesOb[spI].carrier == carrier.SKT_MVNO) {
@@ -644,6 +671,7 @@ window.onload = function () {
                             } else if (profilesOb[spI].carrier == carrier.LGU || profilesOb[spI].carrier == carrier.LGU_MVNO) {
                                 carrierInput.value = 'L';
                             }
+                            trigger_change_event(carrierInput);
                         }
                         if(agreeInput && !agreeInput.checked) {
                             agreeInput.click();
@@ -666,15 +694,19 @@ window.onload = function () {
 
                         if(nameInput) {
                             nameInput.value = profilesOb[spI].name;
+                            trigger_input_event(nameInput);
                         }
                         if(birthDateInput) {
                             birthDateInput.value = profilesOb[spI].birth;
+                            trigger_input_event(birthDateInput);
                         }
                         if(phone1Input) {
                             phone1Input.value = profilesOb[spI].phone_number.substr(0, 3);
+                            trigger_change_event(phone1Input);
                         }
                         if(phone2Input) {
                             phone2Input.value = profilesOb[spI].phone_number.substr(3, 8);
+                            trigger_input_event(phone2Input);
                         }
                         if(carrierInput) {
                             if (profilesOb[spI].carrier == carrier.SKT || profilesOb[spI].carrier == carrier.SKT_MVNO) {
@@ -684,6 +716,7 @@ window.onload = function () {
                             } else if (profilesOb[spI].carrier == carrier.LGU || profilesOb[spI].carrier == carrier.LGU_MVNO) {
                                 carrierInput.value = 'L';
                             }
+                            trigger_change_event(carrierInput);
                         }
                         if(agreeInput && !agreeInput.checked) {
                             agreeInput.click();
@@ -706,15 +739,19 @@ window.onload = function () {
 
                         if(nameInput) {
                             nameInput.value = profilesOb[spI].name;
+                            trigger_input_event(nameInput);
                         }
                         if(birthDateInput) {
                             birthDateInput.value = profilesOb[spI].birth;
+                            trigger_input_event(birthDateInput);
                         }
                         if(phone1Input) {
                             phone1Input.value = profilesOb[spI].phone_number.substr(0, 3);
+                            trigger_change_event(phone1Input);
                         }
                         if(phone2Input) {
                             phone2Input.value = profilesOb[spI].phone_number.substr(3, 8);
+                            trigger_input_event(phone2Input);
                         }
                         if(carrierInput) {
                             if (profilesOb[spI].carrier == carrier.SKT || profilesOb[spI].carrier == carrier.SKT_MVNO) {
@@ -724,6 +761,7 @@ window.onload = function () {
                             } else if (profilesOb[spI].carrier == carrier.LGU || profilesOb[spI].carrier == carrier.LGU_MVNO) {
                                 carrierInput.value = 'L';
                             }
+                            trigger_change_event(carrierInput);
                         }
                         if(agreeInput && !agreeInput.checked) {
                             agreeInput.click();
@@ -743,15 +781,19 @@ window.onload = function () {
 
                         if(nameInput) {
                             nameInput.value = profilesOb[spI].name;
+                            trigger_input_event(nameInput);
                         }
                         if(birthDateInput) {
                             birthDateInput.value = profilesOb[spI].birth;
+                            trigger_input_event(birthDateInput);
                         }
                         if(phone1Input) {
                             phone1Input.value = profilesOb[spI].phone_number.substr(0, 3);
+                            trigger_change_event(phone1Input);
                         }
                         if(phone2Input) {
                             phone2Input.value = profilesOb[spI].phone_number.substr(3, 8);
+                            trigger_input_event(phone2Input);
                         }
                         if(carrierInput) {
                             if (profilesOb[spI].carrier == carrier.SKT || profilesOb[spI].carrier == carrier.SKT_MVNO) {
@@ -761,6 +803,7 @@ window.onload = function () {
                             } else if (profilesOb[spI].carrier == carrier.LGU || profilesOb[spI].carrier == carrier.LGU_MVNO) {
                                 carrierInput.value = 'L';
                             }
+                            trigger_change_event(carrierInput);
                         }
                         if(agreeInput && !agreeInput.checked) {
                             agreeInput.click();
@@ -781,15 +824,19 @@ window.onload = function () {
 
                         if(nameInput) {
                             nameInput.value = profilesOb[spI].name;
+                            trigger_input_event(nameInput);
                         }
                         if(birthDateInput) {
                             birthDateInput.value = profilesOb[spI].birth.substr(2, 6);
+                            trigger_input_event(birthDateInput);
                         }
                         if(phone1Input) {
                             phone1Input.value = profilesOb[spI].phone_number.substr(0, 3);
+                            trigger_change_event(phone1Input);
                         }
                         if(phone2Input) {
                             phone2Input.value = profilesOb[spI].phone_number.substr(3, 8);
+                            trigger_input_event(phone2Input);
                         }
                         if(carrierInput) {
                             if (profilesOb[spI].carrier == carrier.SKT || profilesOb[spI].carrier == carrier.SKT_MVNO) {
@@ -799,6 +846,7 @@ window.onload = function () {
                             } else if (profilesOb[spI].carrier == carrier.LGU || profilesOb[spI].carrier == carrier.LGU_MVNO) {
                                 carrierInput.value = 'L';
                             }
+                            trigger_change_event(carrierInput);
                         }
                         if(agreeInput && !agreeInput.checked) {
                             agreeInput.click();
