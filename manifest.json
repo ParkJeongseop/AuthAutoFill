@@ -38,7 +38,8 @@
                 "https://efamily.scourt.go.kr/*",
                 "https://www.efine.go.kr/login/loginUser.do",
                 "https://www.egroup.go.kr/egps/ps/io/lgn/loginScrin.do",
-                "https://www.icl.go.kr/*"
+                "https://www.icl.go.kr/*",
+                "https://minwon.moj.go.kr/*"
             ],
             "run_at": "document_start",
             "all_frames": true

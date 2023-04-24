@@ -23,6 +23,7 @@
  * [교통민원24](https://www.efine.go.kr)
  * [기업집단포털](https://www.egroup.go.kr)
  * [학자금상환 시스템](https://www.icl.go.kr)
+ * [법무부 온라인민원서비스](https://minwon.moj.go.kr)
  * [나이스신용평가정보](http://www.namecheck.co.kr)
  * [서울신용평가정보](http://www.seoulcredit.co.kr)
  * [코리아크레딧뷰로](http://ok-name.co.kr)
