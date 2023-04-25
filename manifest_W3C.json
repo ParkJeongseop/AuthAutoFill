@@ -1,0 +1,59 @@
+{
+    "manifest_version": 3,
+    "name": "본인인증 자동완성 (Auth Autofill)",
+    "version": "2.0.1",
+    "default_locale": "ko",
+    "description": "한국 본인인증 자동완성 브라우저 확장 프로그램",
+    "homepage_url": "https://github.com/ParkJeongseop/AuthAutoFill",
+    "author": "박정섭",
+    "icons": {
+        "128": "icon.png"
+    },
+    "action": {
+        "default_title": "본인인증 자동완성 (Auth Autofill)",
+        "default_popup": "popup.html",
+        "default_icon": "icon.png"
+    },
+    "permissions": [
+        "activeTab",
+        "storage",
+        "tabs"
+    ],
+    "content_scripts": [
+        {
+            "js": [
+                "autofill.js"
+            ],
+            "matches": [
+                "https://safe.ok-name.co.kr/CommonSvl",
+                "https://pcc.siren24.com/pcc_V3/passWebV2/*",
+                "https://nice.checkplus.co.kr/CheckPlusSafeModel/*",
+                "https://www.mobile-ok.com/QRPASS",
+                "https://www.kmcert.com/kmcis/*",
+                "https://cert.kcp.co.kr/cert/*",
+                "https://nid.naver.com/user2/help/authMobile*",
+                "https://wauth.teledit.com/*",
+                "https://www.gov.kr/*",
+                "https://easysign.anyid.go.kr/esign/",
+                "https://efamily.scourt.go.kr/*",
+                "https://www.efine.go.kr/login/loginUser.do",
+                "https://www.egroup.go.kr/egps/ps/io/lgn/loginScrin.do",
+                "https://www.icl.go.kr/*",
+                "https://minwon.moj.go.kr/*",
+                "https://www.kosaf.go.kr/*"
+            ],
+            "run_at": "document_start",
+            "all_frames": true
+        }
+    ],
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "{6da0a5fd-a21a-4088-a586-c845619640b8}",
+            "strict_min_version": "42.0"
+        }
+    },
+    "developer": {
+        "name": "Jeongseop Park",
+        "url": "https://www.parkjeongseop.com/?ref=authautofill"
+    }
+}
