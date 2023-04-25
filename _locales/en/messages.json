@@ -4,8 +4,12 @@
         "description": "The display name for the extension."
     },
     "extension_description": {
-        "message": "This is AuthAutofill Extension. You should tell us what your extension does here.",
+        "message": "A browser extension that autofills identity verification services in South Korea",
         "description": "Description of what the extension does."
+    },
+    "developer": {
+        "message": "Jeongseop Park",
+        "description": ""
     },
     "auth_autofill": {
         "message": "Auth Autofill",
@@ -44,7 +48,7 @@
         "description": ""
     },
     "full_name": {
-        "message": "Full name",
+        "message": "Full name written on alien registration card",
         "description": ""
     },
     "phone_number": {

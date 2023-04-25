@@ -1,16 +1,16 @@
 {
     "manifest_version": 3,
-    "name": "본인인증 자동완성 (Auth Autofill)",
-    "version": "2.0.1",
-    "default_locale": "ko",
-    "description": "한국 본인인증 자동완성 브라우저 확장 프로그램",
+    "name": "__MSG_extension_name__",
+    "version": "2.0.2",
+    "default_locale": "en",
+    "description": "__MSG_extension_description__",
     "homepage_url": "https://github.com/ParkJeongseop/AuthAutoFill",
-    "author": "박정섭",
+    "author": "__MSG_developer__",
     "icons": {
         "128": "icon.png"
     },
     "action": {
-        "default_title": "본인인증 자동완성 (Auth Autofill)",
+        "default_title": "__MSG_extension_name__",
         "default_popup": "popup.html",
         "default_icon": "icon.png"
     },
@@ -53,7 +53,7 @@
         }
     },
     "developer": {
-        "name": "Jeongseop Park",
+        "name": "Jeongseop Park 박정섭",
         "url": "https://www.parkjeongseop.com/?ref=authautofill"
     }
 }
