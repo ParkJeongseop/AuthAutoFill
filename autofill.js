@@ -713,6 +713,23 @@ window.onload = function () {
                     autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery, phone2InputQuery, carrierInputQuery, agreeInputQuery);
                     autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery2, phone2InputQuery2, carrierInputQuery, agreeInputQuery);
 
+                } else if (window.location.hostname == 'www.epeople.go.kr') {
+                    this.console.log('국민신문고');
+                    
+                    var nameInputQuery = "#oacx_name";
+                    var birthDate8DigitInputQuery = null;
+                    var birthDate6DigitInputQuery = "#oacx_num1";
+                    var rrnInputQuery = "#oacx_num2";
+                    var phone1InputQuery = "#oacx_phone1";
+                    var phone1InputQuery2 = "#submitFm > table > tbody > tr.telecom > td > select:nth-child(2)";
+                    var phone2InputQuery = "#oacx_phone2";
+                    var phone2InputQuery2 = "#oacx_phone3";
+                    var carrierInputQuery = "#submitFm > table > tbody > tr.telecom > td > select:nth-child(1)";
+                    var agreeInputQuery = "#oacx_total";
+
+                    autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery, phone2InputQuery, carrierInputQuery, agreeInputQuery);
+                    autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery2, phone2InputQuery2, carrierInputQuery, agreeInputQuery);
+
                 } 
             }
         } else {

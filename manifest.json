@@ -39,7 +39,8 @@
                 "https://www.icl.go.kr/*",
                 "https://minwon.moj.go.kr/*",
                 "https://www.kosaf.go.kr/*",
-                "https://www.epost.go.kr/usr/login/cafzc008k01.jsp"
+                "https://www.epost.go.kr/usr/login/cafzc008k01.jsp",
+                "https://www.epeople.go.kr/nep/crtf/simpleCrtfPopup15.npaid"
             ],
             "run_at": "document_start",
             "all_frames": true
