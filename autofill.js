@@ -317,7 +317,7 @@ window.onload = function () {
                                 this.document.getElementById('sms_auth').click();
                             } else {
                                 this.document.getElementById('nm').value = profilesOb[spI].name;
-                                this.document.getElementById('ssn6').value = profilesOb[spI].birth.substr(2, 6);;
+                                this.document.getElementById('ssn6').value = profilesOb[spI].birth.substr(2, 6);
                                 this.document.getElementById('ssn1').value = get_RRN_GenderNum(profilesOb[spI].birth, profilesOb[spI].gender, profilesOb[spI].foreigner);
                                 this.document.getElementById('mbphn_no').value = profilesOb[spI].phone_number;
                                 this.document.getElementById('nm').focus();
@@ -715,6 +715,27 @@ window.onload = function () {
 
                 } else if (window.location.hostname == 'www.epeople.go.kr') {
                     this.console.log('국민신문고');
+                    
+                    var nameInputQuery = "#oacx_name";
+                    var birthDate8DigitInputQuery = null;
+                    var birthDate6DigitInputQuery = "#oacx_num1";
+                    var rrnInputQuery = "#oacx_num2";
+                    var phone1InputQuery = "#oacx_phone1";
+                    var phone1InputQuery2 = "#submitFm > table > tbody > tr.telecom > td > select:nth-child(2)";
+                    var phone2InputQuery = "#oacx_phone2";
+                    var phone2InputQuery2 = "#oacx_phone3";
+                    var carrierInputQuery = "#submitFm > table > tbody > tr.telecom > td > select:nth-child(1)";
+                    var agreeInputQuery = "#oacx_total";
+
+                    autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery, phone2InputQuery, carrierInputQuery, agreeInputQuery);
+                    autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery2, phone2InputQuery2, carrierInputQuery, agreeInputQuery);
+
+                } else if (window.location.hostname == 'www.yebigun1.mil.kr') {
+                    this.console.log('예비군홈페이지');
+
+                    // 공동인증서(구 공인인증서) 자동완성
+                    this.document.querySelector("#name").value = selectedProfile.name;
+                    this.document.querySelector("#reg_no_first").value = selectedProfile.birth.substr(2, 6);
                     
                     var nameInputQuery = "#oacx_name";
                     var birthDate8DigitInputQuery = null;

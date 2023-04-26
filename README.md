@@ -26,6 +26,9 @@
  * [학자금상환 시스템](https://www.icl.go.kr)
  * [법무부 온라인민원서비스](https://minwon.moj.go.kr)
  * [한국장학재단](https://www.kosaf.go.kr)
+ * [인터넷우체국](https://www.epost.go.kr)
+ * [국민신문고](https://www.epeople.go.kr)
+ * [예비군홈페이지](https://www.yebigun1.mil.kr)
 
 ## 이동통신사 휴대전화 본인인증
  * [나이스신용평가정보](http://www.namecheck.co.kr)
