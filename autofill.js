@@ -69,6 +69,81 @@ function trigger_change_event(element) {
     element.dispatchEvent(new Event('change', {bubbles:true}));
 }
 
+/**
+ * 행정안전부 "민간 간편인증 서비스" 자동완성
+ * @param {string} nameQ - 이름 input element query string
+ * @param {string} birth8DigitQ - 생년월일 8자리 input element query string
+ * @param {string} birth6DigitQ - 생년월일 6자리 input element query string
+ * @param {string} rrnQ - 주민등록번호 뒷자리 input element query string
+ * @param {string} phone1Q - 전화번호 앞 3자리 input element query string
+ * @param {string} phone2Q - 전화번호 뒤 8자리 input element query string
+ * @param {string} carrierQ - 통신사 input element query string
+ * @param {string} agreeQ - 약관동의 input element query string
+ */
+function autofill_for_mois(selectedProfile, nameQ, birth8DigitQ, birth6DigitQ, rrnQ, phone1Q, phone2Q, carrierQ, agreeQ) {
+    setInterval(function() {
+        nameInput = this.document.querySelector(nameQ);
+        birthDate8DigitInput = this.document.querySelector(birth8DigitQ);
+        birthDate6DigitInput = this.document.querySelector(birth6DigitQ);
+        rrnInput = this.document.querySelector(rrnQ);
+        phone1Input = this.document.querySelector(phone1Q);
+        phone2Input = this.document.querySelector(phone2Q);
+        carrierInput = this.document.querySelector(carrierQ);
+        agreeInput = this.document.querySelector(agreeQ);
+        
+        // 이름
+        if(nameInput) {
+            nameInput.value = selectedProfile.name;
+            trigger_input_event(nameInput);
+        }
+
+        // 생년월일 8자리
+        if(birthDate8DigitInput) {
+            birthDate8DigitInput.value = selectedProfile.birth;
+            trigger_input_event(birthDate8DigitInput);
+        }
+
+        // 생년월일 6자리
+        if(birthDate6DigitInput) {
+            birthDate6DigitInput.value = selectedProfile.birth.substr(2, 6);
+            trigger_input_event(birthDate6DigitInput);
+        }
+        
+        // 전화번호 앞 3자리
+        if(phone1Input) {
+            phone1Input.value = selectedProfile.phone_number.substr (0, 3);
+            trigger_change_event(phone1Input);
+        }
+
+        // 전화번호 뒤 8자리
+        if(phone2Input) {
+            phone2Input.value = selectedProfile.phone_number.substr(3, 8);
+            trigger_input_event(phone2Input);
+        }
+
+        // 통신사
+        if(carrierInput) {
+            if (selectedProfile.carrier == carrier.SKT || selectedProfile.carrier == carrier.SKT_MVNO) {
+                carrierInput.value = 'S';
+            } else if (selectedProfile.carrier == carrier.KT || selectedProfile.carrier == carrier.KT_MVNO) {
+                carrierInput.value = 'K';
+            } else if (selectedProfile.carrier == carrier.LGU || selectedProfile.carrier == carrier.LGU_MVNO) {
+                carrierInput.value = 'L';
+            }
+            trigger_change_event(carrierInput);
+        }
+
+        // 약관동의
+        if(agreeInput && !agreeInput.checked) {
+            agreeInput.click();
+            // 주민등록번호 입력 포커스
+            if(rrnInput) {
+                rrnInput.focus();
+            }
+        }
+    }, 500);
+}
+
 window.onload = function () {
     this.console.log('Auth Autofill (본인인증 자동완성)\n한국 휴대전화 본인인증 서비스 자동완성 브라우저 확장 프로그램');
 
@@ -78,6 +153,7 @@ window.onload = function () {
             if (data.profiles) {
                 var profilesOb = JSON.parse(data.profiles).profiles;
                 var spI = data.selectedProfile;
+                var selectedProfile = profilesOb[spI];
                 var carrier = {
                     SKT: '1',
                     KT: '2',
@@ -507,355 +583,119 @@ window.onload = function () {
                     }
                 } else if (window.location.hostname == 'www.gov.kr') {
                     this.console.log('정부24');
-                    
-                    setInterval(function() {
-                        var nameInput = this.document.querySelector("#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(1) > div.ul-td > input[type=text]");
-                        var birthDateInput = this.document.querySelector("#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(2) > div.ul-td > input");
-                        var phone1Input = this.document.querySelector("#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(4) > div.ul-td > select:nth-child(2)");
-                        var phone2Input = this.document.querySelector("#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(4) > div.ul-td > input");
-                        var carrierInput = this.document.querySelector("#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li.telecom > div.ul-td > select.one-third.mr15");
-                        var agreeInput = this.document.querySelector("#totalAgree");
 
-                        if(nameInput) {
-                            nameInput.value = profilesOb[spI].name;
-                            trigger_input_event(nameInput);
-                        }
-                        if(birthDateInput) {
-                            birthDateInput.value = profilesOb[spI].birth;
-                            trigger_input_event(birthDateInput);
-                        }
-                        if(phone1Input) {
-                            phone1Input.value = profilesOb[spI].phone_number.substr(0, 3);
-                            trigger_change_event(phone1Input);
-                        }
-                        if(phone2Input) {
-                            phone2Input.value = profilesOb[spI].phone_number.substr(3, 8);
-                            trigger_input_event(phone2Input);
-                        }
-                        if(carrierInput) {
-                            if (profilesOb[spI].carrier == carrier.SKT || profilesOb[spI].carrier == carrier.SKT_MVNO) {
-                                carrierInput.value = 'S';
-                            } else if (profilesOb[spI].carrier == carrier.KT || profilesOb[spI].carrier == carrier.KT_MVNO) {
-                                carrierInput.value = 'K';
-                            } else if (profilesOb[spI].carrier == carrier.LGU || profilesOb[spI].carrier == carrier.LGU_MVNO) {
-                                carrierInput.value = 'L';
-                            }
-                            trigger_change_event(carrierInput);
-                        }
-                        if(agreeInput && !agreeInput.checked) {
-                            agreeInput.click();
-                        }
-                    }, 500);
-                    
+                    var nameInputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(1) > div.ul-td > input[type=text]";
+                    var birthDate8DigitInputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(2) > div.ul-td > input";
+                    var birthDate6DigitInputQuery = null;
+                    var rrnInputQuery = null;
+                    var phone1InputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(4) > div.ul-td > select:nth-child(2)";
+                    var phone2InputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(4) > div.ul-td > input";
+                    var carrierInputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li.telecom > div.ul-td > select.one-third.mr15";
+                    var agreeInputQuery = "#totalAgree";
+
+                    autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery, phone2InputQuery, carrierInputQuery, agreeInputQuery);
+
                 } else if (window.location.hostname == 'easysign.anyid.go.kr') {
                     this.console.log('행정안전부 ‘Any-ID’ 간편 로그인 서비스');
                     
-                    setInterval(function() {
-                        var nameInput = this.document.querySelector("#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(1) > div.ul-td > input[type=text]");
-                        var birthDateInput = this.document.querySelector("#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li.oacx-ssn > div.ul-td > input[type=text]:nth-child(1)");
-                        var rrnInput = this.document.querySelector("#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li.oacx-ssn > div.ul-td > input[type=password]:nth-child(2)");
-                        var phone1Input = this.document.querySelector("#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(4) > div.ul-td > select:nth-child(2)");
-                        var phone2Input = this.document.querySelector("#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(4) > div.ul-td > input");
-                        var carrierInput = this.document.querySelector("#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li.telecom > div.ul-td > select.one-third.mr15");
-                        var agreeInput = this.document.querySelector("#totalAgree");
+                    var nameInputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(1) > div.ul-td > input[type=text]";
+                    var birthDate8DigitInputQuery = null;
+                    var birthDate6DigitInputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li.oacx-ssn > div.ul-td > input[type=text]:nth-child(1)";
+                    var rrnInputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li.oacx-ssn > div.ul-td > input[type=password]:nth-child(2)";
+                    var phone1InputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(4) > div.ul-td > select:nth-child(2)";
+                    var phone2InputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(4) > div.ul-td > input";
+                    var carrierInputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li.telecom > div.ul-td > select.one-third.mr15";
+                    var agreeInputQuery = "#totalAgree";
 
-                        if(nameInput) {
-                            nameInput.value = profilesOb[spI].name;
-                            trigger_input_event(nameInput);
-                        }
-                        if(birthDateInput) {
-                            birthDateInput.value = profilesOb[spI].birth.substr(2, 6);
-                            trigger_input_event(birthDateInput);
-                        }
-                        if(phone1Input) {
-                            phone1Input.value = profilesOb[spI].phone_number.substr(0, 3);
-                            trigger_change_event(phone1Input);
-                        }
-                        if(phone2Input) {
-                            phone2Input.value = profilesOb[spI].phone_number.substr(3, 8);
-                            trigger_input_event(phone2Input);
-                        }
-                        if(carrierInput) {
-                            if (profilesOb[spI].carrier == carrier.SKT || profilesOb[spI].carrier == carrier.SKT_MVNO) {
-                                carrierInput.value = 'S';
-                            } else if (profilesOb[spI].carrier == carrier.KT || profilesOb[spI].carrier == carrier.KT_MVNO) {
-                                carrierInput.value = 'K';
-                            } else if (profilesOb[spI].carrier == carrier.LGU || profilesOb[spI].carrier == carrier.LGU_MVNO) {
-                                carrierInput.value = 'L';
-                            }
-                            trigger_change_event(carrierInput);
-                        }
-                        if(agreeInput && !agreeInput.checked) {
-                            agreeInput.click();
-                            if(rrnInput) {
-                                rrnInput.focus();
-                            }
-                        }
-                    }, 500);
-                    
+                    autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery, phone2InputQuery, carrierInputQuery, agreeInputQuery);
+
                 } else if (window.location.hostname == 'efamily.scourt.go.kr') {
                     this.console.log('가족관계등록시스템');
                     
-                    setInterval(function() {
-                        var phone1Input = this.document.querySelector("#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(4) > div.ul-td > select:nth-child(2)");
-                        var phone2Input = this.document.querySelector("#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(4) > div.ul-td > input");
-                        var carrierInput = this.document.querySelector("#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li.telecom > div.ul-td > select.one-third");
-                        var agreeInput = this.document.querySelector("#totalAgree");
+                    var nameInputQuery = null;
+                    var birthDate8DigitInputQuery = null;
+                    var birthDate6DigitInputQuery = null;
+                    var rrnInputQuery = null;
+                    var phone1InputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(4) > div.ul-td > select:nth-child(2)";
+                    var phone2InputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(4) > div.ul-td > input";
+                    var carrierInputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li.telecom > div.ul-td > select.one-third";
+                    var agreeInputQuery = "#totalAgree";
 
-                        if(phone1Input) {
-                            phone1Input.value = profilesOb[spI].phone_number.substr(0, 3);
-                            trigger_change_event(phone1Input);
-                        }
-                        if(phone2Input) {
-                            phone2Input.value = profilesOb[spI].phone_number.substr(3, 8);
-                            trigger_input_event(phone2Input);
-                        }
-                        if(carrierInput) {
-                            if (profilesOb[spI].carrier == carrier.SKT || profilesOb[spI].carrier == carrier.SKT_MVNO) {
-                                carrierInput.value = 'S';
-                            } else if (profilesOb[spI].carrier == carrier.KT || profilesOb[spI].carrier == carrier.KT_MVNO) {
-                                carrierInput.value = 'K';
-                            } else if (profilesOb[spI].carrier == carrier.LGU || profilesOb[spI].carrier == carrier.LGU_MVNO) {
-                                carrierInput.value = 'L';
-                            }
-                            trigger_change_event(carrierInput);
-                        }
-                        if(agreeInput && !agreeInput.checked) {
-                            agreeInput.click();
-                        }
-                    }, 500);
-                    
+                    autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery, phone2InputQuery, carrierInputQuery, agreeInputQuery);
+
                 } else if (window.location.hostname == 'www.efine.go.kr') {
                     this.console.log('교통민원24');
                     
-                    setInterval(function() {
-                        var nameInput = this.document.querySelector("#oacx_name");
-                        var birthDateInput = this.document.querySelector("#oacx_num1");
-                        var rrnInput = this.document.querySelector("#oacx_num2");
-                        var phone1Input = this.document.querySelector("#submitFm > table > tbody > tr.telecom > td > select:nth-child(2)");
-                        var phone1Input2 = document.querySelector("#oacx_phone1");
-                        var phone2Input = this.document.querySelector("#oacx_phone3");
-                        var phone2Input2 = this.document.querySelector("#oacx_phone2");
-                        var carrierInput = this.document.querySelector("#submitFm > table > tbody > tr.telecom > td > select:nth-child(1)");
-                        var agreeInput = this.document.querySelector("#oacx_total");
+                    var nameInputQuery = "#oacx_name";
+                    var birthDate8DigitInputQuery = null;
+                    var birthDate6DigitInputQuery = "#oacx_num1";
+                    var rrnInputQuery = "#oacx_num2";
+                    var phone1InputQuery = "#submitFm > table > tbody > tr.telecom > td > select:nth-child(2)";
+                    var phone1InputQuery2 = "#oacx_phone1";
+                    var phone2InputQuery = "#oacx_phone3";
+                    var phone2InputQuery2 = "#oacx_phone2";
+                    var carrierInputQuery = "#submitFm > table > tbody > tr.telecom > td > select:nth-child(1)";
+                    var agreeInputQuery = "#oacx_total";
 
-                        if(nameInput) {
-                            nameInput.value = profilesOb[spI].name;
-                            trigger_input_event(nameInput);
-                        }
-                        if(birthDateInput) {
-                            birthDateInput.value = profilesOb[spI].birth.substr(2, 6);
-                            trigger_input_event(birthDateInput);
-                        }
-                        if(phone1Input) {
-                            phone1Input.value = profilesOb[spI].phone_number.substr(0, 3);
-                            trigger_change_event(phone1Input);
-                        }
-                        if(phone1Input2) {
-                            phone1Input2.value = profilesOb[spI].phone_number.substr(0, 3);
-                            trigger_change_event(phone1Input2);
-                        }
-                        if(phone2Input) {
-                            phone2Input.value = profilesOb[spI].phone_number.substr(3, 8);
-                            trigger_input_event(phone2Input);
-                        }
-                        if(phone2Input2) {
-                            phone2Input2.value = profilesOb[spI].phone_number.substr(3, 8);
-                            trigger_input_event(phone2Input2);
-                        }
-                        if(carrierInput) {
-                            if (profilesOb[spI].carrier == carrier.SKT || profilesOb[spI].carrier == carrier.SKT_MVNO) {
-                                carrierInput.value = 'S';
-                            } else if (profilesOb[spI].carrier == carrier.KT || profilesOb[spI].carrier == carrier.KT_MVNO) {
-                                carrierInput.value = 'K';
-                            } else if (profilesOb[spI].carrier == carrier.LGU || profilesOb[spI].carrier == carrier.LGU_MVNO) {
-                                carrierInput.value = 'L';
-                            }
-                            trigger_change_event(carrierInput);
-                        }
-                        if(agreeInput && !agreeInput.checked) {
-                            agreeInput.click();
-                            if(rrnInput) {
-                                rrnInput.focus();
-                            }
-                        }
-                    }, 500);
-                    
+                    autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery, phone2InputQuery, carrierInputQuery, agreeInputQuery);
+                    autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery2, phone2InputQuery2, carrierInputQuery, agreeInputQuery);
+
                 } else if (window.location.hostname == 'www.egroup.go.kr') {
                     this.console.log('기업집단포털');
                     
-                    setInterval(function() {
-                        var nameInput = this.document.querySelector("#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(1) > div.ul-td > input[type=text]");
-                        var birthDateInput = this.document.querySelector("#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(2) > div.ul-td > input");
-                        var phone1Input = this.document.querySelector("#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(4) > div.ul-td > select:nth-child(2)");
-                        var phone2Input = this.document.querySelector("#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(4) > div.ul-td > input");
-                        var carrierInput = this.document.querySelector("#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li.telecom > div.ul-td > select.one-third.mr15");
-                        var agreeInput = this.document.querySelector("#policy4");
+                    var nameInputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(1) > div.ul-td > input[type=text]";
+                    var birthDate8DigitInputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(2) > div.ul-td > input";
+                    var birthDate6DigitInputQuery = null;
+                    var rrnInputQuery = null;
+                    var phone1InputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(4) > div.ul-td > select:nth-child(2)";
+                    var phone2InputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(4) > div.ul-td > input";
+                    var carrierInputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li.telecom > div.ul-td > select.one-third.mr15";
+                    var agreeInputQuery = "#policy4";
 
-                        if(nameInput) {
-                            nameInput.value = profilesOb[spI].name;
-                            trigger_input_event(nameInput);
-                        }
-                        if(birthDateInput) {
-                            birthDateInput.value = profilesOb[spI].birth;
-                            trigger_input_event(birthDateInput);
-                        }
-                        if(phone1Input) {
-                            phone1Input.value = profilesOb[spI].phone_number.substr(0, 3);
-                            trigger_change_event(phone1Input);
-                        }
-                        if(phone2Input) {
-                            phone2Input.value = profilesOb[spI].phone_number.substr(3, 8);
-                            trigger_input_event(phone2Input);
-                        }
-                        if(carrierInput) {
-                            if (profilesOb[spI].carrier == carrier.SKT || profilesOb[spI].carrier == carrier.SKT_MVNO) {
-                                carrierInput.value = 'S';
-                            } else if (profilesOb[spI].carrier == carrier.KT || profilesOb[spI].carrier == carrier.KT_MVNO) {
-                                carrierInput.value = 'K';
-                            } else if (profilesOb[spI].carrier == carrier.LGU || profilesOb[spI].carrier == carrier.LGU_MVNO) {
-                                carrierInput.value = 'L';
-                            }
-                            trigger_change_event(carrierInput);
-                        }
-                        if(agreeInput && !agreeInput.checked) {
-                            agreeInput.click();
-                            if(rrnInput) {
-                                rrnInput.focus();
-                            }
-                        }
-                    }, 500);
-                    
+                    autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery, phone2InputQuery, carrierInputQuery, agreeInputQuery);
+
                 } else if (window.location.hostname == 'www.icl.go.kr') {
                     this.console.log('학자금상환 시스템');
                     
-                    setInterval(function() {
-                        var nameInput = this.document.querySelector("#oacx_name");
-                        var birthDateInput = this.document.querySelector("#oacx_birth");
-                        var phone1Input = this.document.querySelector("#submitFm > table > tbody > tr:nth-child(4) > td > select:nth-child(2)");
-                        var phone2Input = this.document.querySelector("#oacx_phone3");
-                        var carrierInput = this.document.querySelector("#submitFm > table > tbody > tr:nth-child(4) > td > select:nth-child(1)");
-                        var agreeInput = this.document.querySelector("#oacx_total");
+                    var nameInputQuery = "#oacx_name";
+                    var birthDate8DigitInputQuery = "#oacx_birth";
+                    var birthDate6DigitInputQuery = null;
+                    var rrnInputQuery = null;
+                    var phone1InputQuery = "#submitFm > table > tbody > tr:nth-child(4) > td > select:nth-child(2)";
+                    var phone2InputQuery = "#oacx_phone3";
+                    var carrierInputQuery = "#submitFm > table > tbody > tr:nth-child(4) > td > select:nth-child(1)";
+                    var agreeInputQuery = "#oacx_total";
 
-                        if(nameInput) {
-                            nameInput.value = profilesOb[spI].name;
-                            trigger_input_event(nameInput);
-                        }
-                        if(birthDateInput) {
-                            birthDateInput.value = profilesOb[spI].birth;
-                            trigger_input_event(birthDateInput);
-                        }
-                        if(phone1Input) {
-                            phone1Input.value = profilesOb[spI].phone_number.substr(0, 3);
-                            trigger_change_event(phone1Input);
-                        }
-                        if(phone2Input) {
-                            phone2Input.value = profilesOb[spI].phone_number.substr(3, 8);
-                            trigger_input_event(phone2Input);
-                        }
-                        if(carrierInput) {
-                            if (profilesOb[spI].carrier == carrier.SKT || profilesOb[spI].carrier == carrier.SKT_MVNO) {
-                                carrierInput.value = 'S';
-                            } else if (profilesOb[spI].carrier == carrier.KT || profilesOb[spI].carrier == carrier.KT_MVNO) {
-                                carrierInput.value = 'K';
-                            } else if (profilesOb[spI].carrier == carrier.LGU || profilesOb[spI].carrier == carrier.LGU_MVNO) {
-                                carrierInput.value = 'L';
-                            }
-                            trigger_change_event(carrierInput);
-                        }
-                        if(agreeInput && !agreeInput.checked) {
-                            agreeInput.click();
-                        }
-                    }, 500);
-                    
+                    autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery, phone2InputQuery, carrierInputQuery, agreeInputQuery);
+
                 } else if (window.location.hostname == 'minwon.moj.go.kr') {
                     this.console.log('법무부 온라인민원서비스');
                     
-                    setInterval(function() {
-                        var nameInput = this.document.querySelector("#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(1) > div.ul-td > input[type=text]");
-                        var birthDateInput = this.document.querySelector("#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(2) > div.ul-td > input");
-                        var phone1Input = this.document.querySelector("#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(4) > div.ul-td > select:nth-child(2)");
-                        var phone2Input = this.document.querySelector("#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(4) > div.ul-td > input");
-                        var carrierInput = this.document.querySelector("#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(4) > div.ul-td > select.one-third.mr15");
-                        var agreeInput = this.document.querySelector("#totalAgree");
+                    var nameInputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(1) > div.ul-td > input[type=text]";
+                    var birthDate8DigitInputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(2) > div.ul-td > input";
+                    var birthDate6DigitInputQuery = null;
+                    var rrnInputQuery = null;
+                    var phone1InputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(4) > div.ul-td > select:nth-child(2)";
+                    var phone2InputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(4) > div.ul-td > input";
+                    var carrierInputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(4) > div.ul-td > select.one-third.mr15";
+                    var agreeInputQuery = "#totalAgree";
 
-                        if(nameInput) {
-                            nameInput.value = profilesOb[spI].name;
-                            trigger_input_event(nameInput);
-                        }
-                        if(birthDateInput) {
-                            birthDateInput.value = profilesOb[spI].birth;
-                            trigger_input_event(birthDateInput);
-                        }
-                        if(phone1Input) {
-                            phone1Input.value = profilesOb[spI].phone_number.substr(0, 3);
-                            trigger_change_event(phone1Input);
-                        }
-                        if(phone2Input) {
-                            phone2Input.value = profilesOb[spI].phone_number.substr(3, 8);
-                            trigger_input_event(phone2Input);
-                        }
-                        if(carrierInput) {
-                            if (profilesOb[spI].carrier == carrier.SKT || profilesOb[spI].carrier == carrier.SKT_MVNO) {
-                                carrierInput.value = 'S';
-                            } else if (profilesOb[spI].carrier == carrier.KT || profilesOb[spI].carrier == carrier.KT_MVNO) {
-                                carrierInput.value = 'K';
-                            } else if (profilesOb[spI].carrier == carrier.LGU || profilesOb[spI].carrier == carrier.LGU_MVNO) {
-                                carrierInput.value = 'L';
-                            }
-                            trigger_change_event(carrierInput);
-                        }
-                        if(agreeInput && !agreeInput.checked) {
-                            agreeInput.click();
-                        }
-                    }, 500);
-                    
+                    autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery, phone2InputQuery, carrierInputQuery, agreeInputQuery);
+
                 } else if (window.location.hostname == 'www.kosaf.go.kr') {
                     this.console.log('한국장학재단');
                     
-                    setInterval(function() {
-                        var nameInput = this.document.querySelector("#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(1) > div.ul-td > input[type=text]");
-                        var birthDateInput = this.document.querySelector("#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li.oacx-ssn > div.ul-td > input[type=text]:nth-child(1)");
-                        var rrnInput = this.document.querySelector("#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li.oacx-ssn > div.ul-td > input[type=password]:nth-child(2)");
-                        var phone1Input = this.document.querySelector("#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(4) > div.ul-td > select:nth-child(2)");
-                        var phone2Input = this.document.querySelector("#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(4) > div.ul-td > input");
-                        var carrierInput = this.document.querySelector("#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(4) > div.ul-td > select.one-third.mr15");
-                        var agreeInput = this.document.querySelector("#totalAgree");
+                    var nameInputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(1) > div.ul-td > input[type=text]";
+                    var birthDate8DigitInputQuery = null;
+                    var birthDate6DigitInputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li.oacx-ssn > div.ul-td > input[type=text]:nth-child(1)";
+                    var rrnInputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li.oacx-ssn > div.ul-td > input[type=password]:nth-child(2)";
+                    var phone1InputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(4) > div.ul-td > select:nth-child(2)";
+                    var phone2InputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(4) > div.ul-td > input";
+                    var carrierInputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(4) > div.ul-td > select.one-third.mr15";
+                    var agreeInputQuery = "#totalAgree";
 
-                        if(nameInput) {
-                            nameInput.value = profilesOb[spI].name;
-                            trigger_input_event(nameInput);
-                        }
-                        if(birthDateInput) {
-                            birthDateInput.value = profilesOb[spI].birth.substr(2, 6);
-                            trigger_input_event(birthDateInput);
-                        }
-                        if(phone1Input) {
-                            phone1Input.value = profilesOb[spI].phone_number.substr(0, 3);
-                            trigger_change_event(phone1Input);
-                        }
-                        if(phone2Input) {
-                            phone2Input.value = profilesOb[spI].phone_number.substr(3, 8);
-                            trigger_input_event(phone2Input);
-                        }
-                        if(carrierInput) {
-                            if (profilesOb[spI].carrier == carrier.SKT || profilesOb[spI].carrier == carrier.SKT_MVNO) {
-                                carrierInput.value = 'S';
-                            } else if (profilesOb[spI].carrier == carrier.KT || profilesOb[spI].carrier == carrier.KT_MVNO) {
-                                carrierInput.value = 'K';
-                            } else if (profilesOb[spI].carrier == carrier.LGU || profilesOb[spI].carrier == carrier.LGU_MVNO) {
-                                carrierInput.value = 'L';
-                            }
-                            trigger_change_event(carrierInput);
-                        }
-                        if(agreeInput && !agreeInput.checked) {
-                            agreeInput.click();
-                            if(rrnInput) {
-                                rrnInput.focus();
-                            }
-                        }
-                    }, 500);
-                    
+                    autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery, phone2InputQuery, carrierInputQuery, agreeInputQuery);
+
                 } 
             }
         } else {
