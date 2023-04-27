@@ -751,6 +751,55 @@ window.onload = function () {
                     autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery, phone2InputQuery, carrierInputQuery, agreeInputQuery);
                     autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery2, phone2InputQuery2, carrierInputQuery, agreeInputQuery);
 
+                } else if (window.location.hostname.includes('hometax.go.kr')) {
+                    this.console.log('홈택스');
+
+                    // 비회원로그인
+                    setInterval(function() {
+                        var nameInput = this.document.querySelector("#iptUserNm");
+                        var birthDateInput = this.document.querySelector("#iptUserJuminNo1");
+                        var rrnInput = this.document.querySelector("#iptUserJuminNo2");
+                        var agreeInput1 = this.document.querySelector("#prvcClgtArgeYn_input_0");
+                        var agreeInput2 = this.document.querySelector("#ukInfoYn_input_0")
+
+                        // 이름
+                        if(nameInput) {
+                            nameInput.value = selectedProfile.name;
+                            trigger_input_event(nameInput);
+                        }
+                
+                        // 생년월일 8자리
+                        if(birthDateInput) {
+                            birthDateInput.value = selectedProfile.birth.substr(2, 6);
+                            trigger_input_event(birthDateInput);
+                        }
+                
+                        // 약관동의
+                        if(agreeInput1 && !agreeInput1.checked) {
+                            agreeInput1.click();
+                        }
+
+                        // 약관동의
+                        if(agreeInput2 && !agreeInput2.checked) {
+                            agreeInput2.click();
+                            // 주민등록번호 입력 포커스
+                            if(rrnInput) {
+                                rrnInput.focus();
+                            }
+                        }
+                    }, 500);
+
+                    var nameInputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(1) > div.ul-td > input[type=text]";
+                    var birthDate8DigitInputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(2) > div.ul-td > input";
+                    var birthDate6DigitInputQuery = null;
+                    var rrnInputQuery = null;
+                    var phone1InputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(4) > div.ul-td > select:nth-child(2)";
+                    var phone2InputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(4) > div.ul-td > input";
+                    var carrierInputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li.telecom > div.ul-td > select.one-third.mr15";
+                    var agreeInputQuery = "#totalAgree";
+
+                    autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery, phone2InputQuery, carrierInputQuery, agreeInputQuery);
+                    
                 } 
             }
         } else {
