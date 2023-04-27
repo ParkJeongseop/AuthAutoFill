@@ -22,6 +22,13 @@ var way = {
     PASS: '2'
 }
 
+/**
+ * 주민등록번호 7번째 자리(성별) 가져오기
+ * @param {number} birth - 생년월일 8자리
+ * @param {number} gender - 성별 코드
+ * @param {number} foreigner - 내/외국인 코드
+ * @returns {number}
+ */
 function get_RRN_GenderNum(birth, gender, foreigner) {
     // 9: 1800 ~ 1899년에 태어난 남성
     // 0: 1800 ~ 1899년에 태어난 여성
