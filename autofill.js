@@ -549,44 +549,48 @@ window.onload = function () {
                     this.document.getElementById(carrierBtn).click();
                     if (!is_MNO(profilesOb[spI].carrier)) {
                         if (profilesOb[spI].carrier == carrier.SKT_MVNO) {
-                            this.document.querySelector("#layerPopupMvno > div.layer-pop.agency_select__popup > form > div.pop-con_02 > ul > li.first-item > div.licensee_title > a > label").click();
+                            this.document.querySelector("#layerPopupMvno > div.layer-pop > form > div.pop-con_02 > ul > li.first-item > div.licensee_title > a > label").click();
                         } else if (profilesOb[spI].carrier == carrier.KT_MVNO) {
-                            this.document.querySelector("#layerPopupMvno > div.layer-pop.agency_select__popup > form > div.pop-con_02 > ul > li:nth-child(2) > div.licensee_title > a > label").click();
+                            this.document.querySelector("#layerPopupMvno > div.layer-pop > form > div.pop-con_02 > ul > li:nth-child(2) > div.licensee_title > a > label").click();
                         } else if (profilesOb[spI].carrier == carrier.LGU_MVNO) {
-                            this.document.querySelector("#layerPopupMvno > div.layer-pop.agency_select__popup > form > div.pop-con_02 > ul > li:nth-child(3) > div.licensee_title > a > label").click();
+                            this.document.querySelector("#layerPopupMvno > div.layer-pop > form > div.pop-con_02 > ul > li:nth-child(3) > div.licensee_title > a > label").click();
                         }
                         this.document.querySelector("#btnSelectMvno").click();
                     }
 
                     // 약관 동의
-                    this.document.querySelector("#sectionStart01 > form > fieldset > ul.agreelist.all > li > span > label:nth-child(2)").click();
+                    this.document.querySelector("#agree_all").click();
                     
+                    // 인증 방식 선택
                     if (profilesOb[spI].way == way.SMS) { // SMS인증을 원하는 경우
                         this.document.querySelector("#btnSms").click();
                     } else if (profilesOb[spI].way == way.PASS) { // PASS인증을 원하는 경우
                         this.document.querySelector("#btnPass").click();
                     }
-                    this.console.log('인증페이지');
+
+                    // 자동완성
                     if (profilesOb[spI].way == way.SMS) { // SMS인증을 원하는 경우
-                        if (this.document.querySelector("#authTabSms > a").title != '선택됨') { //sms아닐때
-                            this.document.getElementById('authTabSms').click();
-                        } else {
-                            this.console.log('SMS 인증');
-                            this.console.log(this.document.getElementById('sms_username').value);
-                            this.document.getElementById('sms_username').value = profilesOb[spI].name;
-                            this.document.getElementById('sms_mynum1').value = profilesOb[spI].birth.substr(2, 6);
-                            this.document.getElementById('sms_mynum2').value = get_RRN_GenderNum(profilesOb[spI].birth, profilesOb[spI].gender, profilesOb[spI].foreigner);
-                            this.document.getElementById('sms_mobileno').value = profilesOb[spI].phone_number;
-                            this.document.getElementById('inputCaptcha').focus();
+                        if (this.document.querySelector("#authTabSms > a")) {
+                            if (this.document.querySelector("#authTabSms > a").title != '선택됨') { //sms아닐때
+                                this.document.getElementById('authTabSms').click();
+                            }
                         }
+
+                        this.document.getElementById('sms_username').value = profilesOb[spI].name;
+                        this.document.getElementById('sms_mynum1').value = profilesOb[spI].birth.substr(2, 6);
+                        this.document.getElementById('sms_mynum2').value = get_RRN_GenderNum(profilesOb[spI].birth, profilesOb[spI].gender, profilesOb[spI].foreigner);
+                        this.document.getElementById('sms_mobileno').value = profilesOb[spI].phone_number;
+                        this.document.getElementById('inputCaptcha').focus();
                     } else if (profilesOb[spI].way == way.PASS) { // PASS인증을 원하는 경우
-                        if (this.document.querySelector("#authTabPass > a").title != '선택됨') { //sms아닐때
-                            this.document.getElementById('authTabPass').click();
-                        } else {
-                            this.document.getElementById('push_username').value = profilesOb[spI].name;
-                            this.document.getElementById('push_mobileno').value = profilesOb[spI].phone_number;
-                            this.document.getElementById('inputCaptcha').focus();
+                        if (this.document.querySelector("#authTabPass > a")) {
+                            if (this.document.querySelector("#authTabPass > a").title != '선택됨') { //sms아닐때
+                                this.document.getElementById('authTabPass').click();
+                            }
                         }
+
+                        this.document.getElementById('push_username').value = profilesOb[spI].name;
+                        this.document.getElementById('push_mobileno').value = profilesOb[spI].phone_number;
+                        this.document.getElementById('inputCaptcha').focus();
                     }
                 } else if (window.location.hostname == 'www.gov.kr') {
                     this.console.log('정부24');
