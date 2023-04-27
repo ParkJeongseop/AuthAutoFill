@@ -232,6 +232,9 @@ window.onload = function () {
 
                 } else if (window.location.hostname == 'pcc.siren24.com') {
                     this.console.log('서울신용평가정보');
+                    // PC: https://pcc.siren24.com/pcc_V3/passWebV2/
+                    // Mobile: https://pcc.siren24.com/pcc_V3/passMobV2/pcc_V3_j10.jsp
+                    var isPC = window.location.pathname.includes('passWebV2');
 
                     if (this.document.querySelector("#ct > form:nth-child(1) > fieldset > ul.agency_select__items")) { //통신사 선택페이지
                         this.console.log('통신사 선택 페이지');
@@ -289,7 +292,25 @@ window.onload = function () {
                 } else if (window.location.hostname == 'safe.ok-name.co.kr') {
                     this.console.log('코리아크레딧뷰로');
 
-                    if (document.querySelector("#ct > form > fieldset > ul.agency_select__items")) { //통신사 선택페이지
+                    var isPC = !window.location.pathname.includes('MCommonSvl');
+
+                    if (!isPC) { // 모바일일때
+                        if (document.querySelector("#sms_auth") && !document.querySelector("#nm")) { // 인증방식 선택 페이지
+                            if (profilesOb[spI].way == way.SMS) { // SMS인증을 원하는 경우
+                                this.document.querySelector("#sms_auth").click();
+                            } else if (profilesOb[spI].way == way.PASS) { // PASS인증을 원하는 경우
+                                this.document.querySelector("#push_auth").click();
+                            }
+                        } else {
+                            this.document.getElementById('nm').value = profilesOb[spI].name;
+                            if (document.getElementById('ssn6')) {
+                                this.document.getElementById('ssn6').value = profilesOb[spI].birth.substr(2, 6);
+                                this.document.getElementById('ssn1').value = get_RRN_GenderNum(profilesOb[spI].birth, profilesOb[spI].gender, profilesOb[spI].foreigner);
+                            }
+                            this.document.getElementById('mbphn_no').value = profilesOb[spI].phone_number;
+                            this.document.getElementById('captchaCode').focus();
+                        }
+                    } else if (document.querySelector("#ct > form > fieldset > ul.agency_select__items")) { //통신사 선택페이지
                         this.console.log("통신사 선택페이지");
                         // 통신사 선택
                         if (profilesOb[spI].carrier == carrier.SKT) {
@@ -401,7 +422,7 @@ window.onload = function () {
 
                 } else if (window.location.hostname == 'www.kmcert.com') {
                     this.console.log('한국모바일인증');
-                    
+
                     // PC: https://www.kmcert.com/kmcis/web_v4/kmcisHp00.jsp
                     // Mobile: https://www.kmcert.com/kmcis/pass_m/kmcisPass00.jsp
                     var isPC = window.location.pathname.includes('web_v4');
