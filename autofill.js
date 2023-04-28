@@ -537,16 +537,20 @@ window.onload = function () {
                         this.document.getElementById(carrierBtn).click();
                         if (!is_MNO(profilesOb[spI].carrier)) { // 알뜰폰 통신사 선택페이지
                             if (profilesOb[spI].carrier == carrier.SKT_MVNO) {
-                                this.document.querySelector("#wrap > div:nth-child(4) > div.layer-pop.agency_select__popup > form > div.pop-con_02 > ul > li:nth-child(1) > label").click();
+                                this.document.querySelector("form > div.pop-con_02 > ul > li:nth-child(1) > label").click();
                             } else if (profilesOb[spI].carrier == carrier.KT_MVNO) {
-                                this.document.querySelector("#wrap > div:nth-child(4) > div.layer-pop.agency_select__popup > form > div.pop-con_02 > ul > li:nth-child(2) > label").click();
+                                this.document.querySelector("form > div.pop-con_02 > ul > li:nth-child(2) > label").click();
                             } else if (profilesOb[spI].carrier == carrier.LGU_MVNO) {
-                                this.document.querySelector("#wrap > div:nth-child(4) > div.layer-pop.agency_select__popup > form > div.pop-con_02 > ul > li:nth-child(3) > label").click();
+                                this.document.querySelector("form > div.pop-con_02 > ul > li:nth-child(3) > label").click();
                             }
                             this.document.querySelector("#btnMvnoSelect").click();
                         }
                         // 약관 동의
-                        this.document.querySelector("#frm > fieldset > ul.agreelist.all > li > div > label:nth-child(2)").click();
+                        if (isPC) {
+                            this.document.querySelector("#frm > fieldset > ul.agreelist.all > li > div > label:nth-child(2)").click();
+                        } else {
+                            this.document.querySelector("#agree_all").click();
+                        }
                         
                         if (profilesOb[spI].way == way.SMS) { // SMS인증을 원하는 경우
                             this.document.querySelector("#btnSms").click();
@@ -558,11 +562,11 @@ window.onload = function () {
                             this.document.getElementById('user_name').value = profilesOb[spI].name;
                             this.document.getElementById('mynum1').value = profilesOb[spI].birth.substr(2, 6);
                             this.document.getElementById('mynum2').value = get_RRN_GenderNum(profilesOb[spI].birth, profilesOb[spI].gender, profilesOb[spI].foreigner);
-                            this.document.getElementById('phone_no_rKey').value = profilesOb[spI].phone_number;
+                            this.document.getElementById(isPC ? 'phone_no_rKey' : 'phone_no').value = profilesOb[spI].phone_number;
                             this.document.getElementById('captcha_no').focus();
                         } else if (profilesOb[spI].way == way.PASS) { // PASS인증을 원하는 경우
                             this.document.getElementById('user_name').value = profilesOb[spI].name;
-                            this.document.getElementById('phone_no_rKey').value = profilesOb[spI].phone_number;
+                            this.document.getElementById(isPC ? 'phone_no_rKey' : '#phone_no').value = profilesOb[spI].phone_number;
                             this.document.getElementById('captcha_no').focus();
                         }
                     }
