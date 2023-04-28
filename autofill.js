@@ -232,8 +232,6 @@ window.onload = function () {
 
                 } else if (window.location.hostname == 'pcc.siren24.com') {
                     this.console.log('서울신용평가정보');
-                    // PC: https://pcc.siren24.com/pcc_V3/passWebV2/
-                    // Mobile: https://pcc.siren24.com/pcc_V3/passMobV2/pcc_V3_j10.jsp
                     var isPC = window.location.pathname.includes('passWebV2');
 
                     if (this.document.querySelector("#ct > form:nth-child(1) > fieldset > ul.agency_select__items")) { //통신사 선택페이지
@@ -262,6 +260,7 @@ window.onload = function () {
                         // 약관 동의
                         this.document.querySelector("#ct > form:nth-child(1) > fieldset > ul.agreelist.all > li > span > label:nth-child(2)").click();
                     
+                        // 다음 페이지 버튼
                         if (profilesOb[spI].way == way.SMS) { // SMS인증을 원하는 경우
                             this.document.querySelector("#btnSms").click();
                         } else if (profilesOb[spI].way == way.PASS) { // PASS인증을 원하는 경우
@@ -269,22 +268,26 @@ window.onload = function () {
                         }
                     } else {
                         if (profilesOb[spI].way == way.SMS) { // SMS인증을 원하는 경우
-                            if (this.document.querySelector("#sms_auth").title != '선택됨') { //sms아닐때
+                            if (isPC && this.document.querySelector("#sms_auth").title != '선택됨') { //sms아닐때
                                 this.document.querySelector("#sms_auth").click();
                             } else {
                                 this.document.getElementById('userName').value = profilesOb[spI].name;
-                                this.document.getElementById('birthDay1').value = profilesOb[spI].birth.substr(2, 6);
+                                this.document.getElementById(isPC ? 'birthDay1' : 'birthDay').value = profilesOb[spI].birth.substr(2, 6);
                                 this.document.getElementById('birthDay2').value = get_RRN_GenderNum(profilesOb[spI].birth, profilesOb[spI].gender, profilesOb[spI].foreigner)
                                 this.document.getElementById('No').value = profilesOb[spI].phone_number;
-                                this.document.getElementById('secur').focus();
+                                if (isPC) {
+                                    this.document.getElementById('secur').focus();
+                                }
                             }
                         } else if (profilesOb[spI].way == way.PASS) { // PASS인증을 원하는 경우
-                            if (this.document.querySelector("#qr_auth").title != '선택됨') { //sms아닐때
+                            if (isPC && this.document.querySelector("#qr_auth").title != '선택됨') { //sms아닐때
                                 this.document.querySelector("#sms_auth").click();
                             } else {
                                 this.document.getElementsByName('userName')[0].value = profilesOb[spI].name;
                                 this.document.getElementsByName('No')[0].value = profilesOb[spI].phone_number;
-                                this.document.getElementById('secur').focus();
+                                if (isPC) {
+                                    this.document.getElementById('secur').focus();
+                                }
                             }
                         }
                     }
@@ -325,11 +328,11 @@ window.onload = function () {
                         this.document.getElementById(carrierBtn).click();
                         if (carrierBtn == 'agency-and') {
                             if (profilesOb[spI].carrier == carrier.SKT_MVNO) {
-                                this.document.querySelector("#wrap > div:nth-child(5) > div.layer-pop.agency_select__popup > div.pop-con_02 > ul > li.first-item > div.licensee_title > a > label").click();
+                                this.document.querySelector("ul > li:nth-child(1) > div.licensee_title > a > label").click();
                             } else if (profilesOb[spI].carrier == carrier.KT_MVNO) {
-                                this.document.querySelector("#wrap > div:nth-child(5) > div.layer-pop.agency_select__popup > div.pop-con_02 > ul > li:nth-child(2) > div.licensee_title > a > label").click();
+                                this.document.querySelector("ul > li:nth-child(2) > div.licensee_title > a > label").click();
                             } else if (profilesOb[spI].carrier == carrier.LGU_MVNO) {
-                                this.document.querySelector("#wrap > div:nth-child(5) > div.layer-pop.agency_select__popup > div.pop-con_02 > ul > li:nth-child(3) > div.licensee_title > a > label").click();
+                                this.document.querySelector("ul > li:nth-child(3) > div.licensee_title > a > label").click();
                             }
                             this.document.querySelector("#mvnoCheck").click();
                         }
