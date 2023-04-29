@@ -35,7 +35,7 @@
  * [나이스신용평가정보](http://www.namecheck.co.kr)
  * [서울신용평가정보](http://www.seoulcredit.co.kr)
  * [코리아크레딧뷰로](http://ok-name.co.kr)
- * [드림시큐러티](http://www.mobile-ok.com)
+ * [드림시큐리티](http://www.mobile-ok.com)
  * [한국모바일인증](http://www.kmcert.com)
  * [한국사이버결제](http://www.kcp.co.kr)
  * [다날](https://www.danal.co.kr)

@@ -383,7 +383,7 @@ window.onload = function () {
                     }
 
                 } else if (window.location.hostname == 'www.mobile-ok.com') {
-                    log('드림시큐러티');
+                    log('드림시큐리티');
                     
                     if (this.document.getElementById('agency-sk')) { //통신사 선택페이지
                         if (this.document.getElementById('agency-sk').value == 'SKT') {
