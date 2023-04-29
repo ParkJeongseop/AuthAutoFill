@@ -535,6 +535,7 @@ window.onload = function () {
 
                 } else if (window.location.hostname == 'cert.kcp.co.kr') {
                     log('한국사이버결제');
+                    var isPC = !window.location.pathname.includes('/mo');
 
                     if (this.document.querySelector("#frm > fieldset")) { //통신사 선택페이지
                         if (profilesOb[spI].carrier == carrier.SKT) {
@@ -569,7 +570,7 @@ window.onload = function () {
                         } else if (profilesOb[spI].way == way.PASS) { // PASS인증을 원하는 경우
                             this.document.querySelector("#btnPass").click();
                         }
-                    } else {
+                    } else if (this.document.getElementById('user_name')) {
                         if (profilesOb[spI].way == way.SMS) { // SMS인증을 원하는 경우
                             this.document.getElementById('user_name').value = profilesOb[spI].name;
                             this.document.getElementById('mynum1').value = profilesOb[spI].birth.substr(2, 6);
@@ -578,7 +579,7 @@ window.onload = function () {
                             this.document.getElementById('captcha_no').focus();
                         } else if (profilesOb[spI].way == way.PASS) { // PASS인증을 원하는 경우
                             this.document.getElementById('user_name').value = profilesOb[spI].name;
-                            this.document.getElementById(isPC ? 'phone_no_rKey' : '#phone_no').value = profilesOb[spI].phone_number;
+                            this.document.getElementById(isPC ? 'phone_no_rKey' : 'phone_no').value = profilesOb[spI].phone_number;
                             this.document.getElementById('captcha_no').focus();
                         }
                     }
