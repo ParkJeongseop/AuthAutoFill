@@ -188,7 +188,7 @@ window.onload = function () {
 
                 if (window.location.hostname == 'nice.checkplus.co.kr') {
                     log('나이스신용평가정보');
-                    
+
                     var isPC = !window.location.search.includes('authMobileMain');
 
                     if (this.document.getElementById('agency-skt')) { //통신사 선택페이지
@@ -920,6 +920,23 @@ window.onload = function () {
 
                     autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery, phone2InputQuery, carrierInputQuery, agreeInputQuery);
                     
+                } else if (window.location.hostname == 'www.nfqs.go.kr') {
+                    log('국립수산물품질관리원');
+
+                    var nameInputQuery = "#oacx_name";
+                    var birthDate8DigitInputQuery = "#oacx_birth";
+                    var birthDate6DigitInputQuery = null;
+                    var rrnInputQuery = null;
+                    var phone1InputQuery = "#oacx_phone1";
+                    var phone1InputQuery2 = "#submitFm > table > tbody > tr.telecom > td > select:nth-child(2)";
+                    var phone2InputQuery = "#oacx_phone2";
+                    var phone2InputQuery2 = "#oacx_phone3";
+                    var carrierInputQuery = "#submitFm > table > tbody > tr.telecom > td > select:nth-child(1)";
+                    var agreeInputQuery = "#oacx_policy3";
+
+                    autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery, phone2InputQuery, carrierInputQuery, agreeInputQuery);
+                    autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery2, phone2InputQuery2, carrierInputQuery, agreeInputQuery);
+
                 } 
             }
         } else {

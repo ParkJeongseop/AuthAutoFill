@@ -18,7 +18,6 @@
 
 # 지원 본인인증 서비스 목록
 ## 행정안전부 ‘민간 간편인증 서비스’
- * [행정안전부 ‘Any-ID’ 간편 로그인 서비스](https://www.mois.go.kr/frt/bbs/type010/commonSelectBoardArticle.do?bbsId=BBSMSTR_000000000008&nttId=97826)
  * [정부24](https://www.gov.kr)
  * [가족관계등록시스템](https://efamily.scourt.go.kr)
  * [교통민원24](https://www.efine.go.kr)
@@ -30,6 +29,12 @@
  * [국민신문고](https://www.epeople.go.kr)
  * [예비군홈페이지](https://www.yebigun1.mil.kr)
  * [홈택스](https://www.hometax.go.kr)
+ * [국립수산물품질관리원](https://www.nfqs.go.kr)
+ * [행정안전부 ‘Any-ID’ 간편 로그인 서비스](https://www.mois.go.kr/frt/bbs/type010/commonSelectBoardArticle.do?bbsId=BBSMSTR_000000000008&nttId=97826) (서비스중개형)
+    * [청원24](https://www.cheongwon.go.kr)
+    * [노동포털 시스템](https://labor.moel.go.kr)
+    * [나만의 예우시스템](https://pmp.mpva.go.kr)
+    * [제대군인 전직지원시스템](https://www.vnet.go.kr)
 
 ## 이동통신사 휴대전화 본인인증
  * [나이스신용평가정보](http://www.namecheck.co.kr)
