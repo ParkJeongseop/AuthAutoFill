@@ -10,7 +10,11 @@ browser = getBrowser();
 
 debug = false
 
-function print(string) {
+/**
+ * 개발진행시 console.log()
+ * @param {string} string - 출력할 문자열
+ */
+function log(string) {
     if (debug) {
         this.console.log(string);
     }
@@ -160,11 +164,11 @@ function autofill_for_mois(selectedProfile, nameQ, birth8DigitQ, birth6DigitQ, r
 }
 
 window.onload = function () {
-    print('Auth Autofill (본인인증 자동완성)\n한국 휴대전화 본인인증 서비스 자동완성 브라우저 확장 프로그램');
+    log('Auth Autofill (본인인증 자동완성)\n한국 휴대전화 본인인증 서비스 자동완성 브라우저 확장 프로그램');
 
     browser.storage.sync.get(function (data) {
         if (data.on) {
-            print('ON');
+            log('ON');
             if (data.profiles) {
                 var profilesOb = JSON.parse(data.profiles).profiles;
                 var spI = data.selectedProfile;
@@ -183,10 +187,10 @@ window.onload = function () {
                 };
 
                 if (window.location.hostname == 'nice.checkplus.co.kr') {
-                    print('나이스신용평가정보');
+                    log('나이스신용평가정보');
 
                     if (this.document.getElementById('agency-skt')) { //통신사 선택페이지
-                        print("통신사 선택페이지");
+                        log("통신사 선택페이지");
                         // 통신사 선택
                         if (profilesOb[spI].carrier == carrier.SKT) {
                             this.document.getElementById('agency-skt').click();
@@ -239,11 +243,11 @@ window.onload = function () {
                     }
 
                 } else if (window.location.hostname == 'pcc.siren24.com') {
-                    print('서울신용평가정보');
+                    log('서울신용평가정보');
                     var isPC = window.location.pathname.includes('passWebV2');
 
                     if (this.document.querySelector("#ct > form:nth-child(1) > fieldset > ul.agency_select__items")) { //통신사 선택페이지
-                        print('통신사 선택 페이지');
+                        log('통신사 선택 페이지');
                         if (profilesOb[spI].carrier == carrier.SKT) {
                             var carrierBtn = 'agency-sk';
                         } else if (profilesOb[spI].carrier == carrier.KT) {
@@ -301,7 +305,7 @@ window.onload = function () {
                     }
 
                 } else if (window.location.hostname == 'safe.ok-name.co.kr') {
-                    print('코리아크레딧뷰로');
+                    log('코리아크레딧뷰로');
 
                     var isPC = !window.location.pathname.includes('MCommonSvl');
 
@@ -322,7 +326,7 @@ window.onload = function () {
                             this.document.getElementById('captchaCode').focus();
                         }
                     } else if (document.querySelector("#ct > form > fieldset > ul.agency_select__items")) { //통신사 선택페이지
-                        print("통신사 선택페이지");
+                        log("통신사 선택페이지");
                         // 통신사 선택
                         if (profilesOb[spI].carrier == carrier.SKT) {
                             var carrierBtn = 'agency-sk';
@@ -379,7 +383,7 @@ window.onload = function () {
                     }
 
                 } else if (window.location.hostname == 'www.mobile-ok.com') {
-                    print('드림시큐러티');
+                    log('드림시큐러티');
                     
                     if (this.document.getElementById('agency-sk')) { //통신사 선택페이지
                         if (this.document.getElementById('agency-sk').value == 'SKT') {
@@ -432,7 +436,7 @@ window.onload = function () {
                     }
 
                 } else if (window.location.hostname == 'www.kmcert.com') {
-                    print('한국모바일인증');
+                    log('한국모바일인증');
 
                     // PC: https://www.kmcert.com/kmcis/web_v4/kmcisHp00.jsp
                     // Mobile: https://www.kmcert.com/kmcis/pass_m/kmcisPass00.jsp
@@ -530,7 +534,7 @@ window.onload = function () {
                     }
 
                 } else if (window.location.hostname == 'cert.kcp.co.kr') {
-                    print('한국사이버결제');
+                    log('한국사이버결제');
 
                     if (this.document.querySelector("#frm > fieldset")) { //통신사 선택페이지
                         if (profilesOb[spI].carrier == carrier.SKT) {
@@ -579,7 +583,7 @@ window.onload = function () {
                         }
                     }
                 } else if (window.location.hostname == 'nid.naver.com') {
-                    print('네이버');
+                    log('네이버');
                     
                     this.document.querySelector("#chk_agree3Lb").click();
                     this.document.getElementById('nm').value = profilesOb[spI].name;
@@ -616,7 +620,7 @@ window.onload = function () {
                     this.document.getElementById('phone_no').value = profilesOb[spI].phone_number;
                     this.document.querySelector("#auth_no").focus();
                 } else if (window.location.hostname == 'wauth.teledit.com') {
-                    print('다날');
+                    log('다날');
                     if (profilesOb[spI].carrier == carrier.SKT) {
                         var carrierBtn = 'agency-sk';
                     } else if (profilesOb[spI].carrier == carrier.KT) {
@@ -673,7 +677,7 @@ window.onload = function () {
                         this.document.getElementById('inputCaptcha').focus();
                     }
                 } else if (window.location.hostname == 'www.gov.kr') {
-                    print('정부24');
+                    log('정부24');
 
                     var nameInputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(1) > div.ul-td > input[type=text]";
                     var birthDate8DigitInputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(2) > div.ul-td > input";
@@ -687,7 +691,7 @@ window.onload = function () {
                     autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery, phone2InputQuery, carrierInputQuery, agreeInputQuery);
 
                 } else if (window.location.hostname == 'easysign.anyid.go.kr') {
-                    print('행정안전부 ‘Any-ID’ 간편 로그인 서비스');
+                    log('행정안전부 ‘Any-ID’ 간편 로그인 서비스');
                     
                     var nameInputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(1) > div.ul-td > input[type=text]";
                     var birthDate8DigitInputQuery = null;
@@ -701,7 +705,7 @@ window.onload = function () {
                     autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery, phone2InputQuery, carrierInputQuery, agreeInputQuery);
 
                 } else if (window.location.hostname == 'efamily.scourt.go.kr') {
-                    print('가족관계등록시스템');
+                    log('가족관계등록시스템');
                     
                     var nameInputQuery = null;
                     var birthDate8DigitInputQuery = null;
@@ -715,7 +719,7 @@ window.onload = function () {
                     autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery, phone2InputQuery, carrierInputQuery, agreeInputQuery);
 
                 } else if (window.location.hostname == 'www.efine.go.kr') {
-                    print('교통민원24');
+                    log('교통민원24');
                     
                     var nameInputQuery = "#oacx_name";
                     var birthDate8DigitInputQuery = null;
@@ -732,7 +736,7 @@ window.onload = function () {
                     autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery2, phone2InputQuery2, carrierInputQuery, agreeInputQuery);
 
                 } else if (window.location.hostname == 'www.egroup.go.kr') {
-                    print('기업집단포털');
+                    log('기업집단포털');
                     
                     var nameInputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(1) > div.ul-td > input[type=text]";
                     var birthDate8DigitInputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(2) > div.ul-td > input";
@@ -746,7 +750,7 @@ window.onload = function () {
                     autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery, phone2InputQuery, carrierInputQuery, agreeInputQuery);
 
                 } else if (window.location.hostname == 'www.icl.go.kr') {
-                    print('학자금상환 시스템');
+                    log('학자금상환 시스템');
                     
                     var nameInputQuery = "#oacx_name";
                     var birthDate8DigitInputQuery = "#oacx_birth";
@@ -760,7 +764,7 @@ window.onload = function () {
                     autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery, phone2InputQuery, carrierInputQuery, agreeInputQuery);
 
                 } else if (window.location.hostname == 'minwon.moj.go.kr') {
-                    print('법무부 온라인민원서비스');
+                    log('법무부 온라인민원서비스');
                     
                     var nameInputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(1) > div.ul-td > input[type=text]";
                     var birthDate8DigitInputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(2) > div.ul-td > input";
@@ -774,7 +778,7 @@ window.onload = function () {
                     autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery, phone2InputQuery, carrierInputQuery, agreeInputQuery);
 
                 } else if (window.location.hostname == 'www.kosaf.go.kr') {
-                    print('한국장학재단');
+                    log('한국장학재단');
                     
                     var nameInputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(1) > div.ul-td > input[type=text]";
                     var birthDate8DigitInputQuery = null;
@@ -788,7 +792,7 @@ window.onload = function () {
                     autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery, phone2InputQuery, carrierInputQuery, agreeInputQuery);
 
                 } else if (window.location.hostname == 'www.epost.go.kr') {
-                    print('인터넷우체국');
+                    log('인터넷우체국');
                     
                     var nameInputQuery = "#oacx_name";
                     var birthDate8DigitInputQuery = "#oacx_birth";
@@ -805,7 +809,7 @@ window.onload = function () {
                     autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery2, phone2InputQuery2, carrierInputQuery, agreeInputQuery);
 
                 } else if (window.location.hostname == 'www.epeople.go.kr') {
-                    print('국민신문고');
+                    log('국민신문고');
                     
                     var nameInputQuery = "#oacx_name";
                     var birthDate8DigitInputQuery = null;
@@ -822,7 +826,7 @@ window.onload = function () {
                     autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery2, phone2InputQuery2, carrierInputQuery, agreeInputQuery);
 
                 } else if (window.location.hostname == 'www.yebigun1.mil.kr') {
-                    print('예비군홈페이지');
+                    log('예비군홈페이지');
 
                     // 공동인증서(구 공인인증서) 자동완성
                     this.document.querySelector("#name").value = selectedProfile.name;
@@ -843,7 +847,7 @@ window.onload = function () {
                     autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery2, phone2InputQuery2, carrierInputQuery, agreeInputQuery);
 
                 } else if (window.location.hostname.includes('hometax.go.kr')) {
-                    print('홈택스');
+                    log('홈택스');
 
                     // 비회원로그인
                     setInterval(function() {
@@ -894,7 +898,7 @@ window.onload = function () {
                 } 
             }
         } else {
-            print('OFF');
+            log('OFF');
         }
     });
 };
