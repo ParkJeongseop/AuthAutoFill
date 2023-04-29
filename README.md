@@ -27,6 +27,7 @@
  * [한국장학재단](https://www.kosaf.go.kr)
  * [인터넷우체국](https://www.epost.go.kr)
  * [국민신문고](https://www.epeople.go.kr)
+ * [병무민원](https://mwpt.mma.go.kr)
  * [예비군홈페이지](https://www.yebigun1.mil.kr)
  * [홈택스](https://www.hometax.go.kr)
  * [국립수산물품질관리원](https://www.nfqs.go.kr)

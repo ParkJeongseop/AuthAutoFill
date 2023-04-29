@@ -850,12 +850,28 @@ window.onload = function () {
                     autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery, phone2InputQuery, carrierInputQuery, agreeInputQuery);
                     autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery2, phone2InputQuery2, carrierInputQuery, agreeInputQuery);
 
+                } else if (window.location.hostname == 'cert.mma.go.kr') {
+                    log('병무민원');
+
+                    var nameInputQuery = null;
+                    var birthDate8DigitInputQuery = null;
+                    var birthDate6DigitInputQuery = null;
+                    var rrnInputQuery = null;
+                    var phone1InputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(4) > div.ul-td > select:nth-child(2)";
+                    var phone2InputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(4) > div.ul-td > input";
+                    var carrierInputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li.telecom > div.ul-td > select.one-third.mr15";
+                    var agreeInputQuery = "#totalAgree";
+
+                    autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery, phone2InputQuery, carrierInputQuery, agreeInputQuery);
+                    
                 } else if (window.location.hostname == 'www.yebigun1.mil.kr') {
                     log('예비군홈페이지');
 
                     // 공동인증서(구 공인인증서) 자동완성
-                    this.document.querySelector("#name").value = selectedProfile.name;
-                    this.document.querySelector("#reg_no_first").value = selectedProfile.birth.substr(2, 6);
+                    if (this.document.querySelector("#name")) {
+                        this.document.querySelector("#name").value = selectedProfile.name;
+                        this.document.querySelector("#reg_no_first").value = selectedProfile.birth.substr(2, 6);    
+                    }
                     
                     var nameInputQuery = "#oacx_name";
                     var birthDate8DigitInputQuery = null;
