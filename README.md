@@ -5,7 +5,7 @@ A browser extension that autofills identity verification services in South Korea
 
 ## 설치
 <a href="https://chrome.google.com/webstore/detail/auth-autofill/picheccdgiofpnkjbkekgkcighblblem" target="_blank"><img src="https://imgur.com/3C4iKO0.png" width="64" height="64"></a>
-<a href="https://store.whale.naver.com/detail/ncfnbaompehfhemgcpfkokcecnmohigo" target="_blank"><img src="https://forum.whale.naver.com/uploads/monthly_2018_12/998B03335A1976361A.thumb.png.7be81b91204d32d6d7f87cb074a33fbd.png" width="64" height="64"></a>
+<a href="https://store.whale.naver.com/detail/ncfnbaompehfhemgcpfkokcecnmohigo" target="_blank"><img src="https://i.imgur.com/9jjV1z7.png" width="64" height="64"></a>
 <a href="https://addons.mozilla.org/ko/firefox/addon/auth-autofill/" target="_blank"><img src="https://imgur.com/ihXsdDO.png" width="64" height="64"></a>
 <a href="https://microsoftedge.microsoft.com/addons/detail/본인인증-자동완성-auth-autofill/lifloelaookkeeajgkoobphhdkinfhlp" target="_blank"><img src="https://imgur.com/vMcaXaw.png" width="64" height="64"></a>
 <a href="https://addons.opera.com/ko/extensions/details/bonininjeung-jadongwanseong-auth-autofill/" target="_blank"><img src="https://imgur.com/nSJ9htU.png" width="64" height="64"></a>
