@@ -188,6 +188,8 @@ window.onload = function () {
 
                 if (window.location.hostname == 'nice.checkplus.co.kr') {
                     log('나이스신용평가정보');
+                    
+                    var isPC = !window.location.search.includes('authMobileMain');
 
                     if (this.document.getElementById('agency-skt')) { //통신사 선택페이지
                         log("통신사 선택페이지");
@@ -202,27 +204,34 @@ window.onload = function () {
                             //MVNO 선택
                             this.document.querySelector("#agency-and").click();
                             if (profilesOb[spI].carrier == carrier.SKT_MVNO) {
-                                var carrierBtn = '#SKT > label';
+                                var carrierBtn = isPC ? '#SKT > label' : '#mvnoLayer > div.layer-pop.agency_select__popup > div.pop-con_02 > ul > li:nth-child(1) > div.licensee_title > a > label';
                             } else if (profilesOb[spI].carrier == carrier.KT_MVNO) {
-                                var carrierBtn = '#KT > label';
+                                var carrierBtn = isPC ? '#KT > label' : '#mvnoLayer > div.layer-pop.agency_select__popup > div.pop-con_02 > ul > li:nth-child(2) > div.licensee_title > a > label';
                             } else if (profilesOb[spI].carrier == carrier.LGU_MVNO) {
-                                var carrierBtn = '#LGU+ > label';
+                                var carrierBtn = isPC ? '#LGU+ > label' : '#mvnoLayer > div.layer-pop.agency_select__popup > div.pop-con_02 > ul > li:nth-child(3) > div.licensee_title > a > label';
                             }
                             this.document.querySelector(carrierBtn).click();
                             this.document.querySelector("#mvnoLayerCheck").click();
                             
                         }
                         // 약관 동의
-                        this.document.querySelector("#ct > fieldset > ul.agreelist.all > li > span > label:nth-child(2)").click();
+                        this.document.querySelector("#agree_all").click();
 
                         if (profilesOb[spI].way == way.SMS) { // SMS인증을 원하는 경우
                             this.document.querySelector("#btnSms").click();
                         } else if (profilesOb[spI].way == way.PASS) { // PASS인증을 원하는 경우
                             this.document.querySelector("#btnPass").click();
                         }
+                    } else if (this.document.querySelector("#ct > div > div") && this.document.querySelector("#ct > div > div").className == 'passInstallInfo') {
+                        // 인증방식 선택페이지 (모바일에서 PASS 선택시)
+                        if (profilesOb[spI].way == way.SMS) { // SMS인증을 원하는 경우
+                            this.document.querySelector("#btnSms").click();
+                        } else if (profilesOb[spI].way == way.PASS) { // PASS인증을 원하는 경우
+                            this.document.querySelector("#btnSimple").click();
+                        }
                     } else {
                         if (profilesOb[spI].way == way.SMS) { // SMS인증을 원하는 경우
-                            if (this.document.getElementById('smsAuth').title != '선택됨') { //sms아닐때
+                            if (this.document.getElementById('smsAuth') && this.document.getElementById('smsAuth').title != '선택됨') { //sms아닐때
                                 this.document.getElementById('smsAuth').click();
                             } else {
                                 this.document.getElementById('username').value = profilesOb[spI].name;
@@ -232,7 +241,7 @@ window.onload = function () {
                                 this.document.getElementById('answer').focus();
                             }
                         } else if (profilesOb[spI].way == way.PASS) { // PASS인증을 원하는 경우
-                            if (this.document.getElementById('simpleAuth').title != '선택됨') { //PASS아닐때
+                            if (this.document.getElementById('simpleAuth') && this.document.getElementById('simpleAuth').title != '선택됨') { //PASS아닐때
                                 this.document.getElementById('simpleAuth').click();
                             } else {
                                 this.document.getElementById('username').value = profilesOb[spI].name;
@@ -384,7 +393,7 @@ window.onload = function () {
 
                 } else if (window.location.hostname == 'www.mobile-ok.com') {
                     log('드림시큐리티');
-                    
+
                     var isPC = window.location.pathname.includes('CommonQR');
 
                     // 보안 프로그램 설치 유도창 닫기
