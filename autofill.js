@@ -39,7 +39,7 @@ var way = {
  * @param {number} birth - 생년월일 8자리
  * @param {number} gender - 성별 코드
  * @param {number} foreigner - 내/외국인 코드
- * @returns {number}
+ * @returns {number} 주민등록번호 7번째 자리
  */
 function get_RRN_GenderNum(birth, gender, foreigner) {
     // 9: 1800 ~ 1899년에 태어난 남성
@@ -98,9 +98,10 @@ function trigger_change_event(element) {
  * @param {string} phone2Q - 전화번호 뒤 8자리 input element query string
  * @param {string} carrierQ - 통신사 input element query string
  * @param {string} agreeQ - 약관동의 input element query string
+ * @returns {number} interval ID
  */
 function autofill_for_mois(selectedProfile, nameQ, birth8DigitQ, birth6DigitQ, rrnQ, phone1Q, phone2Q, carrierQ, agreeQ) {
-    setInterval(function() {
+    return setInterval(function() {
         nameInput = this.document.querySelector(nameQ);
         birthDate8DigitInput = this.document.querySelector(birth8DigitQ);
         birthDate6DigitInput = this.document.querySelector(birth6DigitQ);
@@ -717,7 +718,8 @@ window.onload = function () {
 
                 } else if (window.location.hostname == 'easysign.anyid.go.kr') {
                     log('행정안전부 ‘Any-ID’ 간편 로그인 서비스');
-                    
+
+                    // PC
                     var nameInputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(1) > div.ul-td > input[type=text]";
                     var birthDate8DigitInputQuery = null;
                     var birthDate6DigitInputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li.oacx-ssn > div.ul-td > input[type=text]:nth-child(1)";
@@ -728,6 +730,31 @@ window.onload = function () {
                     var agreeInputQuery = "#totalAgree";
 
                     autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery, phone2InputQuery, carrierInputQuery, agreeInputQuery);
+
+
+                    // Mobile
+                    var nameInputQuery = "#oacxEmbededContents > div.mobileView > section > ul.userInfo > li:nth-child(1) > div.ul-td > input[type=text]";
+                    var birthDate8DigitInputQuery = null;
+                    var birthDate6DigitInputQuery = "#oacxEmbededContents > div.mobileView > section > ul.userInfo > li.oacx-ssn > div.ul-td > input[type=text]:nth-child(1)";
+                    var rrnInputQuery = "#oacxEmbededContents > div.mobileView > section > ul.userInfo > li.oacx-ssn > div.ul-td > input[type=password]:nth-child(2)";
+                    var phone1InputQuery = "#oacxEmbededContents > div.mobileView > section > ul.userInfo > li:nth-child(4) > div.ul-td > select:nth-child(2)";
+                    var phone2InputQuery = "#oacxEmbededContents > div.mobileView > section > ul.userInfo > li:nth-child(4) > div.ul-td > input";
+                    var carrierInputQuery = "#oacxEmbededContents > div.mobileView > section > ul.userInfo > li:nth-child(4) > div.ul-td > select.one-third.mr15";
+                    var agreeInputQuery = null;
+
+                    var check_provider = setInterval(function() {
+                        var provider = document.querySelector("#oacxEmbededContents > div.mobileView > section > ul.providerInfo > li > a");
+
+                        // 인증기관 선택완료시
+                        if (provider && !provider.title.includes('인증기관 선택')) {
+                            var run = autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery, phone2InputQuery, carrierInputQuery, agreeInputQuery);
+                            clearInterval(check_provider);
+                            setTimeout(() => {
+                                clearInterval(run);
+                                this.document.querySelector("#oacxEmbededContents > div.alertArea > div > div.btnArea > button").click();
+                            }, 700);
+                        }
+                    }, 500);
 
                 } else if (window.location.hostname == 'efamily.scourt.go.kr') {
                     log('가족관계등록시스템');
