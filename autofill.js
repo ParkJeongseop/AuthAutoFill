@@ -339,7 +339,7 @@ window.onload = function () {
                         log("통신사 선택페이지");
                         // 통신사 선택
                         if (profilesOb[spI].carrier == carrier.SKT) {
-                            var carrierBtn = 'agency-sk';
+                            var carrierBtn = 'agency-skt';
                         } else if (profilesOb[spI].carrier == carrier.KT) {
                             var carrierBtn = 'agency-kt';
                         } else if (profilesOb[spI].carrier == carrier.LGU) {
