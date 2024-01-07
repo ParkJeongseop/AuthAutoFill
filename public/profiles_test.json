@@ -7,7 +7,7 @@
             "birth": "19990204",
             "gender": "1",
             "foreigner": "0",
-            "way": 1
+            "way": "1"
         },
         {
             "name": "박정섭",
@@ -16,8 +16,9 @@
             "birth": "19990204",
             "gender": "1",
             "foreigner": "0",
-            "way": 1
+            "way": "1"
         }
     ],
-    "selectedProfile": 0
+    "selectedProfile": 0,
+    "on": 1
 }

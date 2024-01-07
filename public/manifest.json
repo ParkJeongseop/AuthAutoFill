@@ -20,7 +20,7 @@
     "content_scripts": [
         {
             "js": [
-                "autofill.js"
+                "js/autofill.js"
             ],
             "matches": ["http://*/*", "https://*/*", "file:///*"],
             "run_at": "document_start",
