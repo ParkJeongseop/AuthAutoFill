@@ -136,3 +136,4 @@ iOSInjectionProject/
 
 node_modules
 dist
+.vscode

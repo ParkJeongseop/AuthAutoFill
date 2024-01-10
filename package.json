@@ -2,9 +2,10 @@
   "name": "auth-auth-fill",
   "version": "2.0.3",
   "description": "",
-  "main": "index.js",
   "type": "module",
+  "main": "index.js",
   "scripts": {
+    "dev": "ts-node dev.ts",
     "build": "ts-node build.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,17 +18,23 @@
     "@fortawesome/free-regular-svg-icons": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@tanstack/react-query": "4.36.1",
+    "daisyui": "^4.5.0",
+    "dayjs": "^1.11.10",
+    "match-url-wildcard": "^0.0.5",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-error-boundary": "^4.0.12",
+    "tailwindcss": "^3.4.1"
   },
   "devDependencies": {
     "@chialab/esbuild-plugin-postcss": "^0.17.2",
+    "@craftamap/esbuild-plugin-html": "^0.6.1",
     "@types/chrome": "^0.0.256",
     "@types/node": "^20.10.6",
     "@types/react": "^18.2.47",
     "@types/react-dom": "^18.2.18",
     "autoprefixer": "^10.4.16",
-    "daisyui": "^4.5.0",
     "esbuild": "^0.19.11",
     "esbuild-plugin-clean": "^1.0.1",
     "esbuild-plugin-copy": "^2.1.1",
@@ -36,8 +43,8 @@
     "eslint-plugin-prettier": "^5.1.2",
     "postcss": "^8.4.33",
     "prettier": "^3.1.1",
+    "prettier-plugin-organize-attributes": "^1.0.0",
     "prettier-plugin-tailwindcss": "^0.5.11",
-    "tailwindcss": "^3.4.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
   }

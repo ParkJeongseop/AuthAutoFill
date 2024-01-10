@@ -1,40 +1,48 @@
 {
-    "manifest_version": 3,
-    "name": "__MSG_extension_name__",
-    "version": "2.0.2",
-    "default_locale": "en",
-    "description": "__MSG_extension_description__",
-    "homepage_url": "https://github.com/ParkJeongseop/AuthAutoFill",
-    "author": "__MSG_developer__",
-    "icons": {
-        "128": "icon.png"
+  "manifest_version": 3,
+  "name": "__MSG_extension_name__",
+  "version": "2.0.2",
+  "default_locale": "en",
+  "description": "__MSG_extension_description__",
+  "homepage_url": "https://github.com/ParkJeongseop/AuthAutoFill",
+  "author": "__MSG_developer__",
+  "icons": {
+    "128": "icon.png"
+  },
+  "action": {
+    "default_title": "__MSG_extension_name__",
+    "default_popup": "popup/index.html",
+    "default_icon": "icon.png"
+  },
+  "permissions": ["storage"],
+  "content_scripts": [
+    {
+      "js": ["content_scripts/autofill.js"],
+      "matches": ["http://*/*", "https://*/*", "file://*"],
+      "run_at": "document_start",
+      "all_frames": true
     },
-    "action": {
-        "default_title": "__MSG_extension_name__",
-        "default_popup": "popup.html",
-        "default_icon": "icon.png"
+    {
+      "js": ["content_scripts/국세통계센터.js"],
+      "matches": ["https://datalab.nts.go.kr/oacx/*"],
+      "run_at": "document_idle",
+      "all_frames": true
     },
-    "permissions": [
-        "storage"
-    ],
-    "content_scripts": [
-        {
-            "js": [
-                "js/autofill.js"
-            ],
-            "matches": ["http://*/*", "https://*/*", "file:///*"],
-            "run_at": "document_start",
-            "all_frames": true
-        }
-    ],
-    "browser_specific_settings": {
-        "gecko": {
-            "id": "{6da0a5fd-a21a-4088-a586-c845619640b8}",
-            "strict_min_version": "42.0"
-        }
-    },
-    "developer": {
-        "name": "Jeongseop Park 박정섭",
-        "url": "https://www.parkjeongseop.com/?ref=authautofill"
+    {
+      "js": ["content_scripts/행정안전부간편로그인.js"],
+      "matches": ["https://easysign.anyid.go.kr/*"],
+      "run_at": "document_idle",
+      "all_frames": true
     }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{6da0a5fd-a21a-4088-a586-c845619640b8}",
+      "strict_min_version": "42.0"
+    }
+  },
+  "developer": {
+    "name": "Jeongseop Park 박정섭",
+    "url": "https://www.parkjeongseop.com/?ref=authautofill"
+  }
 }

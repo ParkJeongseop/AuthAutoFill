@@ -8,17 +8,17 @@
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
-    "module": "Node16",
-    "moduleResolution": "Node16",
+    "module": "esnext",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true,
-    "allowImportingTsExtensions": true
+    "incremental": true
   },
-  "include": ["**/*.ts", "**/*.tsx", "prettier.config.ts"],
+  "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"],
   "ts-node": {
+    "transpileOnly": true,
     "esm": true
   }
 }

@@ -4,6 +4,7 @@ export type GenderCode = "1" | "2";
 export type IsForeigner = "0" | "1";
 
 export type Profile = {
+  id: `${string}-${string}-${string}-${string}-${string}`;
   name: string;
   carrier: CarrierCode;
   phone_number: string;
@@ -14,7 +15,7 @@ export type Profile = {
 };
 
 export type StorageData = {
-  profiles?: Profile[];
-  selectedProfile?: number; // profiles의 index
-  on?: number; // 0: off, 1: on
+  profiles: Profile[];
+  selectedProfile: number; // profiles의 index
+  on: boolean;
 };
