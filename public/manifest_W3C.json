@@ -17,20 +17,8 @@
   "permissions": ["storage"],
   "content_scripts": [
     {
-      "js": ["content_scripts/autofill.js"],
+      "js": ["content_scripts/stepAutofill.js"],
       "matches": ["http://*/*", "https://*/*", "file://*"],
-      "run_at": "document_start",
-      "all_frames": true
-    },
-    {
-      "js": ["content_scripts/국세통계센터.js"],
-      "matches": ["https://datalab.nts.go.kr/oacx/*"],
-      "run_at": "document_idle",
-      "all_frames": true
-    },
-    {
-      "js": ["content_scripts/행정안전부간편로그인.js"],
-      "matches": ["https://easysign.anyid.go.kr/*"],
       "run_at": "document_idle",
       "all_frames": true
     }
