@@ -17,7 +17,7 @@
   "permissions": ["storage"],
   "content_scripts": [
     {
-      "js": ["content_scripts/stepAutofill.js"],
+      "js": ["content_scripts/autofill.js"],
       "matches": ["http://*/*", "https://*/*", "file://*"],
       "run_at": "document_idle",
       "all_frames": true
