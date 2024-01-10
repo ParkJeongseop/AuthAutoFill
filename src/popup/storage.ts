@@ -5,7 +5,7 @@ import { browser } from "../utils";
 const defaultStorageData: StorageData = {
   profiles: [],
   selectedProfile: 0,
-  on: 0,
+  on: false,
 };
 
 export function useStorageData() {
