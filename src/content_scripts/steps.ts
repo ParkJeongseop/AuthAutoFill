@@ -66,29 +66,29 @@ export const conditions: StepCondition[] = [
     type: "loop",
     matches: [
       // 홈택스 - 간편인증
-      "https://www.hometax.go.kr/oacx/*",
+      "https://www.hometax.go.kr/oacx/",
       // 국세통계센터 - 간편인증
       "https://datalab.nts.go.kr/oacx/index.jsp",
       // oacx iframe
-      "https://easysign.anyid.go.kr/*",
+      "https://easysign.anyid.go.kr/",
       // 예비군 - 간편인증
       "https://www.yebigun1.mil.kr/dmobis/uat/uia/LoginUsr.do",
       // 병무민원 - 본인확인 - 통합로그인 - 민간인증서
-      "https://cert.mma.go.kr/esign/oacx_check_cert.jsp?*",
+      "https://cert.mma.go.kr/esign/oacx_check_cert.jsp?",
       // 국민신문고
       "https://www.epeople.go.kr/nep/crtf/simpleCrtfPopup15.npaid",
       // 인터넷 우체국
-      "https://www.epost.go.kr/usr/login/*",
+      "https://www.epost.go.kr/usr/login/",
       // 한국장학재단
       "https://www.kosaf.go.kr/ko/login_sc.do",
       // 법무부 온라인민원서비스
       "https://minwon.moj.go.kr/minwon/1996/subview.do",
       // 국세청 취업 후 학자금 상환
-      "https://www.icl.go.kr/indexEsign.html*",
+      "https://www.icl.go.kr/indexEsign.html",
       // 기업집단포털
       "https://www.egroup.go.kr/egps/ps/io/lgn/loginScrin.do",
       // 정부24
-      "https://www.gov.kr/nlogin/*",
+      "https://www.gov.kr/nlogin/",
     ],
     steps: [
       {
@@ -132,7 +132,7 @@ export const conditions: StepCondition[] = [
   //홈택스 - 비회원
   {
     type: "loop",
-    matches: ["https://www.hometax.go.kr/websquare/*"],
+    matches: ["https://www.hometax.go.kr/websquare/"],
     steps: [
       {
         selector: "#iptUserNm",
@@ -334,7 +334,7 @@ export const conditions: StepCondition[] = [
   },
   {
     // 드림시큐리티
-    matches: ["https://cert.mobile-ok.com/ptb_mokauth.html?*"],
+    matches: ["https://cert.mobile-ok.com/ptb_mokauth.html?"],
     steps: [
       // 통신사 클릭
       {
@@ -472,7 +472,7 @@ export const conditions: StepCondition[] = [
   // 네이버인증? - TODO: 확인 필요
   {
     type: "once",
-    matches: ["https://nid.naver.com/*"],
+    matches: ["https://nid.naver.com/"],
     steps: [
       {
         selector: "#chk_agree3Lb",

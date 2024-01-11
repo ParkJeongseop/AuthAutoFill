@@ -3,25 +3,28 @@ import autoPrefixer from "autoprefixer";
 import esbuild, { BuildOptions } from "esbuild";
 import { clean } from "esbuild-plugin-clean";
 import { copy } from "esbuild-plugin-copy";
-import * as fs from "fs";
 import { Plugin } from "postcss";
 import tailwindcss from "tailwindcss";
+import { htmlPlugin } from "@craftamap/esbuild-plugin-html";
 
-const contentScripts = fs.readdirSync("./src/content_scripts");
-const endPoints = contentScripts.reduce((pre, cur) => {
-  pre[`./content_scripts/${cur.split(".")[0]}`] = `./src/content_scripts/${cur}`;
-  return pre;
-}, {} as any);
+const htmlTemplate = `
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
+`;
 
 const options: BuildOptions = {
-  entryPoints: {
-    // "./content_scripts/oldAutofill": "./src/content_scripts/oldAutofill.js",
-    "./content_scripts/autofill": "./src/content_scripts/autofill.ts",
-    "./popup/index": "./src/popup/App.tsx",
-  },
+  entryPoints: ["./src/popup/App", "./src/content_scripts/autofill"],
   bundle: true,
   sourcemap: true,
-  outdir: "./dist",
+  metafile: true,
+  outdir: "dist/",
   jsx: "automatic",
   loader: {
     ".css": "css",
@@ -41,6 +44,15 @@ const options: BuildOptions = {
     }),
     postcssPlugin({
       plugins: [autoPrefixer(), tailwindcss() as Plugin],
+    }),
+    htmlPlugin({
+      files: [
+        {
+          filename: "popup/index.html",
+          entryPoints: ["src/popup/App.tsx"],
+          htmlTemplate: htmlTemplate,
+        },
+      ],
     }),
   ],
 };

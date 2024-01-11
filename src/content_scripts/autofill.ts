@@ -1,7 +1,6 @@
 import { Profile, StorageData } from "../type";
 import { browser, log } from "../utils";
 import { Step, conditions } from "./steps";
-import matchUrl from "match-url-wildcard";
 
 function stepHandler(step: Step, profile: Profile) {
   try {
@@ -35,7 +34,8 @@ browser.storage.sync.get((data: StorageData) => {
   log("한국 휴대전화 본인인증 서비스 자동완성 브라우저 확장 프로그램");
 
   for (const condition of conditions) {
-    if (!matchUrl(location.href, condition.matches)) continue;
+    const isMatch = condition.matches.some((url) => window.location.href.includes(url));
+    if (!isMatch) continue;
 
     const enabledSteps = condition.steps.filter((step) => {
       const disabled = typeof step.disabled === "function" ? step.disabled(profile) : step.disabled;
