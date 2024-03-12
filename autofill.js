@@ -205,11 +205,11 @@ window.onload = function () {
                             //MVNO 선택
                             this.document.querySelector("#agency-and").click();
                             if (profilesOb[spI].carrier == carrier.SKT_MVNO) {
-                                var carrierBtn = isPC ? '#SKT > label' : '#mvnoLayer > div.layer-pop.agency_select__popup > div.pop-con_02 > ul > li:nth-child(1) > div.licensee_title > a > label';
+                                var carrierBtn = isPC ? '#SM > label' : '#mvnoLayer > div.layer-pop.agency_select__popup > div.pop-con_02 > ul > li:nth-child(1) > div.licensee_title > a > label';
                             } else if (profilesOb[spI].carrier == carrier.KT_MVNO) {
-                                var carrierBtn = isPC ? '#KT > label' : '#mvnoLayer > div.layer-pop.agency_select__popup > div.pop-con_02 > ul > li:nth-child(2) > div.licensee_title > a > label';
+                                var carrierBtn = isPC ? '#KM > label' : '#mvnoLayer > div.layer-pop.agency_select__popup > div.pop-con_02 > ul > li:nth-child(2) > div.licensee_title > a > label';
                             } else if (profilesOb[spI].carrier == carrier.LGU_MVNO) {
-                                var carrierBtn = isPC ? '#LGU+ > label' : '#mvnoLayer > div.layer-pop.agency_select__popup > div.pop-con_02 > ul > li:nth-child(3) > div.licensee_title > a > label';
+                                var carrierBtn = isPC ? '#LM > label' : '#mvnoLayer > div.layer-pop.agency_select__popup > div.pop-con_02 > ul > li:nth-child(3) > div.licensee_title > a > label';
                             }
                             this.document.querySelector(carrierBtn).click();
                             this.document.querySelector("#mvnoLayerCheck").click();
@@ -232,22 +232,22 @@ window.onload = function () {
                         }
                     } else {
                         if (profilesOb[spI].way == way.SMS) { // SMS인증을 원하는 경우
-                            if (this.document.getElementById('smsAuth') && this.document.getElementById('smsAuth').title != '선택됨') { //sms아닐때
-                                this.document.getElementById('smsAuth').click();
+                            if (this.document.getElementById('goSms') && this.document.getElementById('goSms').title != '선택됨') { //sms아닐때
+                                this.document.getElementById('goSms').click();
                             } else {
-                                this.document.getElementById('username').value = profilesOb[spI].name;
-                                this.document.getElementById('mynum1').value = profilesOb[spI].birth.substr(2, 6);
-                                this.document.getElementById('mynum2').value = get_RRN_GenderNum(profilesOb[spI].birth, profilesOb[spI].gender, profilesOb[spI].foreigner);
-                                this.document.getElementById('mobileno').value = profilesOb[spI].phone_number;
-                                this.document.getElementById('answer').focus();
+                                this.document.getElementById('userName').value = profilesOb[spI].name;
+                                this.document.getElementById('myNum1').value = profilesOb[spI].birth.substr(2, 6);
+                                this.document.getElementById('myNum2').value = get_RRN_GenderNum(profilesOb[spI].birth, profilesOb[spI].gender, profilesOb[spI].foreigner);
+                                this.document.getElementById('mobileNo').value = profilesOb[spI].phone_number;
+                                this.document.getElementById('captchaAnswer').focus();
                             }
                         } else if (profilesOb[spI].way == way.PASS) { // PASS인증을 원하는 경우
-                            if (this.document.getElementById('simpleAuth') && this.document.getElementById('simpleAuth').title != '선택됨') { //PASS아닐때
-                                this.document.getElementById('simpleAuth').click();
+                            if (this.document.getElementById('goPass') && this.document.getElementById('goPass').title != '선택됨') { //PASS아닐때
+                                this.document.getElementById('goPass').click();
                             } else {
-                                this.document.getElementById('username').value = profilesOb[spI].name;
-                                this.document.getElementById('mobileno').value = profilesOb[spI].phone_number;
-                                this.document.getElementById('answer').focus();
+                                this.document.getElementById('userName').value = profilesOb[spI].name;
+                                this.document.getElementById('mobileNo').value = profilesOb[spI].phone_number;
+                                this.document.getElementById('captchaAnswer').focus();
                             }
                         }
                     }
