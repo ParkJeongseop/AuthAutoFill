@@ -444,20 +444,16 @@ window.onload = function () {
                             this.document.querySelector("#start").click();
                         }
                     }
-                    console.log("1");
                     if (profilesOb[spI].way == way.SMS) { // SMS인증을 원하는 경우
-                        console.log("2");
                         if (this.document.querySelector("#gnb_sms").style['display'] == 'none') { //sms아닐때
                             this.document.querySelector("#gnb_pass > div > ul > li.tab_sms").click();
                         } else if (document.querySelector("#qr_con > div.qrcon_info_noti > ul > li:nth-child(4) > div > ul > li:nth-child(2) > button")) {
                             this.document.querySelector("#qr_con > div.qrcon_info_noti > ul > li:nth-child(4) > div > ul > li:nth-child(2) > button").click();
                         }
-                        console.log("SS");
-                        this.document.querySelector("#common_step3 > div > div > div > section > fieldset > ul > li.name > div > button").click();
-                        this.document.getElementById('name').value = profilesOb[spI].name;
+                        this.document.querySelector("#common_step3 > div > div > div > section > fieldset > ul > li.name > div > input[type=text]").value = profilesOb[spI].name;
                         this.document.getElementById('mynum1').value = profilesOb[spI].birth.substr(2, 6);
                         this.document.getElementById('mynum2').value = get_RRN_GenderNum(profilesOb[spI].birth, profilesOb[spI].gender, profilesOb[spI].foreigner)
-                        this.document.getElementById('phone').value = profilesOb[spI].phone_number;
+                        this.document.querySelector("#common_step3 > div > div > div > section > fieldset > ul > li:nth-child(3) > div > input[type=tel]").value = profilesOb[spI].phone_number;
                         this.document.getElementById('secur').focus();
                         
                     } else if (profilesOb[spI].way == way.PASS) { // PASS인증을 원하는 경우
