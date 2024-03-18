@@ -290,7 +290,7 @@ window.onload = function () {
                         }
                     } else {
                         if (profilesOb[spI].way == way.SMS) { // SMS인증을 원하는 경우
-                            if (isPC && this.document.querySelector("#sms_auth").title != '선택됨') { //sms아닐때
+                            if (isPC && this.document.querySelector("#sms_auth") && this.document.querySelector("#sms_auth").title != '선택됨') { //sms아닐때
                                 this.document.querySelector("#sms_auth").click();
                             } else {
                                 this.document.getElementById('userName').value = profilesOb[spI].name;
@@ -302,7 +302,7 @@ window.onload = function () {
                                 }
                             }
                         } else if (profilesOb[spI].way == way.PASS) { // PASS인증을 원하는 경우
-                            if (isPC && this.document.querySelector("#qr_auth").title != '선택됨') { //sms아닐때
+                            if (isPC && this.document.querySelector("#qr_auth") && this.document.querySelector("#qr_auth").title != '선택됨') { //sms아닐때
                                 this.document.querySelector("#sms_auth").click();
                             } else {
                                 this.document.getElementsByName('userName')[0].value = profilesOb[spI].name;
