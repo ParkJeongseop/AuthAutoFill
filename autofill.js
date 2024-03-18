@@ -8,7 +8,7 @@ function getBrowser() {
 
 browser = getBrowser();
 
-debug = true
+debug = false
 
 /**
  * 개발진행시 console.log()
