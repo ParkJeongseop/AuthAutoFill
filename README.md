@@ -50,14 +50,14 @@ A browser extension that autofills identity verification services in South Korea
     * [제대군인 전직지원시스템](https://www.vnet.go.kr)
 
 ## 이동통신사 휴대전화 본인인증
- * [나이스신용평가정보](http://www.namecheck.co.kr)
- * [서울신용평가정보](http://www.seoulcredit.co.kr)
+ * [NICE평가정보㈜](http://www.namecheck.co.kr)
+ * [㈜다날](https://www.danal.co.kr)
+ * [㈜드림시큐리티](http://www.mobile-ok.com)
+ * [SCI평가정보㈜](http://www.seoulcredit.co.kr)
+ * [엔에이치엔케이씨피 주식회사](http://www.kcp.co.kr)
+ * [㈜KG모빌리언스](https://www.mobilians.co.kr)
  * [코리아크레딧뷰로](http://ok-name.co.kr)
- * [드림시큐리티](http://www.mobile-ok.com)
- * [한국모바일인증](http://www.kmcert.com)
- * [한국사이버결제](http://www.kcp.co.kr)
- * [다날](https://www.danal.co.kr)
-
+ * [한국모바일인증㈜](http://www.kmcert.com)
 ## 기타
  * [네이버](https://nid.naver.com)
 

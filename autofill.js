@@ -708,6 +708,63 @@ window.onload = function () {
                         this.document.getElementById('push_mobileno').value = profilesOb[spI].phone_number;
                         this.document.getElementById('inputCaptcha').focus();
                     }
+                } else if (window.location.hostname == 'auth.mobilians.co.kr') {
+                    log('KG모빌리언스');
+                    if (profilesOb[spI].carrier == carrier.SKT) {
+                        var carrierBtn = 'agency-sk';
+                    } else if (profilesOb[spI].carrier == carrier.KT) {
+                        var carrierBtn = 'agency-kt';
+                    } else if (profilesOb[spI].carrier == carrier.LGU) {
+                        var carrierBtn = 'agency-lgu';
+                    } else {
+                        var carrierBtn = 'agency-and';
+                    }
+                    this.document.getElementById(carrierBtn).click();
+                    if (!is_MNO(profilesOb[spI].carrier)) {
+                        if (profilesOb[spI].carrier == carrier.SKT_MVNO) {
+                            this.document.querySelector("#agency-popup-sk").click();
+                        } else if (profilesOb[spI].carrier == carrier.KT_MVNO) {
+                            this.document.querySelector("#agency-popup-kt").click();
+                        } else if (profilesOb[spI].carrier == carrier.LGU_MVNO) {
+                            this.document.querySelector("#agency-popup-lgu").click();
+                        }
+                        this.document.querySelector("#mvnoConfirmBtn").click();
+                    }
+
+                    // 약관 동의
+                    this.document.querySelector("#agree_all").click();
+                    
+                    // 인증 방식 선택
+                    if (profilesOb[spI].way == way.SMS) { // SMS인증을 원하는 경우
+                        this.document.querySelector("#commidSelect > button.btn_r.btn_type6.btn_r.btn_skip2.btnSms").click();
+                    } else if (profilesOb[spI].way == way.PASS) { // PASS인증을 원하는 경우
+                        this.document.querySelector("#commidSelect > button.btn_r.btn_type6.btn_r.btn_skip.btnSubmit").click();
+                    }
+
+                    // 자동완성
+                    if (profilesOb[spI].way == way.SMS) { // SMS인증을 원하는 경우
+                        if (document.querySelector("#authTab > li.on > a")) {
+                            if (document.querySelector("#authTab > li.on > a").id != 'sms_auth') { //sms아닐때
+                                this.document.getElementById('sms_auth').click();
+                            }
+                        }
+
+                        this.document.getElementById('smsName').value = profilesOb[spI].name;
+                        this.document.getElementById('birthYMD').value = profilesOb[spI].birth.substr(2, 6);
+                        this.document.getElementById('birthSF').value = get_RRN_GenderNum(profilesOb[spI].birth, profilesOb[spI].gender, profilesOb[spI].foreigner);
+                        this.document.getElementById('smsPhone').value = profilesOb[spI].phone_number;
+                        this.document.getElementById('smsCaptchaCfm').focus();
+                    } else if (profilesOb[spI].way == way.PASS) { // PASS인증을 원하는 경우
+                        if (document.querySelector("#authTab > li.on > a")) {
+                            if (document.querySelector("#authTab > li.on > a").id != 'qr_auth') { //sms아닐때
+                                this.document.getElementById('qr_auth').click();
+                            }
+                        }
+
+                        this.document.getElementById('pushName').value = profilesOb[spI].name;
+                        this.document.getElementById('pushPhone').value = profilesOb[spI].phone_number;
+                        this.document.getElementById('pushCaptchaCfm').focus();
+                    }
                 } else if (window.location.hostname == 'www.gov.kr') {
                     log('정부24');
 
