@@ -765,6 +765,57 @@ window.onload = function () {
                         this.document.getElementById('pushPhone').value = profilesOb[spI].phone_number;
                         this.document.getElementById('pushCaptchaCfm').focus();
                     }
+                } else if (window.location.hostname == 'kssa.inicis.com') {
+                    log('KG이니시스');
+                    if (this.document.querySelector("#carrier")) {
+                        if (profilesOb[spI].carrier == carrier.SKT) {
+                            var carrierBtn = 'SKT';
+                        } else if (profilesOb[spI].carrier == carrier.KT) {
+                            var carrierBtn = 'KTF';
+                        } else if (profilesOb[spI].carrier == carrier.LGU) {
+                            var carrierBtn = 'LGT';
+                        } else if (profilesOb[spI].carrier == carrier.SKT_MVNO) {
+                            var carrierBtn = 'SKR';
+                        } else if (profilesOb[spI].carrier == carrier.KT_MVNO) {
+                            var carrierBtn = 'KTR';
+                        } else if (profilesOb[spI].carrier == carrier.LGU_MVNO) {
+                            var carrierBtn = 'LGR';
+                        }
+                        this.document.querySelector("#carrier").value = carrierBtn;
+                    }
+                    
+                    if (this.document.querySelector("#nation_local")) {
+                        if (profilesOb[spI].foreigner == '0') {
+                            this.document.querySelector("#nation_local").click();
+                        } else {
+                            this.document.querySelector("#nation_foreign").click();
+                        }
+                    }
+
+                    if (this.document.querySelector("#gender_male")) {
+                        if (profilesOb[spI].gender == '1') {
+                            this.document.querySelector("#gender_male").click();
+                        } else {
+                            this.document.querySelector("#gender_female").click();
+                        }
+                    }
+
+                    if (this.document.getElementById('name')) {
+                        this.document.getElementById('name').value = profilesOb[spI].name;
+                    }
+                    if (this.document.getElementById('birth')) {
+                        this.document.getElementById('birth').value = profilesOb[spI].birth;
+                    }
+                    if (this.document.getElementById('phone')) {
+                        this.document.getElementById('phone').value = profilesOb[spI].phone_number;
+                    }
+                    if (this.document.getElementById("all_check")) {
+                        this.document.getElementById("all_check").click();
+                    }
+                    if (this.document.getElementById("code")) {
+                        this.document.getElementById("code").focus();
+                    }
+
                 } else if (window.location.hostname == 'www.gov.kr') {
                     log('정부24');
 

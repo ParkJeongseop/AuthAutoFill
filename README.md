@@ -56,6 +56,7 @@ A browser extension that autofills identity verification services in South Korea
  * [SCI평가정보㈜](http://www.seoulcredit.co.kr)
  * [엔에이치엔케이씨피 주식회사](http://www.kcp.co.kr)
  * [㈜KG모빌리언스](https://www.mobilians.co.kr)
+ * [㈜KG이니시스](https://www.inicis.com)
  * [코리아크레딧뷰로](http://ok-name.co.kr)
  * [한국모바일인증㈜](http://www.kmcert.com)
 ## 기타
