@@ -1132,7 +1132,20 @@ window.onload = function () {
                     var agreeInputQuery = "#policy4";
 
                     autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery, phone2InputQuery, carrierInputQuery, agreeInputQuery);
-                } 
+                } else if (window.location.hostname == 'egdrs.scourt.go.kr') {
+                    log('전자후견등기 시스템');
+
+                    var nameInputQuery = null;
+                    var birthDate8DigitInputQuery = null;
+                    var birthDate6DigitInputQuery = null;
+                    var rrnInputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li.oacx-ssn > div.ul-td > input[type=password]:nth-child(2)";
+                    var phone1InputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li.none-telecom > div.ul-td > select:nth-child(2)";
+                    var phone2InputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(4) > div.ul-td > input";
+                    var carrierInputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li.telecom > div.ul-td > select.one-third.mr15";
+                    var agreeInputQuery = "#totalAgree";
+
+                    autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery, phone2InputQuery, carrierInputQuery, agreeInputQuery);
+                }
             }
         } else {
             log('OFF');
