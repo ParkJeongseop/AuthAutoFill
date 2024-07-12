@@ -1316,6 +1316,134 @@ window.onload = function () {
 
                     autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery, phone2InputQuery, carrierInputQuery, agreeInputQuery);
 
+                } else if (window.location.hostname == 'apply.lh.or.kr') {
+                    log('LH청약센터');
+
+                    setInterval(function() {
+                        var nameInputs = [
+                            // 토스인증서
+                            this.document.querySelector("#toss_userName"),
+
+                            // KB국민인증서
+                            this.document.querySelector("#kb_userName"),
+                        ];
+
+                        var birthDateInputs = [
+                            // 공동인증서
+                            this.document.querySelector("#cert0_type0_num0"),
+
+                            // 금융인증서
+                            this.document.querySelector("#cert1_type0_num0"),
+
+                            // 토스인증서
+                            this.document.querySelector("#toss_ihidnum01"),
+
+                            // KB국민인증서
+                            this.document.querySelector("#kb_ihidnum01"),
+                        ];
+
+                        var phone1Inputs = [
+                            // 토스인증서
+                            this.document.querySelector("#toss_userPhone01"),
+
+                            // KB국민인증서
+                            this.document.querySelector("#kb_userPhone01"),
+                        ];
+
+                        var phone2Input = [
+                            // 토스인증서
+                            this.document.querySelector("#toss_userPhone02"),
+
+                            // KB국민인증서
+                            this.document.querySelector("#kb_userPhone02"),
+                        ];
+                        
+                        var phone3Input = [
+                            // 토스인증서
+                            this.document.querySelector("#toss_userPhone03"),
+
+                            // KB국민인증서
+                            this.document.querySelector("#kb_userPhone03"),
+                        ];
+
+                        var koreanInputs = [
+                            // 공동인증서
+                            this.document.querySelector("#radio_cert0_type0"),
+
+                            // 금융인증서
+                            this.document.querySelector("#radio_cert1_type0"),
+
+                            // 토스인증서
+                            this.document.querySelector("#toss_crtfTpCd01"),
+
+                            // KB국민인증서
+                            this.document.querySelector("#kb_crtfTpCd01"),
+                        ];
+
+                        var foreignerInputs = [
+                            // 공동인증서
+                            this.document.querySelector("#radio_cert0_type2"),
+
+                            // 금융인증서
+                            this.document.querySelector("#radio_cert1_type2"),
+
+                            // 토스인증서
+                            this.document.querySelector("#toss_crtfTpCd02"),
+
+                            // KB국민인증서
+                            this.document.querySelector("#kb_crtfTpCd02"),
+                        ];
+
+
+                        // 이름
+                        for (nameInput of nameInputs) {
+                            if(nameInput) {
+                                nameInput.value = selectedProfile.name;
+                            }
+                        }
+
+                        // 생년월일 6자리
+                        for (birthDateInput of birthDateInputs) {
+                            if(birthDateInput) {
+                                console.log("SSS");
+                                birthDateInput.value = selectedProfile.birth.substr(2, 6);
+                            }
+                        }
+
+                        // 전화번호
+                        for (phone1Input of phone1Inputs) {
+                            if(phone1Input) {
+                                phone1Input.value = selectedProfile.phone_number.substring(0, 3);
+                            }
+                        }
+                        for (phone2Input of phone2Input) {
+                            if(phone2Input) {
+                                phone2Input.value = selectedProfile.phone_number.substring(3, 7);
+                            }
+                        }
+                        for (phone3Input of phone3Input) {
+                            if(phone3Input) {
+                                phone3Input.value = selectedProfile.phone_number.substring(7, 11);
+                            }
+                        }
+
+                        // 외국인
+                        if(selectedProfile.foreigner == '1') {
+                            for (foreignerInput of foreignerInputs) {
+                                if(foreignerInput) {
+                                    foreignerInput.click();
+                                }
+                            }
+                        } else {
+                            for (koreanInput of koreanInputs) {
+                                if(koreanInput) {
+                                    koreanInput.click();
+                                }
+                            }
+                        }
+
+                    }, 500);
+
                 } else {
                     // 기타 사이트 처리
 
