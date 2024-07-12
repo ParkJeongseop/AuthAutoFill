@@ -1174,6 +1174,38 @@ window.onload = function () {
 
                     autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery, phone2InputQuery, carrierInputQuery, agreeInputQuery);
 
+                } else if (window.location.hostname == 'nip.kdca.go.kr') {
+                    log('예방접종도우미');
+                    // 한컴위드 AnySign Lite + (애니사인 라이트 플러스)
+
+                    setInterval(function() {
+                        var nameInput = this.document.querySelector("#name");
+                        var birthDateInput = this.document.querySelector("#birthday");
+                        var phoneInput = this.document.querySelector("#phone");
+                        var agreeInput = this.document.querySelector("#B3");
+
+                        // 이름
+                        if(nameInput) {
+                            nameInput.value = selectedProfile.name;
+                        }
+                
+                        // 생년월일 8자리
+                        if(birthDateInput) {
+                            birthDateInput.value = selectedProfile.birth;
+                        }
+
+                        // 전화번호
+                        if(phoneInput) {
+                            phoneInput.value = selectedProfile.phone_number;
+                        }
+
+                        // 약관동의
+                        if(agreeInput) {
+                            agreeInput.click();
+                        }
+
+                    }, 500);
+
                 } else {
                     // 기타 사이트 처리
 

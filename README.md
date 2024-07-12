@@ -48,12 +48,14 @@ A browser extension that autofills identity verification services in South Korea
  * [전자후견등기 시스템](https://egdrs.scourt.go.kr)
  * [형사사법포털](https://www.kics.go.kr)
  * [공공보건포털](https://www.e-health.go.kr)
+ * [예방접종도우미](https://nip.kdca.go.kr)
  * [행정안전부 ‘Any-ID’ 간편 로그인 서비스](https://www.mois.go.kr/frt/bbs/type010/commonSelectBoardArticle.do?bbsId=BBSMSTR_000000000008&nttId=97826) (서비스중개형)
     * [청원24](https://www.cheongwon.go.kr)
     * [노동포털 시스템](https://labor.moel.go.kr)
     * [나만의 예우시스템](https://pmp.mpva.go.kr)
     * [제대군인 전직지원시스템](https://www.vnet.go.kr)
     * [국민제안](https://withpeople.president.go.kr)
+    * [장기조직혈액 홈페이지](https://www.konos.go.kr)
 
 ## 이동통신사 휴대전화 본인인증
  * [NICE평가정보㈜](http://www.namecheck.co.kr)
