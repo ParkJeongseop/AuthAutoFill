@@ -1206,6 +1206,20 @@ window.onload = function () {
 
                     }, 500);
 
+                } else if (window.location.hostname == 'www.eshare.go.kr') {
+                    log('공유누리');
+
+                    var nameInputQuery = "#oacx_name";
+                    var birthDate8DigitInputQuery = "#oacx_birth";
+                    var birthDate6DigitInputQuery = null;
+                    var rrnInputQuery = null;
+                    var phone1InputQuery = "#oacx_phone1";
+                    var phone2InputQuery = "#oacx_phone2";
+                    var carrierInputQuery = "#submitFm > table > tbody > tr.telecom > td > select:nth-child(1)";
+                    var agreeInputQuery = "#oacx_policy3";
+
+                    autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery, phone2InputQuery, carrierInputQuery, agreeInputQuery);
+
                 } else {
                     // 기타 사이트 처리
 
