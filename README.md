@@ -43,6 +43,7 @@ A browser extension that autofills identity verification services in South Korea
  * [홈택스](https://www.hometax.go.kr)
  * [국립수산물품질관리원](https://www.nfqs.go.kr)
  * [국세통계센터시스템](https://datalab.nts.go.kr)
+ * [4대사회보험정보연계센터](https://www.4insure.or.kr/)
  * [행정안전부 ‘Any-ID’ 간편 로그인 서비스](https://www.mois.go.kr/frt/bbs/type010/commonSelectBoardArticle.do?bbsId=BBSMSTR_000000000008&nttId=97826) (서비스중개형)
     * [청원24](https://www.cheongwon.go.kr)
     * [노동포털 시스템](https://labor.moel.go.kr)
