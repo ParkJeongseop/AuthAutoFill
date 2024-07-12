@@ -47,6 +47,7 @@ A browser extension that autofills identity verification services in South Korea
  * [동물보호관리 시스템](https://www.animal.go.kr)
  * [전자후견등기 시스템](https://egdrs.scourt.go.kr)
  * [형사사법포털](https://www.kics.go.kr)
+ * [공공보건포털](https://www.e-health.go.kr)
  * [행정안전부 ‘Any-ID’ 간편 로그인 서비스](https://www.mois.go.kr/frt/bbs/type010/commonSelectBoardArticle.do?bbsId=BBSMSTR_000000000008&nttId=97826) (서비스중개형)
     * [청원24](https://www.cheongwon.go.kr)
     * [노동포털 시스템](https://labor.moel.go.kr)
