@@ -51,6 +51,7 @@ A browser extension that autofills identity verification services in South Korea
  * [예방접종도우미](https://nip.kdca.go.kr)
  * [공유누리](https://www.eshare.go.kr)
  * [주민e직접 플랫폼](https://juminegov.go.kr)
+ * [서울특별시 전자고지납부시스템(ETAX)](https://etax.seoul.go.kr)
  * [행정안전부 ‘Any-ID’ 간편 로그인 서비스](https://www.mois.go.kr/frt/bbs/type010/commonSelectBoardArticle.do?bbsId=BBSMSTR_000000000008&nttId=97826) (서비스중개형)
     * [청원24](https://www.cheongwon.go.kr)
     * [노동포털 시스템](https://labor.moel.go.kr)
