@@ -1220,6 +1220,60 @@ window.onload = function () {
 
                     autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery, phone2InputQuery, carrierInputQuery, agreeInputQuery);
 
+                } else if (window.location.hostname == 'juminegov.go.kr') {
+                    log('주민e직접 플랫폼');
+
+                    setInterval(function() {
+                        var nameInput = this.document.querySelector("#certNm");
+                        var birthDateInput = this.document.querySelector("#certIino1");
+                        var rrnInput = this.document.querySelector("#certIino2");
+                        var phone1Input = this.document.querySelector("#certTel1");
+                        var phone2Input = this.document.querySelector("#certTel2");
+                        var phone3Input = this.document.querySelector("#certTel3");
+                        var agreeInput = this.document.querySelector("#indiInfoUseAgreYnY");
+
+                        // 이름
+                        if(nameInput) {
+                            nameInput.value = selectedProfile.name;
+                        }
+                
+                        // 생년월일 8자리
+                        if(birthDateInput) {
+                            birthDateInput.value = selectedProfile.birth.substr(2, 6);
+                        }
+
+                        // 전화번호
+                        if(phone1Input) {
+                            phone1Input.value = selectedProfile.phone_number.substring(0, 3);
+                        }
+                        if(phone2Input) {
+                            phone2Input.value = selectedProfile.phone_number.substring(3, 7);
+                        }
+                        if(phone3Input) {
+                            phone3Input.value = selectedProfile.phone_number.substring(7, 12);
+                        }
+
+                        // 약관동의
+                        if(agreeInput && !agreeInput.checked) {
+                            agreeInput.click();
+                            if(rrnInput) {
+                                rrnInput.focus();
+                            }
+                        }
+
+                    }, 500);
+
+                    var nameInputQuery = null;
+                    var birthDate8DigitInputQuery = null;
+                    var birthDate6DigitInputQuery = null;
+                    var rrnInputQuery = null;
+                    var phone1InputQuery = null;
+                    var phone2InputQuery = null;
+                    var carrierInputQuery = "#submitFm > table > tbody > tr.telecom > td > select:nth-child(1)";
+                    var agreeInputQuery = "#oacx_total";
+
+                    autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery, phone2InputQuery, carrierInputQuery, agreeInputQuery);
+
                 } else {
                     // 기타 사이트 처리
 
