@@ -1,0 +1,970 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9E487CBE2C445BAD0033C2AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E487CBD2C445BAD0033C2AE /* AppDelegate.swift */; };
+		9E487CC02C445BAD0033C2AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E487CBF2C445BAD0033C2AE /* SceneDelegate.swift */; };
+		9E487CC32C445BAD0033C2AE /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 9E487CC22C445BAD0033C2AE /* Base */; };
+		9E487CC62C445BAD0033C2AE /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 9E487CC52C445BAD0033C2AE /* Base */; };
+		9E487CCF2C445BAD0033C2AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E487CCE2C445BAD0033C2AE /* AppDelegate.swift */; };
+		9E487CD22C445BAD0033C2AE /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 9E487CD12C445BAD0033C2AE /* Base */; };
+		9E487CDA2C445BAD0033C2AE /* Auth Autofill Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9E487CD92C445BAD0033C2AE /* Auth Autofill Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9E487CE42C445BAD0033C2AE /* Auth Autofill Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9E487CE32C445BAD0033C2AE /* Auth Autofill Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9E487CEA2C445BAD0033C2AE /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 9E487CAE2C445BAC0033C2AE /* Base */; };
+		9E487CEB2C445BAD0033C2AE /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 9E487CAE2C445BAC0033C2AE /* Base */; };
+		9E487CEC2C445BAD0033C2AE /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E487CAF2C445BAC0033C2AE /* Icon.png */; };
+		9E487CED2C445BAD0033C2AE /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E487CAF2C445BAC0033C2AE /* Icon.png */; };
+		9E487CEE2C445BAD0033C2AE /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = 9E487CB02C445BAC0033C2AE /* Style.css */; };
+		9E487CEF2C445BAD0033C2AE /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = 9E487CB02C445BAC0033C2AE /* Style.css */; };
+		9E487CF02C445BAD0033C2AE /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = 9E487CB12C445BAC0033C2AE /* Script.js */; };
+		9E487CF12C445BAD0033C2AE /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = 9E487CB12C445BAC0033C2AE /* Script.js */; };
+		9E487CF22C445BAD0033C2AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E487CB22C445BAC0033C2AE /* ViewController.swift */; };
+		9E487CF32C445BAD0033C2AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E487CB22C445BAC0033C2AE /* ViewController.swift */; };
+		9E487CF42C445BAD0033C2AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E487CB32C445BAD0033C2AE /* Assets.xcassets */; };
+		9E487CF52C445BAD0033C2AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E487CB32C445BAD0033C2AE /* Assets.xcassets */; };
+		9E487CF62C445BAD0033C2AE /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E487CB52C445BAD0033C2AE /* SafariWebExtensionHandler.swift */; };
+		9E487CF72C445BAD0033C2AE /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E487CB52C445BAD0033C2AE /* SafariWebExtensionHandler.swift */; };
+		9E487D112C445BAD0033C2AE /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E487D092C445BAD0033C2AE /* icon.png */; };
+		9E487D122C445BAD0033C2AE /* autofill.js in Resources */ = {isa = PBXBuildFile; fileRef = 9E487D0A2C445BAD0033C2AE /* autofill.js */; };
+		9E487D132C445BAD0033C2AE /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 9E487D0B2C445BAD0033C2AE /* popup.html */; };
+		9E487D142C445BAD0033C2AE /* script.js in Resources */ = {isa = PBXBuildFile; fileRef = 9E487D0C2C445BAD0033C2AE /* script.js */; };
+		9E487D152C445BAD0033C2AE /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = 9E487D0D2C445BAD0033C2AE /* style.css */; };
+		9E487D162C445BAD0033C2AE /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 9E487D0E2C445BAD0033C2AE /* manifest.json */; };
+		9E487D172C445BAD0033C2AE /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 9E487D0F2C445BAD0033C2AE /* _locales */; };
+		9E487D192C445BAD0033C2AE /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E487D092C445BAD0033C2AE /* icon.png */; };
+		9E487D1A2C445BAD0033C2AE /* autofill.js in Resources */ = {isa = PBXBuildFile; fileRef = 9E487D0A2C445BAD0033C2AE /* autofill.js */; };
+		9E487D1B2C445BAD0033C2AE /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 9E487D0B2C445BAD0033C2AE /* popup.html */; };
+		9E487D1C2C445BAD0033C2AE /* script.js in Resources */ = {isa = PBXBuildFile; fileRef = 9E487D0C2C445BAD0033C2AE /* script.js */; };
+		9E487D1D2C445BAD0033C2AE /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = 9E487D0D2C445BAD0033C2AE /* style.css */; };
+		9E487D1E2C445BAD0033C2AE /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 9E487D0E2C445BAD0033C2AE /* manifest.json */; };
+		9E487D1F2C445BAD0033C2AE /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 9E487D0F2C445BAD0033C2AE /* _locales */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9E487CDB2C445BAD0033C2AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9E487CA72C445BAC0033C2AE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9E487CD82C445BAD0033C2AE;
+			remoteInfo = "Auth Autofill Extension (iOS)";
+		};
+		9E487CE52C445BAD0033C2AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9E487CA72C445BAC0033C2AE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9E487CE22C445BAD0033C2AE;
+			remoteInfo = "Auth Autofill Extension (macOS)";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9E487CFD2C445BAD0033C2AE /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				9E487CDA2C445BAD0033C2AE /* Auth Autofill Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9E487D042C445BAD0033C2AE /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				9E487CE42C445BAD0033C2AE /* Auth Autofill Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		9E487CAE2C445BAC0033C2AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = ../Base.lproj/Main.html; sourceTree = "<group>"; };
+		9E487CAF2C445BAC0033C2AE /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		9E487CB02C445BAC0033C2AE /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
+		9E487CB12C445BAC0033C2AE /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
+		9E487CB22C445BAC0033C2AE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9E487CB32C445BAD0033C2AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9E487CB52C445BAD0033C2AE /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
+		9E487CBA2C445BAD0033C2AE /* Auth Autofill.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Auth Autofill.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E487CBD2C445BAD0033C2AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9E487CBF2C445BAD0033C2AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		9E487CC22C445BAD0033C2AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9E487CC52C445BAD0033C2AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9E487CC72C445BAD0033C2AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9E487CCC2C445BAD0033C2AE /* Auth Autofill.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Auth Autofill.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E487CCE2C445BAD0033C2AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9E487CD12C445BAD0033C2AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9E487CD32C445BAD0033C2AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9E487CD42C445BAD0033C2AE /* Auth Autofill.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Auth Autofill.entitlements"; sourceTree = "<group>"; };
+		9E487CD92C445BAD0033C2AE /* Auth Autofill Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Auth Autofill Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E487CDE2C445BAD0033C2AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9E487CE32C445BAD0033C2AE /* Auth Autofill Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Auth Autofill Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E487CE82C445BAD0033C2AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9E487CE92C445BAD0033C2AE /* Auth Autofill.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Auth Autofill.entitlements"; sourceTree = "<group>"; };
+		9E487D092C445BAD0033C2AE /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../../icon.png; sourceTree = "<group>"; };
+		9E487D0A2C445BAD0033C2AE /* autofill.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = autofill.js; path = ../../autofill.js; sourceTree = "<group>"; };
+		9E487D0B2C445BAD0033C2AE /* popup.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = popup.html; path = ../../popup.html; sourceTree = "<group>"; };
+		9E487D0C2C445BAD0033C2AE /* script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = script.js; path = ../../script.js; sourceTree = "<group>"; };
+		9E487D0D2C445BAD0033C2AE /* style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; name = style.css; path = ../../style.css; sourceTree = "<group>"; };
+		9E487D0E2C445BAD0033C2AE /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = ../../manifest.json; sourceTree = "<group>"; };
+		9E487D0F2C445BAD0033C2AE /* _locales */ = {isa = PBXFileReference; lastKnownFileType = folder; name = _locales; path = ../../_locales; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9E487CB72C445BAD0033C2AE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9E487CC92C445BAD0033C2AE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9E487CD62C445BAD0033C2AE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9E487CE02C445BAD0033C2AE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9E487CA62C445BAC0033C2AE = {
+			isa = PBXGroup;
+			children = (
+				9E487CAB2C445BAC0033C2AE /* Shared (App) */,
+				9E487CB42C445BAD0033C2AE /* Shared (Extension) */,
+				9E487CBC2C445BAD0033C2AE /* iOS (App) */,
+				9E487CCD2C445BAD0033C2AE /* macOS (App) */,
+				9E487CDD2C445BAD0033C2AE /* iOS (Extension) */,
+				9E487CE72C445BAD0033C2AE /* macOS (Extension) */,
+				9E487CBB2C445BAD0033C2AE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9E487CAB2C445BAC0033C2AE /* Shared (App) */ = {
+			isa = PBXGroup;
+			children = (
+				9E487CB22C445BAC0033C2AE /* ViewController.swift */,
+				9E487CB32C445BAD0033C2AE /* Assets.xcassets */,
+				9E487CAC2C445BAC0033C2AE /* Resources */,
+			);
+			path = "Shared (App)";
+			sourceTree = "<group>";
+		};
+		9E487CAC2C445BAC0033C2AE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9E487CAD2C445BAC0033C2AE /* Main.html */,
+				9E487CAF2C445BAC0033C2AE /* Icon.png */,
+				9E487CB02C445BAC0033C2AE /* Style.css */,
+				9E487CB12C445BAC0033C2AE /* Script.js */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9E487CB42C445BAD0033C2AE /* Shared (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				9E487D082C445BAD0033C2AE /* Resources */,
+				9E487CB52C445BAD0033C2AE /* SafariWebExtensionHandler.swift */,
+			);
+			path = "Shared (Extension)";
+			sourceTree = "<group>";
+		};
+		9E487CBB2C445BAD0033C2AE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9E487CBA2C445BAD0033C2AE /* Auth Autofill.app */,
+				9E487CCC2C445BAD0033C2AE /* Auth Autofill.app */,
+				9E487CD92C445BAD0033C2AE /* Auth Autofill Extension.appex */,
+				9E487CE32C445BAD0033C2AE /* Auth Autofill Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9E487CBC2C445BAD0033C2AE /* iOS (App) */ = {
+			isa = PBXGroup;
+			children = (
+				9E487CBD2C445BAD0033C2AE /* AppDelegate.swift */,
+				9E487CBF2C445BAD0033C2AE /* SceneDelegate.swift */,
+				9E487CC12C445BAD0033C2AE /* LaunchScreen.storyboard */,
+				9E487CC42C445BAD0033C2AE /* Main.storyboard */,
+				9E487CC72C445BAD0033C2AE /* Info.plist */,
+			);
+			path = "iOS (App)";
+			sourceTree = "<group>";
+		};
+		9E487CCD2C445BAD0033C2AE /* macOS (App) */ = {
+			isa = PBXGroup;
+			children = (
+				9E487CCE2C445BAD0033C2AE /* AppDelegate.swift */,
+				9E487CD02C445BAD0033C2AE /* Main.storyboard */,
+				9E487CD32C445BAD0033C2AE /* Info.plist */,
+				9E487CD42C445BAD0033C2AE /* Auth Autofill.entitlements */,
+			);
+			path = "macOS (App)";
+			sourceTree = "<group>";
+		};
+		9E487CDD2C445BAD0033C2AE /* iOS (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				9E487CDE2C445BAD0033C2AE /* Info.plist */,
+			);
+			path = "iOS (Extension)";
+			sourceTree = "<group>";
+		};
+		9E487CE72C445BAD0033C2AE /* macOS (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				9E487CE82C445BAD0033C2AE /* Info.plist */,
+				9E487CE92C445BAD0033C2AE /* Auth Autofill.entitlements */,
+			);
+			path = "macOS (Extension)";
+			sourceTree = "<group>";
+		};
+		9E487D082C445BAD0033C2AE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9E487D092C445BAD0033C2AE /* icon.png */,
+				9E487D0A2C445BAD0033C2AE /* autofill.js */,
+				9E487D0B2C445BAD0033C2AE /* popup.html */,
+				9E487D0C2C445BAD0033C2AE /* script.js */,
+				9E487D0D2C445BAD0033C2AE /* style.css */,
+				9E487D0E2C445BAD0033C2AE /* manifest.json */,
+				9E487D0F2C445BAD0033C2AE /* _locales */,
+			);
+			name = Resources;
+			path = "Shared (Extension)";
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9E487CB92C445BAD0033C2AE /* Auth Autofill (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9E487CFE2C445BAD0033C2AE /* Build configuration list for PBXNativeTarget "Auth Autofill (iOS)" */;
+			buildPhases = (
+				9E487CB62C445BAD0033C2AE /* Sources */,
+				9E487CB72C445BAD0033C2AE /* Frameworks */,
+				9E487CB82C445BAD0033C2AE /* Resources */,
+				9E487CFD2C445BAD0033C2AE /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9E487CDC2C445BAD0033C2AE /* PBXTargetDependency */,
+			);
+			name = "Auth Autofill (iOS)";
+			productName = "Auth Autofill (iOS)";
+			productReference = 9E487CBA2C445BAD0033C2AE /* Auth Autofill.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9E487CCB2C445BAD0033C2AE /* Auth Autofill (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9E487D052C445BAD0033C2AE /* Build configuration list for PBXNativeTarget "Auth Autofill (macOS)" */;
+			buildPhases = (
+				9E487CC82C445BAD0033C2AE /* Sources */,
+				9E487CC92C445BAD0033C2AE /* Frameworks */,
+				9E487CCA2C445BAD0033C2AE /* Resources */,
+				9E487D042C445BAD0033C2AE /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9E487CE62C445BAD0033C2AE /* PBXTargetDependency */,
+			);
+			name = "Auth Autofill (macOS)";
+			productName = "Auth Autofill (macOS)";
+			productReference = 9E487CCC2C445BAD0033C2AE /* Auth Autofill.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9E487CD82C445BAD0033C2AE /* Auth Autofill Extension (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9E487CFA2C445BAD0033C2AE /* Build configuration list for PBXNativeTarget "Auth Autofill Extension (iOS)" */;
+			buildPhases = (
+				9E487CD52C445BAD0033C2AE /* Sources */,
+				9E487CD62C445BAD0033C2AE /* Frameworks */,
+				9E487CD72C445BAD0033C2AE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Auth Autofill Extension (iOS)";
+			productName = "Auth Autofill Extension (iOS)";
+			productReference = 9E487CD92C445BAD0033C2AE /* Auth Autofill Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		9E487CE22C445BAD0033C2AE /* Auth Autofill Extension (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9E487D012C445BAD0033C2AE /* Build configuration list for PBXNativeTarget "Auth Autofill Extension (macOS)" */;
+			buildPhases = (
+				9E487CDF2C445BAD0033C2AE /* Sources */,
+				9E487CE02C445BAD0033C2AE /* Frameworks */,
+				9E487CE12C445BAD0033C2AE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Auth Autofill Extension (macOS)";
+			productName = "Auth Autofill Extension (macOS)";
+			productReference = 9E487CE32C445BAD0033C2AE /* Auth Autofill Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9E487CA72C445BAC0033C2AE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					9E487CB92C445BAD0033C2AE = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					9E487CCB2C445BAD0033C2AE = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					9E487CD82C445BAD0033C2AE = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					9E487CE22C445BAD0033C2AE = {
+						CreatedOnToolsVersion = 15.4;
+					};
+				};
+			};
+			buildConfigurationList = 9E487CAA2C445BAC0033C2AE /* Build configuration list for PBXProject "Auth Autofill" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9E487CA62C445BAC0033C2AE;
+			productRefGroup = 9E487CBB2C445BAD0033C2AE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9E487CB92C445BAD0033C2AE /* Auth Autofill (iOS) */,
+				9E487CCB2C445BAD0033C2AE /* Auth Autofill (macOS) */,
+				9E487CD82C445BAD0033C2AE /* Auth Autofill Extension (iOS) */,
+				9E487CE22C445BAD0033C2AE /* Auth Autofill Extension (macOS) */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9E487CB82C445BAD0033C2AE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E487CEC2C445BAD0033C2AE /* Icon.png in Resources */,
+				9E487CC32C445BAD0033C2AE /* Base in Resources */,
+				9E487CEA2C445BAD0033C2AE /* Base in Resources */,
+				9E487CF02C445BAD0033C2AE /* Script.js in Resources */,
+				9E487CF42C445BAD0033C2AE /* Assets.xcassets in Resources */,
+				9E487CC62C445BAD0033C2AE /* Base in Resources */,
+				9E487CEE2C445BAD0033C2AE /* Style.css in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9E487CCA2C445BAD0033C2AE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E487CED2C445BAD0033C2AE /* Icon.png in Resources */,
+				9E487CEF2C445BAD0033C2AE /* Style.css in Resources */,
+				9E487CD22C445BAD0033C2AE /* Base in Resources */,
+				9E487CF12C445BAD0033C2AE /* Script.js in Resources */,
+				9E487CF52C445BAD0033C2AE /* Assets.xcassets in Resources */,
+				9E487CEB2C445BAD0033C2AE /* Base in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9E487CD72C445BAD0033C2AE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E487D1A2C445BAD0033C2AE /* autofill.js in Resources */,
+				9E487D1C2C445BAD0033C2AE /* script.js in Resources */,
+				9E487D1D2C445BAD0033C2AE /* style.css in Resources */,
+				9E487D1B2C445BAD0033C2AE /* popup.html in Resources */,
+				9E487D1E2C445BAD0033C2AE /* manifest.json in Resources */,
+				9E487D1F2C445BAD0033C2AE /* _locales in Resources */,
+				9E487D192C445BAD0033C2AE /* icon.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9E487CE12C445BAD0033C2AE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E487D122C445BAD0033C2AE /* autofill.js in Resources */,
+				9E487D142C445BAD0033C2AE /* script.js in Resources */,
+				9E487D152C445BAD0033C2AE /* style.css in Resources */,
+				9E487D132C445BAD0033C2AE /* popup.html in Resources */,
+				9E487D162C445BAD0033C2AE /* manifest.json in Resources */,
+				9E487D172C445BAD0033C2AE /* _locales in Resources */,
+				9E487D112C445BAD0033C2AE /* icon.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9E487CB62C445BAD0033C2AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E487CF22C445BAD0033C2AE /* ViewController.swift in Sources */,
+				9E487CBE2C445BAD0033C2AE /* AppDelegate.swift in Sources */,
+				9E487CC02C445BAD0033C2AE /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9E487CC82C445BAD0033C2AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E487CF32C445BAD0033C2AE /* ViewController.swift in Sources */,
+				9E487CCF2C445BAD0033C2AE /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9E487CD52C445BAD0033C2AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E487CF62C445BAD0033C2AE /* SafariWebExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9E487CDF2C445BAD0033C2AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E487CF72C445BAD0033C2AE /* SafariWebExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9E487CDC2C445BAD0033C2AE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9E487CD82C445BAD0033C2AE /* Auth Autofill Extension (iOS) */;
+			targetProxy = 9E487CDB2C445BAD0033C2AE /* PBXContainerItemProxy */;
+		};
+		9E487CE62C445BAD0033C2AE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9E487CE22C445BAD0033C2AE /* Auth Autofill Extension (macOS) */;
+			targetProxy = 9E487CE52C445BAD0033C2AE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9E487CAD2C445BAC0033C2AE /* Main.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9E487CAE2C445BAC0033C2AE /* Base */,
+			);
+			name = Main.html;
+			sourceTree = "<group>";
+		};
+		9E487CC12C445BAD0033C2AE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9E487CC22C445BAD0033C2AE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		9E487CC42C445BAD0033C2AE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9E487CC52C445BAD0033C2AE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9E487CD02C445BAD0033C2AE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9E487CD12C445BAD0033C2AE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9E487CF82C445BAD0033C2AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9E487CF92C445BAD0033C2AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		9E487CFB2C445BAD0033C2AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7WYMPDQCGP;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Auth Autofill Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.parkjeongseop.AuthAutofill.Extension;
+				PRODUCT_NAME = "Auth Autofill Extension";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9E487CFC2C445BAD0033C2AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7WYMPDQCGP;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Auth Autofill Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.parkjeongseop.AuthAutofill.Extension;
+				PRODUCT_NAME = "Auth Autofill Extension";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9E487CFF2C445BAD0033C2AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2.0.7;
+				DEVELOPMENT_TEAM = 7WYMPDQCGP;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Auth Autofill";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 2.0.7;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.parkjeongseop.AuthAutofill;
+				PRODUCT_NAME = "Auth Autofill";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9E487D002C445BAD0033C2AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2.0.7;
+				DEVELOPMENT_TEAM = 7WYMPDQCGP;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Auth Autofill";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 2.0.7;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.parkjeongseop.AuthAutofill;
+				PRODUCT_NAME = "Auth Autofill";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9E487D022C445BAD0033C2AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/Auth Autofill.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7WYMPDQCGP;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Auth Autofill Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.parkjeongseop.AuthAutofill.Extension;
+				PRODUCT_NAME = "Auth Autofill Extension";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		9E487D032C445BAD0033C2AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/Auth Autofill.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7WYMPDQCGP;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Auth Autofill Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.parkjeongseop.AuthAutofill.Extension;
+				PRODUCT_NAME = "Auth Autofill Extension";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		9E487D062C445BAD0033C2AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "macOS (App)/Auth Autofill.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2.0.7;
+				DEVELOPMENT_TEAM = 7WYMPDQCGP;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Auth Autofill";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 2.0.7;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.parkjeongseop.AuthAutofill;
+				PRODUCT_NAME = "Auth Autofill";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		9E487D072C445BAD0033C2AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "macOS (App)/Auth Autofill.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2.0.7;
+				DEVELOPMENT_TEAM = 7WYMPDQCGP;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Auth Autofill";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 2.0.7;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.parkjeongseop.AuthAutofill;
+				PRODUCT_NAME = "Auth Autofill";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9E487CAA2C445BAC0033C2AE /* Build configuration list for PBXProject "Auth Autofill" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9E487CF82C445BAD0033C2AE /* Debug */,
+				9E487CF92C445BAD0033C2AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9E487CFA2C445BAD0033C2AE /* Build configuration list for PBXNativeTarget "Auth Autofill Extension (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9E487CFB2C445BAD0033C2AE /* Debug */,
+				9E487CFC2C445BAD0033C2AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9E487CFE2C445BAD0033C2AE /* Build configuration list for PBXNativeTarget "Auth Autofill (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9E487CFF2C445BAD0033C2AE /* Debug */,
+				9E487D002C445BAD0033C2AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9E487D012C445BAD0033C2AE /* Build configuration list for PBXNativeTarget "Auth Autofill Extension (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9E487D022C445BAD0033C2AE /* Debug */,
+				9E487D032C445BAD0033C2AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9E487D052C445BAD0033C2AE /* Build configuration list for PBXNativeTarget "Auth Autofill (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9E487D062C445BAD0033C2AE /* Debug */,
+				9E487D072C445BAD0033C2AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9E487CA72C445BAC0033C2AE /* Project object */;
+}
