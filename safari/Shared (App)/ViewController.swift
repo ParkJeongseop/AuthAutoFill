@@ -16,7 +16,7 @@ import SafariServices
 typealias PlatformViewController = NSViewController
 #endif
 
-let extensionBundleIdentifier = "com.parkjeongseop.Auth-Autofill.Extension"
+let extensionBundleIdentifier = "com.parkjeongseop.AuthAutofill.Extension"
 
 class ViewController: PlatformViewController, WKNavigationDelegate, WKScriptMessageHandler {
 
