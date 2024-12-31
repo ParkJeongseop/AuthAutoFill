@@ -1448,6 +1448,22 @@ window.onload = function () {
 
                     }, 500);
 
+                } else if (window.location.hostname == 'www.patent.go.kr') {
+                    log('특허로');
+
+                    var nameInputQuery = "#oacx_name";
+                    var birthDate8DigitInputQuery = null;
+                    var birthDate6DigitInputQuery = "#oacx_num1";
+                    var rrnInputQuery = "#oacx_num2";
+                    var phone1InputQuery = "#oacx_phone1";
+                    var phone2InputQuery1 = "#oacx_phone2";
+                    var phone2InputQuery2 = "#oacx_phone3";
+                    var carrierInputQuery = "#submitFm > table > tbody > tr.telecom > td > select:nth-child(1)";
+                    var agreeInputQuery = "#oacx_total";
+
+                    autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery, phone2InputQuery1, carrierInputQuery, agreeInputQuery);
+                    autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery, phone2InputQuery2, carrierInputQuery, agreeInputQuery);
+
                 } else {
                     // 기타 사이트 처리
 
