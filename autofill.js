@@ -671,6 +671,49 @@ window.onload = function () {
 
                     this.document.getElementById('phone_no').value = profilesOb[spI].phone_number;
                     this.document.querySelector("#auth_no").focus();
+                } else if (window.location.hostname == 'ageverification.google.co.kr') {
+                    log('구글');
+                    
+                    // 이름 입력
+                    this.document.getElementById('name').value = profilesOb[spI].name;
+
+                    // 생년월일 입력
+                    this.document.getElementById('birth_year').value = profilesOb[spI].birth.substr(0, 4);
+                    this.document.getElementById('birth_month').value = profilesOb[spI].birth.substr(4, 2);
+                    this.document.getElementById('birth_date').value = Number(profilesOb[spI].birth.substr(6, 2));
+                    
+                    // 성별 선택
+                    if (profilesOb[spI].gender == '1') {
+                        this.document.querySelector('input[name="gender"][value="Male"]').click();
+                    } else {
+                        this.document.querySelector('input[name="gender"][value="Female"]').click();
+                    }
+
+                    // 통신사 선택
+                    if (profilesOb[spI].carrier == carrier.SKT) {
+                        this.document.querySelector('input[name="carrier"][value="SK"]').click();
+                    } else if (profilesOb[spI].carrier == carrier.KT) {
+                        this.document.querySelector('input[name="carrier"][value="KT"]').click();
+                    } else if (profilesOb[spI].carrier == carrier.LGU) {
+                        this.document.querySelector('input[name="carrier"][value="LG"]').click();
+                    } else {
+                        this.document.querySelector('input[name="carrier"][value="MVNO"]').click();
+
+                        if (profilesOb[spI].carrier == carrier.SKT_MVNO) {
+                            this.document.querySelector("#mvno_options > select").value = 'SKM';
+                        } else if (profilesOb[spI].carrier == carrier.KT_MVNO) {
+                            this.document.querySelector("#mvno_options > select").value = 'KTM';
+                        } else if (profilesOb[spI].carrier == carrier.LGU_MVNO) {
+                            this.document.querySelector("#mvno_options > select").value = 'LGM';
+                        }
+                    }
+
+                    // 전화번호 입력
+                    this.document.getElementById('phone_number').value = profilesOb[spI].phone_number;
+
+                    // 내국인/외국인 선택
+                    this.document.getElementById('nationality').checked = profilesOb[spI].foreigner == '0';
+
                 } else if (window.location.hostname == 'wauth.teledit.com') {
                     log('다날');
                     if (profilesOb[spI].carrier == carrier.SKT) {
