@@ -56,7 +56,7 @@
         "description": ""
     },
     "birthday": {
-        "message": "Birthday",
+        "message": "Birthdate (YYYYMMDD)",
         "description": ""
     },
     "citizen": {
@@ -92,27 +92,27 @@
         "description": ""
     },
     "enter_name": {
-        "message": "Please enter a name",
+        "message": "Please enter a name.",
         "description": ""
     },
     "select_carrier": {
-        "message": "Please select a carrier",
+        "message": "Please select a carrier.",
         "description": ""
     },
     "check_number": {
-        "message": "Please check your mobile phone number",
+        "message": "Please check your mobile phone number.",
         "description": ""
     },
     "check_birthday": {
-        "message": "Please check your birthday (8 digits) (eg 19990204)",
+        "message": "Please check your birthdate.\n(Enter your birthdate in 8 digits. eg. 19990204)",
         "description": ""
     },
     "select_gender": {
-        "message": "Please select a gender",
+        "message": "Please select a gender.",
         "description": ""
     },
     "select_auth_method": {
-        "message": "Please select an authentication method",
+        "message": "Please select an authentication method.",
         "description": ""
     },
     "skt_MNVO_do_not_support_pass": {

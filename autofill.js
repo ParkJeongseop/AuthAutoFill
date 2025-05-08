@@ -293,7 +293,7 @@ window.onload = function () {
                         }
                     } else if (this.document.getElementById('userName')) {
                         if (profilesOb[spI].way == way.SMS) { // SMS인증을 원하는 경우
-                            if (isPC && this.document.querySelector("#sms_auth") && this.document.querySelector("#sms_auth").title != '선택됨') { //sms아닐때
+                            if (isPC && this.document.title.includes('PASS인증')) { // PASS인증인 경우
                                 this.document.querySelector("#sms_auth").click();
                             } else {
                                 this.document.getElementById('userName').value = profilesOb[spI].name;
@@ -305,8 +305,8 @@ window.onload = function () {
                                 }
                             }
                         } else if (profilesOb[spI].way == way.PASS) { // PASS인증을 원하는 경우
-                            if (isPC && this.document.querySelector("#qr_auth") && this.document.querySelector("#qr_auth").title != '선택됨') { //sms아닐때
-                                this.document.querySelector("#sms_auth").click();
+                            if (isPC && this.document.title.includes('문자(SMS)인증')) { // SMS인증인 경우
+                                this.document.querySelector("#header > ul > li:nth-child(1) > a").click(); // SMS인증창 html에서 #qr_auth이 사라짐. 임시 workaround 적용.
                             } else {
                                 this.document.getElementsByName('userName')[0].value = profilesOb[spI].name;
                                 this.document.getElementsByName('No')[0].value = profilesOb[spI].phone_number;
