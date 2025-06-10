@@ -1607,6 +1607,22 @@ window.onload = function () {
                     autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery, phone2InputQuery1, carrierInputQuery, agreeInputQuery);
                     autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery, phone2InputQuery2, carrierInputQuery, agreeInputQuery);
 
+                } else if (window.location.hostname == 'b2b.kakaobank.com') {
+                    log('카카오뱅크');
+
+                    var phoneInput = this.document.querySelector("#input-phone");
+                    var birthInput = this.document.querySelector("#input-birth");
+
+                    if (phoneInput) {
+                        phoneInput.value = selectedProfile.phone_number;
+                        trigger_input_event(phoneInput);
+                    }
+
+                    if (birthInput) {
+                        birthInput.value = selectedProfile.birth.substr(2, 6);
+                        trigger_input_event(birthInput);
+                    }
+
                 } else {
                     // 기타 사이트 처리
 
