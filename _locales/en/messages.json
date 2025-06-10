@@ -15,12 +15,64 @@
         "message": "Auth Autofill",
         "description": ""
     },
+    "autofill_enable": {
+        "message": "Enable Autofill",
+        "description": ""
+    },
+    "saved_profiles": {
+        "message": "Saved Profiles",
+        "description": ""
+    },
+    "add_new_profile": {
+        "message": "Add New Profile",
+        "description": ""
+    },
     "add_profile": {
         "message": "Add profile",
         "description": ""
     },
+    "create_profile": {
+        "message": "Create Profile",
+        "description": ""
+    },
+    "cancel": {
+        "message": "Cancel",
+        "description": ""
+    },
+    "name_label": {
+        "message": "Name",
+        "description": ""
+    },
+    "phone_label": {
+        "message": "Phone Number",
+        "description": ""
+    },
+    "carrier_label": {
+        "message": "Carrier",
+        "description": ""
+    },
+    "birth_label": {
+        "message": "Date of Birth",
+        "description": ""
+    },
+    "nationality_label": {
+        "message": "Nationality",
+        "description": ""
+    },
+    "gender_label": {
+        "message": "Gender",
+        "description": ""
+    },
+    "auth_method_label": {
+        "message": "Auth Method",
+        "description": ""
+    },
     "carrier": {
         "message": "Carrier",
+        "description": ""
+    },
+    "carrier_select": {
+        "message": "Select Carrier",
         "description": ""
     },
     "carrier_SKT": {
@@ -36,27 +88,39 @@
         "description": ""
     },
     "carrier_SKT_MNVO": {
-        "message": "SKT network MVNO",
+        "message": "SKT MVNO",
         "description": ""
     },
     "carrier_KT_MNVO": {
-        "message": "KT network MVNO",
+        "message": "KT MVNO",
         "description": ""
     },
     "carrier_LGU_MNVO": {
-        "message": "LGU+ network MVNO",
+        "message": "LGU+ MVNO",
         "description": ""
     },
     "full_name": {
         "message": "Full name written on alien registration card",
         "description": ""
     },
+    "name_placeholder": {
+        "message": "Enter your name",
+        "description": ""
+    },
     "phone_number": {
         "message": "Mobile number",
         "description": ""
     },
+    "phone_placeholder": {
+        "message": "01012345678",
+        "description": ""
+    },
     "birthday": {
         "message": "Birthday",
+        "description": ""
+    },
+    "birth_placeholder": {
+        "message": "1990/01/01",
         "description": ""
     },
     "citizen": {
@@ -71,6 +135,10 @@
         "message": "Gender",
         "description": ""
     },
+    "gender_select": {
+        "message": "Select Gender",
+        "description": ""
+    },
     "male": {
         "message": "Male",
         "description": ""
@@ -83,8 +151,12 @@
         "message": "Auth Method",
         "description": ""
     },
+    "auth_method_select": {
+        "message": "Select Auth Method",
+        "description": ""
+    },
     "sms": {
-        "message": "SMS text message",
+        "message": "SMS",
         "description": ""
     },
     "pass": {

@@ -15,12 +15,64 @@
         "message": "본인인증 자동완성",
         "description": ""
     },
+    "autofill_enable": {
+        "message": "자동완성 활성화",
+        "description": ""
+    },
+    "saved_profiles": {
+        "message": "저장된 프로필",
+        "description": ""
+    },
+    "add_new_profile": {
+        "message": "새 프로필 추가",
+        "description": ""
+    },
     "add_profile": {
         "message": "프로필 추가",
         "description": ""
     },
+    "create_profile": {
+        "message": "프로필 생성",
+        "description": ""
+    },
+    "cancel": {
+        "message": "취소",
+        "description": ""
+    },
+    "name_label": {
+        "message": "이름",
+        "description": ""
+    },
+    "phone_label": {
+        "message": "휴대폰번호",
+        "description": ""
+    },
+    "carrier_label": {
+        "message": "통신사",
+        "description": ""
+    },
+    "birth_label": {
+        "message": "생년월일",
+        "description": ""
+    },
+    "nationality_label": {
+        "message": "국적",
+        "description": ""
+    },
+    "gender_label": {
+        "message": "성별",
+        "description": ""
+    },
+    "auth_method_label": {
+        "message": "인증방식",
+        "description": ""
+    },
     "carrier": {
         "message": "통신사",
+        "description": ""
+    },
+    "carrier_select": {
+        "message": "통신사 선택",
         "description": ""
     },
     "carrier_SKT": {
@@ -51,12 +103,24 @@
         "message": "이름",
         "description": ""
     },
+    "name_placeholder": {
+        "message": "이름을 입력하세요",
+        "description": ""
+    },
     "phone_number": {
         "message": "휴대폰 번호",
         "description": ""
     },
+    "phone_placeholder": {
+        "message": "01012345678",
+        "description": ""
+    },
     "birthday": {
         "message": "생년월일",
+        "description": ""
+    },
+    "birth_placeholder": {
+        "message": "1990/01/01",
         "description": ""
     },
     "citizen": {
@@ -71,6 +135,10 @@
         "message": "성별",
         "description": ""
     },
+    "gender_select": {
+        "message": "성별 선택",
+        "description": ""
+    },
     "male": {
         "message": "남성",
         "description": ""
@@ -81,6 +149,10 @@
     },
     "auth_method": {
         "message": "인증방식",
+        "description": ""
+    },
+    "auth_method_select": {
+        "message": "인증방식 선택",
         "description": ""
     },
     "sms": {

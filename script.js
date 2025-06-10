@@ -95,27 +95,53 @@ function getBrowser() {
 browser = getBrowser();
 
 function i18n() {
-    this.document.getElementById('auth_toggle').innerText = browser.i18n.getMessage('auth_autofill') +  " ON/OFF";
-    this.document.getElementById('add_profile_header').innerText = browser.i18n.getMessage('add_profile');
-    this.document.getElementById('name').placeholder = browser.i18n.getMessage('full_name');
-    this.document.getElementById('op_carrier').innerText = browser.i18n.getMessage('carrier');
-    this.document.getElementById('op_skt').innerText = browser.i18n.getMessage('carrier_SKT');
-    this.document.getElementById('op_kt').innerText = browser.i18n.getMessage('carrier_KT');
-    this.document.getElementById('op_lgu').innerText = browser.i18n.getMessage('carrier_LGU');
-    this.document.getElementById('op_skt_mvno').innerText = browser.i18n.getMessage('carrier_SKT_MNVO');
-    this.document.getElementById('op_kt_mvno').innerText = browser.i18n.getMessage('carrier_KT_MNVO');
-    this.document.getElementById('op_lgu_mvno').innerText = browser.i18n.getMessage('carrier_LGU_MNVO');
-    this.document.getElementById('phone_number').placeholder = browser.i18n.getMessage('phone_number');
-    this.document.getElementById('birth').placeholder = browser.i18n.getMessage('birthday');
-    this.document.getElementById('op_citizen').innerText = browser.i18n.getMessage('citizen');
-    this.document.getElementById('op_foreigner').innerText = browser.i18n.getMessage('foreigner');
-    this.document.getElementById('op_gender').innerText = browser.i18n.getMessage('gender');
-    this.document.getElementById('op_male').innerText = browser.i18n.getMessage('male');
-    this.document.getElementById('op_female').innerText = browser.i18n.getMessage('female');
-    this.document.getElementById('op_method').innerText = browser.i18n.getMessage('auth_method');
-    this.document.getElementById('op_sms').innerText = browser.i18n.getMessage('sms');
-    this.document.getElementById('op_pass').innerText = browser.i18n.getMessage('pass');
-    this.document.getElementById('addProfile').innerText = browser.i18n.getMessage('add_profile');
+    // 헤더 및 메인 텍스트
+    document.getElementById('header_title').innerText = browser.i18n.getMessage('auth_autofill');
+    document.getElementById('toggle_label').innerText = browser.i18n.getMessage('autofill_enable');
+    document.getElementById('saved_profiles_title').innerText = browser.i18n.getMessage('saved_profiles');
+    document.getElementById('add_new_profile_btn').innerText = browser.i18n.getMessage('add_new_profile');
+    document.getElementById('add_new_profile_title').innerText = browser.i18n.getMessage('add_new_profile');
+
+    // 폼 라벨
+    document.getElementById('name_label').innerText = browser.i18n.getMessage('name_label');
+    document.getElementById('phone_label').innerText = browser.i18n.getMessage('phone_label');
+    document.getElementById('carrier_label').innerText = browser.i18n.getMessage('carrier_label');
+    document.getElementById('birth_label').innerText = browser.i18n.getMessage('birth_label');
+    document.getElementById('nationality_label').innerText = browser.i18n.getMessage('nationality_label');
+    document.getElementById('gender_label').innerText = browser.i18n.getMessage('gender_label');
+    document.getElementById('auth_method_label').innerText = browser.i18n.getMessage('auth_method_label');
+
+    // 입력 필드 placeholder
+    document.getElementById('name').placeholder = browser.i18n.getMessage('name_placeholder');
+    document.getElementById('phone_number').placeholder = browser.i18n.getMessage('phone_placeholder');
+    document.getElementById('birth').placeholder = browser.i18n.getMessage('birth_placeholder');
+
+    // 통신사 옵션
+    document.getElementById('op_carrier').innerText = browser.i18n.getMessage('carrier_select');
+    document.getElementById('op_skt').innerText = browser.i18n.getMessage('carrier_SKT');
+    document.getElementById('op_kt').innerText = browser.i18n.getMessage('carrier_KT');
+    document.getElementById('op_lgu').innerText = browser.i18n.getMessage('carrier_LGU');
+    document.getElementById('op_skt_mvno').innerText = browser.i18n.getMessage('carrier_SKT_MNVO');
+    document.getElementById('op_kt_mvno').innerText = browser.i18n.getMessage('carrier_KT_MNVO');
+    document.getElementById('op_lgu_mvno').innerText = browser.i18n.getMessage('carrier_LGU_MNVO');
+
+    // 국적 옵션
+    document.getElementById('op_citizen').innerText = browser.i18n.getMessage('citizen');
+    document.getElementById('op_foreigner').innerText = browser.i18n.getMessage('foreigner');
+
+    // 성별 옵션
+    document.getElementById('op_gender').innerText = browser.i18n.getMessage('gender_select');
+    document.getElementById('op_male').innerText = browser.i18n.getMessage('male');
+    document.getElementById('op_female').innerText = browser.i18n.getMessage('female');
+
+    // 인증방식 옵션
+    document.getElementById('op_method').innerText = browser.i18n.getMessage('auth_method_select');
+    document.getElementById('op_sms').innerText = browser.i18n.getMessage('sms');
+    document.getElementById('op_pass').innerText = browser.i18n.getMessage('pass');
+
+    // 버튼 텍스트
+    document.getElementById('create_profile_btn').innerText = browser.i18n.getMessage('create_profile');
+    document.getElementById('cancel_btn').innerText = browser.i18n.getMessage('cancel');
 }
 
 window.onload = function () {

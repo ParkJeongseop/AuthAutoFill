@@ -17,13 +17,13 @@
             <div class="header-icon">
                 <i class="fas fa-shield-alt"></i>
             </div>
-            <h1 class="header-title">본인인증 자동완성</h1>
+            <h1 id="header_title" class="header-title">본인인증 자동완성</h1>
         </div>
 
         <!-- 토글 스위치 -->
         <div class="toggle-section">
             <div class="toggle-wrapper">
-                <span class="toggle-label">자동완성 활성화</span>
+                <span id="toggle_label" class="toggle-label">자동완성 활성화</span>
                 <label class="switch">
                     <input type="checkbox" id="onoffswitch">
                     <span class="slider"></span>
@@ -35,7 +35,7 @@
         <div class="profiles-section">
             <div class="section-header">
                 <i class="fas fa-users"></i>
-                <span>저장된 프로필</span>
+                <span id="saved_profiles_title">저장된 프로필</span>
             </div>
             <ul id="profilesUL" class="profiles-list">
                 <!-- 프로필들이 여기에 동적으로 추가됩니다 -->
@@ -45,7 +45,7 @@
             <div class="add-profile-button-container">
                 <button id="showAddProfileForm" type="button" class="btn-add-profile">
                     <i class="fas fa-plus"></i>
-                    새 프로필 추가
+                    <span id="add_new_profile_btn">새 프로필 추가</span>
                 </button>
             </div>
         </div>
@@ -54,14 +54,14 @@
         <div id="addProfileSection" class="add-profile-section" style="display: none;">
             <div class="section-header">
                 <i class="fas fa-plus-circle"></i>
-                <span>새 프로필 추가</span>
+                <span id="add_new_profile_title">새 프로필 추가</span>
             </div>
             
             <form class="profile-form">
                 <div class="form-group">
                     <label class="form-label">
                         <i class="fas fa-user"></i>
-                        이름
+                        <span id="name_label">이름</span>
                     </label>
                     <input id="name" type="text" class="form-input" placeholder="이름을 입력하세요" required>
                 </div>
@@ -69,7 +69,7 @@
                 <div class="form-group">
                     <label class="form-label">
                         <i class="fas fa-mobile-alt"></i>
-                        휴대폰번호
+                        <span id="phone_label">휴대폰번호</span>
                     </label>
                     <input id="phone_number" type="tel" class="form-input" placeholder="01012345678" maxlength="13">
                 </div>
@@ -77,47 +77,47 @@
                 <div class="form-group">
                     <label class="form-label">
                         <i class="fas fa-signal"></i>
-                        통신사
+                        <span id="carrier_label">통신사</span>
                     </label>
                     <select id="carrier" class="form-select">
-                        <option value="-1">통신사 선택</option>
-                        <option value="1">SKT</option>
-                        <option value="2">KT</option>
-                        <option value="3">LGU+</option>
-                        <option value="4">SKT 알뜰폰</option>
-                        <option value="5">KT 알뜰폰</option>
-                        <option value="6">LGU+ 알뜰폰</option>
+                        <option id="op_carrier" value="-1">통신사 선택</option>
+                        <option id="op_skt" value="1">SKT</option>
+                        <option id="op_kt" value="2">KT</option>
+                        <option id="op_lgu" value="3">LGU+</option>
+                        <option id="op_skt_mvno" value="4">SKT 알뜰폰</option>
+                        <option id="op_kt_mvno" value="5">KT 알뜰폰</option>
+                        <option id="op_lgu_mvno" value="6">LGU+ 알뜰폰</option>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label class="form-label">
                         <i class="fas fa-calendar-alt"></i>
-                        생년월일
+                        <span id="birth_label">생년월일</span>
                     </label>
-                    <input id="birth" type="text" class="form-input" placeholder="19990101" maxlength="10">
+                    <input id="birth" type="text" class="form-input" placeholder="1990/01/01" maxlength="10">
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
                         <label class="form-label">
                             <i class="fas fa-globe"></i>
-                            국적
+                            <span id="nationality_label">국적</span>
                         </label>
                         <select id="foreigner" class="form-select">
-                            <option value="0">내국인</option>
-                            <option value="1">외국인</option>
+                            <option id="op_citizen" value="0">내국인</option>
+                            <option id="op_foreigner" value="1">외국인</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label class="form-label">
                             <i class="fas fa-venus-mars"></i>
-                            성별
+                            <span id="gender_label">성별</span>
                         </label>
                         <select id="gender" class="form-select">
-                            <option value="-1">성별 선택</option>
-                            <option value="1">남성</option>
-                            <option value="2">여성</option>
+                            <option id="op_gender" value="-1">성별 선택</option>
+                            <option id="op_male" value="1">남성</option>
+                            <option id="op_female" value="2">여성</option>
                         </select>
                     </div>
                 </div>
@@ -125,23 +125,23 @@
                 <div class="form-group">
                     <label class="form-label">
                         <i class="fas fa-key"></i>
-                        인증방식
+                        <span id="auth_method_label">인증방식</span>
                     </label>
                     <select id="way" class="form-select">
-                        <option value="-1">인증방식 선택</option>
-                        <option value="1">SMS</option>
-                        <option value="2">통신사 PASS앱</option>
+                        <option id="op_method" value="-1">인증방식 선택</option>
+                        <option id="op_sms" value="1">SMS</option>
+                        <option id="op_pass" value="2">통신사 PASS앱</option>
                     </select>
                 </div>
 
                 <div class="form-actions">
                     <button id="addProfile" type="button" class="btn-primary">
                         <i class="fas fa-check"></i>
-                        프로필 생성
+                        <span id="create_profile_btn">프로필 생성</span>
                     </button>
                     <button id="cancelAddProfile" type="button" class="btn-secondary">
                         <i class="fas fa-times"></i>
-                        취소
+                        <span id="cancel_btn">취소</span>
                     </button>
                 </div>
             </form>
