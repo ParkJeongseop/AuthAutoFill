@@ -1626,18 +1626,20 @@ window.onload = function () {
                 } else if (window.location.hostname == 'pay.toss.im') {
                     log('토스페이');
 
-                    var phoneInput = this.document.querySelector("#__next > div.css-a9cbnn > div > main > div.e1a4cznt0.css-p1lgz0 > div.css-qd6nhi > div.form-group.css-aeb6cd.e1um61b20 > div > div > input");
-                    var birthInput = this.document.querySelector("#__next > div.css-a9cbnn > div > main > div.e1a4cznt0.css-p1lgz0 > div.css-qd6nhi > div.form-group.css-aeb6cd.e1m33tsd0 > div > div > input");
+                    setInterval(function() {
+                        var phoneInput = this.document.querySelector("#__next > div.css-a9cbnn > div > main > div.e1a4cznt0.css-p1lgz0 > div.css-qd6nhi > div.form-group.css-aeb6cd.e1um61b20 > div > div > input");
+                        var birthInput = this.document.querySelector("#__next > div.css-a9cbnn > div > main > div.e1a4cznt0.css-p1lgz0 > div.css-qd6nhi > div.form-group.css-aeb6cd.e1m33tsd0 > div > div > input");
 
-                    if (phoneInput) {
-                        phoneInput.value = selectedProfile.phone_number;
-                        trigger_input_event(phoneInput);
-                    }
+                        if (phoneInput) {
+                            phoneInput.value = selectedProfile.phone_number;
+                            trigger_input_event(phoneInput);
+                        }
 
-                    if (birthInput) {
-                        birthInput.value = selectedProfile.birth.substr(2, 6);
-                        trigger_input_event(birthInput);
-                    }
+                        if (birthInput) {
+                            birthInput.value = selectedProfile.birth.substr(2, 6);
+                            trigger_input_event(birthInput);
+                        }
+                    }, 500);
 
                 } else if (window.location.hostname == 'kr.mpay.samsung.com') {
                     log('삼성페이');
