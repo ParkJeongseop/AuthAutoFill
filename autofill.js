@@ -1623,12 +1623,30 @@ window.onload = function () {
                         trigger_input_event(birthInput);
                     }
 
+                } else if (window.location.hostname == 'online-payment.kakaopay.com') {
+                    log('카카오페이');
+
+                    setInterval(function() {
+                        var phoneInput = this.document.querySelector("#phoneNumber");
+                        var birthInput = this.document.querySelector("#dateOfBirth");
+
+                        if (phoneInput) {
+                            phoneInput.value = selectedProfile.phone_number;
+                            trigger_input_event(phoneInput);
+                        }
+
+                        if (birthInput) {
+                            birthInput.value = selectedProfile.birth.substr(2, 6);
+                            trigger_input_event(birthInput);
+                        }
+                    }, 500);
+
                 } else if (window.location.hostname == 'pay.toss.im') {
                     log('토스페이');
 
                     setInterval(function() {
-                        var phoneInput = this.document.querySelector("#__next > div.css-a9cbnn > div > main > div.e1a4cznt0.css-p1lgz0 > div.css-qd6nhi > div.form-group.css-aeb6cd.e1um61b20 > div > div > input");
-                        var birthInput = this.document.querySelector("#__next > div.css-a9cbnn > div > main > div.e1a4cznt0.css-p1lgz0 > div.css-qd6nhi > div.form-group.css-aeb6cd.e1m33tsd0 > div > div > input");
+                        var phoneInput = this.document.querySelector("div.form-group.css-aeb6cd.e1um61b20 > div > div > input");
+                        var birthInput = this.document.querySelector("div.form-group.css-aeb6cd.e1m33tsd0 > div > div > input");
 
                         if (phoneInput) {
                             phoneInput.value = selectedProfile.phone_number;

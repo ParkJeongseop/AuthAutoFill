@@ -99,6 +99,7 @@ A browser extension that autofills identity verification services in South Korea
 
 ## 간편결제
  * [토스페이](https://pay.toss.im)
+ * [카카오페이](https://kakaopay.com)
  * [삼성페이](https://www.samsung.com/sec/apps/samsung-wallet/)
 
 
