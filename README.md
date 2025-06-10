@@ -96,7 +96,10 @@ A browser extension that autofills identity verification services in South Korea
  * [네이버](https://nid.naver.com)
  * [구글 코리아](https://www.google.co.kr)
  * [카카오뱅크](https://auth.kakaobank.com/guide/guideIdentificationPage)
+
+## 간편결제
  * [토스페이](https://pay.toss.im)
+ * [삼성페이](https://www.samsung.com/sec/apps/samsung-wallet/)
 
 
 ![소개이미지](./publish/img/small_promotion_tile.png)

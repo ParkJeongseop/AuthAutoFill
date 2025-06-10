@@ -1639,6 +1639,67 @@ window.onload = function () {
                         trigger_input_event(birthInput);
                     }
 
+                } else if (window.location.hostname == 'kr.mpay.samsung.com') {
+                    log('삼성페이');
+
+                    setInterval(function() {
+                        var KoreanBtn = this.document.querySelectorAll("[id^='sbOptions_']")[0].querySelector("li:nth-child(1) > a");
+                        var ForeignerBtn = this.document.querySelectorAll("[id^='sbOptions_']")[0].querySelector("li:nth-child(2) > a");
+                        var phoneInput = this.document.querySelector("#phoneNumber");
+                        var birthInput = this.document.querySelector("#birthday");
+                        var nameInput = this.document.querySelector("#name");
+
+                        // 외국인
+                        if(selectedProfile.foreigner == '1') {
+                            if(ForeignerBtn) {
+                                ForeignerBtn.click();
+                            }
+                        } else {
+                            if(KoreanBtn) {
+                                KoreanBtn.click();
+                            }
+                        }
+
+                        // 생년월일
+                        if (birthInput) {
+                            birthInput.value = selectedProfile.birth;
+                            // trigger_input_event(birthInput);
+                        }
+                        
+                        // 통신사 선택
+                        if (profilesOb[spI].carrier == carrier.SKT) {
+                            this.document.querySelectorAll("[id^='sbOptions_']")[1].querySelector("li:nth-child(2) > a").click();
+                        } else if (profilesOb[spI].carrier == carrier.KT) {
+                            this.document.querySelectorAll("[id^='sbOptions_']")[1].querySelector("li:nth-child(3) > a").click();
+                        } else if (profilesOb[spI].carrier == carrier.LGU) {
+                            this.document.querySelectorAll("[id^='sbOptions_']")[1].querySelector("li:nth-child(4) > a").click();
+                        } else if (profilesOb[spI].carrier == carrier.SKT_MVNO) {
+                            this.document.querySelectorAll("[id^='sbOptions_']")[1].querySelector("li:nth-child(5) > a").click();
+                        } else if (profilesOb[spI].carrier == carrier.KT_MVNO) {
+                            this.document.querySelectorAll("[id^='sbOptions_']")[1].querySelector("li:nth-child(6) > a").click();
+                        } else if (profilesOb[spI].carrier == carrier.LGU_MVNO) {
+                            this.document.querySelectorAll("[id^='sbOptions_']")[1].querySelector("li:nth-child(7) > a").click();
+                        }
+
+                        // 전화번호 
+                        if (phoneInput) {
+                            phoneInput.value = selectedProfile.phone_number;
+                            // trigger_input_event(phoneInput);
+                        }
+
+                        // 성별 선택
+                        if (profilesOb[spI].gender == '1') {
+                            this.document.querySelector("#male > span").click();
+                        } else {
+                            this.document.querySelector("#female > span").click();
+                        }
+
+                        // 이름
+                        if (nameInput) {
+                            nameInput.value = selectedProfile.name;
+                        }
+                    }, 500);
+
                 } else {
                     // 기타 사이트 처리
 
