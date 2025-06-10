@@ -80,6 +80,10 @@ A browser extension that autofills identity verification services in South Korea
  * [㈜KG이니시스](https://www.inicis.com)
  * [코리아크레딧뷰로](http://ok-name.co.kr)
  * [한국모바일인증㈜](http://www.kmcert.com)
+
+## 모바일신분증
+ * [정부24](https://www.gov.kr)
+
 ## 기타
  * [네이버](https://nid.naver.com)
  * [구글 코리아](https://www.google.co.kr)

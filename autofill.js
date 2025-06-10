@@ -944,6 +944,7 @@ window.onload = function () {
                 } else if (window.location.hostname == 'www.gov.kr') {
                     log('정부24');
 
+                    // 간편인증
                     var nameInputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(1) > div.ul-td > input[type=text]";
                     var birthDate8DigitInputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(2) > div.ul-td > input";
                     var birthDate6DigitInputQuery = null;
@@ -954,6 +955,23 @@ window.onload = function () {
                     var agreeInputQuery = "#totalAgree";
 
                     autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery, phone2InputQuery, carrierInputQuery, agreeInputQuery);
+
+                    // 모바일 신분증
+                    setInterval(function() {
+                        var nameInput = this.document.querySelector("#name");
+                        var phoneInput = this.document.querySelector("#telno");
+                        var agreeInput = this.document.querySelector("#allAgree");
+    
+                        if (nameInput) {
+                            nameInput.value = profilesOb[spI].name;
+                        }
+                        if (phoneInput) {
+                            phoneInput.value = profilesOb[spI].phone_number;
+                        }
+                        if (agreeInput && !agreeInput.checked) {
+                            agreeInput.click();
+                        }
+                    }, 500);
 
                 } else if (window.location.hostname == 'easysign.anyid.go.kr') {
                     log('행정안전부 ‘Any-ID’ 간편 로그인 서비스');
