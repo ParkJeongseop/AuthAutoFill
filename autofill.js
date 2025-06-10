@@ -1621,6 +1621,22 @@ window.onload = function () {
 
                     autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery, phone2InputQuery, carrierInputQuery, agreeInputQuery);
 
+                    // 모바일 신분증
+                    setInterval(function() {
+                        var nameInput = this.document.querySelector("#name");
+                        var phoneInput = this.document.querySelector("#telno");
+                        var agreeInput = this.document.querySelector("#allAgree");
+    
+                        if (nameInput) {
+                            nameInput.value = profilesOb[spI].name;
+                        }
+                        if (phoneInput) {
+                            phoneInput.value = profilesOb[spI].phone_number;
+                        }
+                        if (agreeInput && !agreeInput.checked) {
+                            agreeInput.click();
+                        }
+                    }, 500);
                 }
             }
         } else {

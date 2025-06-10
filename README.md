@@ -56,8 +56,12 @@ A browser extension that autofills identity verification services in South Korea
  * [서울특별시 교통위반단속조회 서비스](https://cartax.seoul.go.kr)
  * [LH청약센터](https://apply.lh.or.kr)
  * [특허로](https://www.patent.go.kr)
+
+ * [고용24](https://work24.go.kr)
+ * [국민비서](https://www.ips.go.kr)
  * [행정안전부 ‘Any-ID’ 간편 로그인 서비스](https://www.mois.go.kr/frt/bbs/type010/commonSelectBoardArticle.do?bbsId=BBSMSTR_000000000008&nttId=97826) (서비스중개형)
     * [청원24](https://www.cheongwon.go.kr)
+    * [문서24](https://docu.gdoc.go.kr)
     * [노동포털 시스템](https://labor.moel.go.kr)
     * [나만의 예우시스템](https://pmp.mpva.go.kr)
     * [제대군인 전직지원시스템](https://www.vnet.go.kr)
@@ -83,6 +87,10 @@ A browser extension that autofills identity verification services in South Korea
 
 ## 모바일신분증
  * [정부24](https://www.gov.kr)
+ * [고용24](https://work24.go.kr)
+ * [문서24](https://docu.gdoc.go.kr)
+ * [청원24](https://www.cheongwon.go.kr)
+ * [국민비서](https://www.ips.go.kr)
 
 ## 기타
  * [네이버](https://nid.naver.com)
