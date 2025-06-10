@@ -1720,6 +1720,55 @@ window.onload = function () {
                         }
                     }, 500);
 
+                } else if (window.location.hostname == 'spay.kcp.co.kr') {
+                    log('KCP 휴대폰결제');
+
+                    var autofill_interval = setInterval(function() {
+                        var phoneInput1 = this.document.querySelector("#select_hp_1");
+                        var phoneInput2 = this.document.querySelector("#select_hp_2");
+                        var birthInput1 = this.document.querySelector("#account_num1");
+                        var birthInput2 = this.document.querySelector("#account_num2");
+                        var agreeInput = this.document.querySelector("#chk_all");
+
+                        if (agreeInput && !agreeInput.checked) {
+                            agreeInput.click();
+                        }
+
+                        // 생년월일
+                        if (birthInput1) {
+                            birthInput1.value = selectedProfile.birth.substring(2, 8);
+                        }
+
+                        if (birthInput2) {
+                            birthInput2.value = get_RRN_GenderNum(profilesOb[spI].birth, profilesOb[spI].gender, profilesOb[spI].foreigner);
+                        }
+                        
+                        // 통신사 선택
+                        if (document.querySelector("#SKT")) {
+                            if (profilesOb[spI].carrier == carrier.SKT) {
+                                this.document.querySelector("#SKT").click();
+                            } else if (profilesOb[spI].carrier == carrier.KT) {
+                                this.document.querySelector("#KTF").click();
+                            } else if (profilesOb[spI].carrier == carrier.LGU) {
+                                this.document.querySelector("#LGT").click();
+                            } else if (profilesOb[spI].carrier == carrier.KT_MVNO) {
+                                this.document.querySelector("#select_hp1").value = 'KTM';
+                            } else if (profilesOb[spI].carrier == carrier.LGU_MVNO) {
+                                this.document.querySelector("#select_hp1").value = 'LGM';
+                            }
+                        }
+
+                        // 전화번호 
+                        if (phoneInput1) {
+                            phoneInput1.value = selectedProfile.phone_number.substring(3, 7);
+                        }
+                        if (phoneInput2) {
+                            phoneInput2.value = selectedProfile.phone_number.substring(7, 11);
+                            clearInterval(autofill_interval);
+                        }
+
+                    }, 500);
+
                 } else {
                     // 기타 사이트 처리
 
