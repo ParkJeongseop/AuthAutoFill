@@ -3,88 +3,150 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"
-        type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="script.js"></script>
-    <style>
-        body {
-            height: auto;
-            width: 400px;
-            padding: 1.5rem;
-        }
-    </style>
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 
 <body>
-    <div class="custom-control custom-switch">
-        <input type="checkbox" class="custom-control-input" id="onoffswitch">
-        <label id="auth_toggle" class="custom-control-label" for="onoffswitch" style="font-size: large;font-weight: bold;">본인인증 자동완성 ON/OFF</label>
+    <div class="container">
+        <!-- 헤더 -->
+        <div class="header">
+            <div class="header-icon">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <h1 class="header-title">본인인증 자동완성</h1>
+        </div>
+
+        <!-- 토글 스위치 -->
+        <div class="toggle-section">
+            <div class="toggle-wrapper">
+                <span class="toggle-label">자동완성 활성화</span>
+                <label class="switch">
+                    <input type="checkbox" id="onoffswitch">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+
+        <!-- 프로필 목록 -->
+        <div class="profiles-section">
+            <div class="section-header">
+                <i class="fas fa-users"></i>
+                <span>저장된 프로필</span>
+            </div>
+            <ul id="profilesUL" class="profiles-list">
+                <!-- 프로필들이 여기에 동적으로 추가됩니다 -->
+            </ul>
+            
+            <!-- 새 프로필 추가 버튼 -->
+            <div class="add-profile-button-container">
+                <button id="showAddProfileForm" type="button" class="btn-add-profile">
+                    <i class="fas fa-plus"></i>
+                    새 프로필 추가
+                </button>
+            </div>
+        </div>
+
+        <!-- 프로필 추가 폼 (기본 숨김) -->
+        <div id="addProfileSection" class="add-profile-section" style="display: none;">
+            <div class="section-header">
+                <i class="fas fa-plus-circle"></i>
+                <span>새 프로필 추가</span>
+            </div>
+            
+            <form class="profile-form">
+                <div class="form-group">
+                    <label class="form-label">
+                        <i class="fas fa-user"></i>
+                        이름
+                    </label>
+                    <input id="name" type="text" class="form-input" placeholder="이름을 입력하세요" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        <i class="fas fa-mobile-alt"></i>
+                        휴대폰번호
+                    </label>
+                    <input id="phone_number" type="tel" class="form-input" placeholder="01012345678" maxlength="13">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        <i class="fas fa-signal"></i>
+                        통신사
+                    </label>
+                    <select id="carrier" class="form-select">
+                        <option value="-1">통신사 선택</option>
+                        <option value="1">SKT</option>
+                        <option value="2">KT</option>
+                        <option value="3">LGU+</option>
+                        <option value="4">SKT 알뜰폰</option>
+                        <option value="5">KT 알뜰폰</option>
+                        <option value="6">LGU+ 알뜰폰</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        <i class="fas fa-calendar-alt"></i>
+                        생년월일
+                    </label>
+                    <input id="birth" type="text" class="form-input" placeholder="19990101" maxlength="10">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">
+                            <i class="fas fa-globe"></i>
+                            국적
+                        </label>
+                        <select id="foreigner" class="form-select">
+                            <option value="0">내국인</option>
+                            <option value="1">외국인</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">
+                            <i class="fas fa-venus-mars"></i>
+                            성별
+                        </label>
+                        <select id="gender" class="form-select">
+                            <option value="-1">성별 선택</option>
+                            <option value="1">남성</option>
+                            <option value="2">여성</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        <i class="fas fa-key"></i>
+                        인증방식
+                    </label>
+                    <select id="way" class="form-select">
+                        <option value="-1">인증방식 선택</option>
+                        <option value="1">SMS</option>
+                        <option value="2">통신사 PASS앱</option>
+                    </select>
+                </div>
+
+                <div class="form-actions">
+                    <button id="addProfile" type="button" class="btn-primary">
+                        <i class="fas fa-check"></i>
+                        프로필 생성
+                    </button>
+                    <button id="cancelAddProfile" type="button" class="btn-secondary">
+                        <i class="fas fa-times"></i>
+                        취소
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
-    <div class="profiles">
-        <ul id='profilesUL' class="list-group">
-        </ul>
-    </div>
-    <br>
-    <hr>
-    <div class="addProfileDiv">
-        <h5 id='add_profile_header'>프로필 추가</h5>
-        <div class="input-group mb-3">
-            <input id='name' type="text" class="form-control" placeholder="이름" aria-label="Username"
-                aria-describedby="basic-addon1" required="required">
-        </div>
-
-        <div class="input-group mb-3">
-            <select id='carrier' class="custom-select" id="inputGroupSelect04"
-                aria-label="Example select with button addon">
-                <option id="op_carrier" value="-1" selected>통신사</option>
-                <option id="op_skt" value="1">SKT</option>
-                <option id="op_kt" value="2">KT</option>
-                <option id="op_lgu" value="3">LGU+</option>
-                <option id="op_skt_mvno" value="4">SKT망 알뜰폰</option>
-                <option id="op_kt_mvno" value="5">KT망 알뜰폰</option>
-                <option id="op_lgu_mvno" value="6">LGU+망 알뜰폰</option>
-            </select>
-
-            <input id='phone_number' type="number" class="form-control" placeholder="휴대폰번호 ('-'없이숫자만입력)"
-                aria-label="Username" aria-describedby="basic-addon1" minlength="10" maxlength="11" min="0">
-
-        </div>
-
-        <div class="input-group mb-3">
-            <input id='birth' type="number" class="form-control" placeholder="생년월일 (8자리)" aria-label="Username"
-                aria-describedby="basic-addon1" minlength="8" maxlength="8">
-        </div>
-
-        <div class="input-group mb-3">
-            <select id='foreigner' class="custom-select" id="inputGroupSelect04"
-                aria-label="Example select with button addon">
-                <option id="op_citizen" value="0">내국인</option>
-                <option id="op_foreigner" value="1">외국인</option>
-            </select>
-
-            <select id='gender' class="custom-select" id="inputGroupSelect04"
-                aria-label="Example select with button addon" required>
-                <option id="op_gender" value="-1" selected>성별</option>
-                <option id="op_male" value="1">남성</option>
-                <option id="op_female" value="2">여성</option>
-            </select>
-        </div>
-
-        <div class="input-group mb-3">
-            <select id='way' class="custom-select" id="inputGroupSelect04"
-                aria-label="Example select with button addon">
-                <option id="op_method" value="-1" selected>인증방식</option>
-                <option id="op_sms" value="1">SMS</option>
-                <option id="op_pass" value="2">통신사 PASS앱</option>
-            </select>
-        </div>
-
-        <button id='addProfile' type="button" class="btn btn-light">프로필 추가</button>
-    </div>
-
 </body>
 
 </html>

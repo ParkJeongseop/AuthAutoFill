@@ -1,178 +1,635 @@
-body {
+/* 기본 스타일 */
+* {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    font-size: 0.88rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #495057;
-    text-align: left;
-    background-color: #e2e2e2
+    padding: 0;
+    box-sizing: border-box;
 }
 
-i {
-    font-style: italic
+body {
+    width: 420px;
+    height: auto;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: #333;
+    overflow-x: hidden;
 }
 
 .container {
-    margin-top: 100px
+    padding: 20px;
+    max-height: 600px;
+    overflow-y: auto;
 }
 
-.card {
-    box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
-    border-width: 0;
-    transition: all .2s
-}
-
-.card-header:first-child {
-    border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0
-}
-
-.card-header {
+/* 헤더 */
+.header {
     display: flex;
     align-items: center;
-    border-bottom-width: 1px;
-    padding-top: 0;
-    padding-bottom: 0;
-    padding-right: 0.625rem;
-    height: 3.5rem;
-    background-color: #fff
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
-.widget-subheading {
-    color: #858a8e;
-    font-size: 10px
+.header-icon {
+    font-size: 24px;
+    color: #667eea;
+    margin-right: 12px;
 }
 
-.card-header.card-header-tab .card-header-title {
+.header-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+}
+
+/* 토글 섹션 */
+.toggle-section {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-wrapper {
     display: flex;
     align-items: center;
-    white-space: nowrap
+    justify-content: space-between;
 }
 
-.card-header .header-icon {
-    font-size: 1.65rem;
-    margin-right: 0.625rem
+.toggle-label {
+    font-weight: 500;
+    color: #333;
 }
 
-.card-header.card-header-tab .card-header-title {
-    display: flex;
-    align-items: center;
-    white-space: nowrap
-}
-
-.btn-actions-pane-right {
-    margin-left: auto;
-    white-space: nowrap
-}
-
-.text-capitalize {
-    text-transform: capitalize !important
-}
-
-.scroll-area-sm {
-    height: 288px;
-    overflow-x: hidden
-}
-
-.list-group-item {
+/* 커스텀 스위치 */
+.switch {
     position: relative;
-    display: block;
-    padding: 0.75rem 1.25rem;
-    margin-bottom: -1px;
-    background-color: #fff;
-    border: 1px solid rgba(0, 0, 0, 0.125)
+    display: inline-block;
+    width: 60px;
+    height: 30px;
 }
 
-.list-group {
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #ccc;
+    transition: 0.3s ease;
+    border-radius: 30px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 4px;
+    bottom: 4px;
+    background: white;
+    transition: 0.3s ease;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+input:checked + .slider {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+}
+
+input:checked + .slider:before {
+    transform: translateX(30px);
+}
+
+/* 섹션 헤더 */
+.section-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+.section-header i {
+    margin-right: 8px;
+    color: #667eea;
+}
+
+/* 프로필 섹션 */
+.profiles-section {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.profiles-list {
+    list-style: none;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.profiles-list:empty::before {
+    content: "저장된 프로필이 없습니다.";
+    display: block;
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    padding: 20px;
+}
+
+/* 프로필 추가 섹션 */
+.add-profile-section {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* 폼 스타일 */
+.profile-form {
     display: flex;
     flex-direction: column;
-    padding-left: 0;
-    margin-top: 15px;
-    margin-bottom: 0
+    gap: 16px;
 }
 
-.todo-indicator {
-    position: absolute;
-    width: 4px;
-    height: 60%;
-    border-radius: 0.3rem;
-    left: 0.625rem;
-    top: 20%;
-    opacity: .6;
-    transition: opacity .2s
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
 }
 
-.bg-warning {
-    background-color: #f7b924 !important
-}
-
-.widget-content {
-    padding: 1rem;
-    flex-direction: row;
-    align-items: center
-}
-
-.widget-content .widget-content-wrapper {
+.form-group {
     display: flex;
-    flex: 1;
-    position: relative;
-    align-items: center
+    flex-direction: column;
+    gap: 6px;
 }
 
-.widget-content .widget-content-right.widget-content-actions {
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity .2s
+.form-label {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    color: #555;
+    font-size: 13px;
 }
 
-.widget-content .widget-content-right {
-    margin-left: auto
+.form-label i {
+    margin-right: 6px;
+    width: 14px;
+    color: #667eea;
 }
 
-.btn:not(:disabled):not(.disabled) {
-    cursor: pointer
+.form-input,
+.form-select {
+    padding: 12px 16px;
+    border: 2px solid #e0e6ed;
+    border-radius: 12px;
+    font-size: 14px;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    background: white;
 }
 
-.btn {
-    position: relative;
-    transition: color 0.15s, background-color 0.15s, border-color 0.15s, box-shadow 0.15s
+.form-input:focus,
+.form-select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
-.btn-outline-success {
-    color: #3ac47d;
-    border-color: #3ac47d
+.form-input::placeholder {
+    color: #9ca3af;
 }
 
-.btn-outline-success:hover {
-    color: #fff;
-    background-color: #3ac47d;
-    border-color: #3ac47d
+.form-select {
+    cursor: pointer;
 }
 
-.btn-outline-success:hover {
-    color: #fff;
-    background-color: #3ac47d;
-    border-color: #3ac47d
+/* 버튼 */
+/* 기존 btn-primary 스타일 제거 - 아래 form-actions에서 통합 관리 */
+
+/* 스크롤바 커스터마이징 */
+.container::-webkit-scrollbar,
+.profiles-list::-webkit-scrollbar {
+    width: 6px;
 }
 
-.btn-primary {
-    color: #fff;
-    background-color: #3f6ad8;
-    border-color: #3f6ad8
+.container::-webkit-scrollbar-track,
+.profiles-list::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
 }
 
-.btn {
-    position: relative;
-    transition: color 0.15s, background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
-    outline: none !important
+.container::-webkit-scrollbar-thumb,
+.profiles-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
 }
 
-.card-footer {
-    background-color: #fff
+.container::-webkit-scrollbar-thumb:hover,
+.profiles-list::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
 }
 
+/* 반응형 조정 */
+@media (max-height: 500px) {
+    .container {
+        padding: 16px;
+    }
+    
+    .header, .toggle-section, .profiles-section, .add-profile-section {
+        padding: 16px;
+        margin-bottom: 16px;
+    }
+}
+
+/* 애니메이션 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.toggle-section,
+.profiles-section,
+.add-profile-section {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Number input 스타일링 */
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* 프로필 카드 스타일 */
+.profile-item {
+    margin-bottom: 12px;
+    animation: slideIn 0.3s ease-out;
+}
+
+.profile-item:last-child {
+    margin-bottom: 0;
+}
+
+.profile-card {
+    background: white;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile-selected .profile-card {
+    border-color: #667eea;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+    box-shadow: 0 4px 16px rgba(102, 126, 234, 0.2);
+}
+
+.profile-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 4px;
+}
+
+.profile-name {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    color: #333;
+    font-size: 15px;
+}
+
+.profile-name i {
+    color: #667eea;
+    font-size: 16px;
+}
+
+.profile-badges {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.badge {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-carrier {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+}
+
+.badge-method {
+    background: linear-gradient(45deg, #f093fb, #f5576c);
+    color: white;
+}
+
+.profile-details {
+    display: flex;
+    gap: 16px;
+    font-size: 13px;
+    color: #666;
+}
+
+.profile-phone,
+.profile-birth {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.profile-phone i,
+.profile-birth i {
+    width: 12px;
+    color: #999;
+}
+
+.profile-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-left: 16px;
+}
+
+.profile-btn {
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.btn-select {
+    background: linear-gradient(45deg, #4ecdc4, #44a08d);
+    color: white;
+    box-shadow: 0 2px 8px rgba(78, 205, 196, 0.3);
+}
+
+.btn-select:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(78, 205, 196, 0.4);
+}
+
+.btn-delete {
+    background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+    color: white;
+    box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3);
+}
+
+.btn-delete:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
+}
+
+.selected-indicator {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(45deg, #ffd700, #ffed4e);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f57c00;
+    font-size: 14px;
+    animation: pulse 2s infinite;
+}
+
+/* 애니메이션 */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 215, 0, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 215, 0, 0);
+    }
+}
+
+/* 빈 상태 스타일 개선 */
+.profiles-list:empty::before {
+    content: "저장된 프로필이 없습니다.";
+    display: block;
+    text-align: center;
+    color: #999;
+    font-style: italic;
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 12px;
+    border: 2px dashed #ddd;
+}
+
+/* 프로필 카드 호버 효과 */
+.profile-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.profile-selected .profile-card:hover {
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.25);
+}
+
+/* 반응형 조정 */
+@media (max-width: 380px) {
+    .profile-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .profile-details {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .profile-actions {
+        margin-left: 8px;
+    }
+    
+    .profile-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 12px;
+    }
+}
+
+/* 새 프로필 추가 버튼 */
+.add-profile-button-container {
+    margin-top: 16px;
+    text-align: center;
+}
+
+.btn-add-profile {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: linear-gradient(45deg, #4ecdc4, #44a08d);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+}
+
+.btn-add-profile:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(78, 205, 196, 0.4);
+}
+
+.btn-add-profile:active {
+    transform: translateY(0);
+}
+
+/* 폼 액션 버튼들 */
+.form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.btn-primary,
+.btn-secondary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1;
+    min-height: 50px;
+    box-sizing: border-box;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-secondary {
+    background: linear-gradient(45deg, #6c757d, #5a6268);
+    color: white;
+}
+
+.btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(108, 117, 125, 0.3);
+}
+
+.btn-secondary:active {
+    transform: translateY(0);
+}
+
+/* 슬라이드 애니메이션 */
+.slide-down {
+    animation: slideDown 0.3s ease-out;
+}
+
+.slide-up {
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        max-height: 1000px;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+        max-height: 1000px;
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+        max-height: 0;
+    }
 }
