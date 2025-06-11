@@ -12,7 +12,7 @@ A browser extension that autofills identity verification services in South Korea
 <a href="https://apps.apple.com/kr/app/%EB%B3%B8%EC%9D%B8%EC%9D%B8%EC%A6%9D-%EC%9E%90%EB%8F%99%EC%99%84%EC%84%B1-for-safari/id1550426920" target="_blank"><img src="https://imgur.com/ENbaWUu.png" width="64" height="64"></a>
 
 ## 서비스 소개
-![소개이미지](./publish/img/AuthAutofillScreen0.0.3chrome_small.png)
+![소개이미지](./publish/img/AuthAutofillScreen3.0.png)
 휴대폰인증하려면 인증 팝업창이 뜨고 최소 수번의 클릭과 입력이 필요한데 이를 아이디,패스워드 자동완성처럼 자동으로 미리 저장된 정보를 입력해주는 확장프로그램입니다.
 
 이름, 휴대폰번호, 내외국인유무, 사용중인 통신사, 생년월일, 선호 인증방식(SMS인증, 통신사앱인증 등) 등을 미리 저장하여 자동완성 프로필을 생성해둔 뒤 휴대전화 인증을 진행할 때 사용자는 자동완성 프로필중 하나를 선택하거나 기본프로필로 자동완성되어 보안문자(CAPTCHA)만을 입력후 SMS인증번호를 입력함으로서 간편하게 이용할 수 있도록 도와주는 브라우저 확장 프로그램

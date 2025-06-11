@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "__MSG_extension_name__",
-    "version": "2.0.8",
+    "version": "3.0.0",
     "default_locale": "en",
     "description": "__MSG_extension_description__",
     "homepage_url": "https://github.com/ParkJeongseop/AuthAutoFill",
@@ -22,7 +22,7 @@
             "js": [
                 "autofill.js"
             ],
-            "matches": ["http://*/*", "https://*/*", "file:///*"],
+            "matches": ["<all_urls>"],
             "run_at": "document_start",
             "all_frames": true
         }
