@@ -1769,36 +1769,6 @@ window.onload = function () {
 
                     }, 500);
 
-                } else {
-                    // 기타 사이트 처리
-
-                    var nameInputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(1) > div.ul-td > input[type=text]";
-                    var birthDate8DigitInputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(2) > div.ul-td > input";
-                    var birthDate6DigitInputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li.oacx-ssn > div.ul-td > input[type=text]:nth-child(1)";
-                    var rrnInputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li.oacx-ssn > div.ul-td > input[type=password]:nth-child(2)";
-                    var phone1InputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li.none-telecom > div.ul-td > select:nth-child(2)";
-                    var phone2InputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li:nth-child(4) > div.ul-td > input";
-                    var carrierInputQuery = "#oacxEmbededContents > div:nth-child(2) > div > div.formLayout > section > form > div.tab-content > div:nth-child(1) > ul > li.telecom > div.ul-td > select.one-third.mr15";
-                    var agreeInputQuery = "#totalAgree";
-
-                    autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery, phone2InputQuery, carrierInputQuery, agreeInputQuery);
-
-                    // 모바일 신분증
-                    setInterval(function() {
-                        var nameInput = this.document.querySelector("#name");
-                        var phoneInput = this.document.querySelector("#telno");
-                        var agreeInput = this.document.querySelector("#allAgree");
-    
-                        if (nameInput) {
-                            nameInput.value = profilesOb[spI].name;
-                        }
-                        if (phoneInput) {
-                            phoneInput.value = profilesOb[spI].phone_number;
-                        }
-                        if (agreeInput && !agreeInput.checked) {
-                            agreeInput.click();
-                        }
-                    }, 500);
                 }
             }
         } else {
