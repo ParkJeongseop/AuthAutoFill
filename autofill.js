@@ -645,56 +645,54 @@ window.onload = function () {
 
                 } else if (window.location.hostname == 'cert.kcp.co.kr') {
                     log('한국사이버결제');
-                    var isPC = !window.location.pathname.includes('/mo');
 
-                    if (this.document.querySelector("#frm > fieldset")) { //통신사 선택페이지
+                    if (window.location.pathname.includes('/telcomSelect.do')) { //통신사 선택페이지
                         if (profilesOb[spI].carrier == carrier.SKT) {
-                            var carrierBtn = 'agency-sk';
+                            var carrierBtn = 'SKT';
                         } else if (profilesOb[spI].carrier == carrier.KT) {
-                            var carrierBtn = 'agency-kt';
+                            var carrierBtn = 'KTF';
                         } else if (profilesOb[spI].carrier == carrier.LGU) {
-                            var carrierBtn = 'agency-lgu';
-                        } else {
-                            var carrierBtn = 'agency-and';
+                            var carrierBtn = 'LGT';
+                        } else if (profilesOb[spI].carrier == carrier.SKT_MVNO) {
+                            var carrierBtn = 'SKM';
+                        } else if (profilesOb[spI].carrier == carrier.KT_MVNO) {
+                            var carrierBtn = 'KTM';
+                        } else if (profilesOb[spI].carrier == carrier.LGU_MVNO) {
+                            var carrierBtn = 'LGM';
                         }
                         this.document.getElementById(carrierBtn).click();
-                        if (!is_MNO(profilesOb[spI].carrier)) { // 알뜰폰 통신사 선택페이지
-                            if (profilesOb[spI].carrier == carrier.SKT_MVNO) {
-                                this.document.querySelector("form > div.pop-con_02 > ul > li:nth-child(1) > label").click();
-                            } else if (profilesOb[spI].carrier == carrier.KT_MVNO) {
-                                this.document.querySelector("form > div.pop-con_02 > ul > li:nth-child(2) > label").click();
-                            } else if (profilesOb[spI].carrier == carrier.LGU_MVNO) {
-                                this.document.querySelector("form > div.pop-con_02 > ul > li:nth-child(3) > label").click();
-                            }
-                            this.document.querySelector("#btnMvnoSelect").click();
-                        }
-                        // 약관 동의
-                        if (isPC) {
-                            this.document.querySelector("#frm > fieldset > ul.agreelist.all > li > div > label:nth-child(2)").click();
-                        } else {
-                            this.document.querySelector("#agree_all").click();
-                        }
-                        
+                    } else if(window.location.pathname.includes('/authMethodSelect.do')){ // 인증 방식 선택페이지
+                        // 인증 방식 선택
                         if (profilesOb[spI].way == way.SMS) { // SMS인증을 원하는 경우
-                            this.document.querySelector("#btnSms").click();
+                            this.document.querySelector("#obj_form > section > div > ul > li:nth-child(3)").click();
                         } else if (profilesOb[spI].way == way.PASS) { // PASS인증을 원하는 경우
-                            this.document.querySelector("#btnPass").click();
+                            this.document.querySelector("#obj_form > section > div > ul > li:nth-child(1)").click();
                         }
-                    } else if (this.document.getElementById('user_name')) {
-                        if (this.document.getElementById('mynum1')) { // SMS인증
-                            this.document.getElementById('user_name').value = profilesOb[spI].name;
-                            this.document.getElementById('mynum1').value = profilesOb[spI].birth.substr(2, 6);
-                            this.document.getElementById('mynum2').value = get_RRN_GenderNum(profilesOb[spI].birth, profilesOb[spI].gender, profilesOb[spI].foreigner);
-                            this.document.getElementById(isPC ? 'phone_no_rKey' : 'phone_no').value = profilesOb[spI].phone_number;
-                            this.document.getElementById('captcha_no').focus();
-                        } else { // PASS인증
-                            this.document.getElementById('user_name').value = profilesOb[spI].name;
-                            this.document.getElementById(isPC ? 'phone_no_rKey' : 'phone_no').value = profilesOb[spI].phone_number;
-                            this.document.getElementById('captcha_no').focus();
-                        }
-                    } else if (this.document.getElementById('otp_no')) {
+
+                        // 약관 동의
+                        this.document.querySelector("#agreeTotal").click();
+
+                        // 다음 버튼
+                        this.document.querySelector("#obj_form > section > div > div > button").click();
+                    } else if (window.location.pathname.includes('/smsForm.do')) {
+                        this.document.getElementById('userName').value = profilesOb[spI].name;
+                        this.document.querySelector("#obj_form > section > div > div.group_smsway > ul > li.step_item.step_sms.on > button").click();
+                        this.document.getElementById('myNum1').value = profilesOb[spI].birth.substr(2, 6);
+                        this.document.getElementById('myNum2').value = get_RRN_GenderNum(profilesOb[spI].birth, profilesOb[spI].gender, profilesOb[spI].foreigner);
+                        trigger_keyup_event(this.document.getElementById('myNum1'));
+                        trigger_keyup_event(this.document.getElementById('myNum2'));
+                        this.document.getElementById('userPhone').value = profilesOb[spI].phone_number;
+                        trigger_keyup_event(this.document.getElementById('userPhone'));
+                        this.document.getElementById('inputCaptcha').focus();
+                    } else if (window.location.pathname.includes('/pushForm.do')) {
+                        this.document.getElementById('userName').value = profilesOb[spI].name;
+                        this.document.querySelector("#obj_form > section > div > div.group_smsway > ul > li.step_item.on > button").click();
+                        this.document.getElementById('userPhone').value = profilesOb[spI].phone_number;
+                        trigger_keyup_event(this.document.getElementById('userPhone'));
+                        this.document.getElementById('inputCaptcha').focus();
+                    } else if (window.location.pathname.includes('/smsOtpForm.do')) {
                         // 인증번호 입력페이지
-                        this.document.getElementById('otp_no').focus();
+                        this.document.getElementById('codeSms').focus();
                     }
                 } else if (window.location.hostname == 'nid.naver.com') {
                     log('네이버');
