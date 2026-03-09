@@ -56,6 +56,7 @@ A browser extension that autofills identity verification services in South Korea
  * [서울특별시 교통위반단속조회 서비스](https://cartax.seoul.go.kr)
  * [LH청약센터](https://apply.lh.or.kr)
  * [특허로](https://www.patent.go.kr)
+ * [범정부 마이데이터](https://www.onmydata.go.kr)
 
  * [고용24](https://work24.go.kr)
  * [국민비서](https://www.ips.go.kr)

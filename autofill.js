@@ -1591,6 +1591,19 @@ window.onload = function () {
 
                     autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery, phone2InputQuery1, carrierInputQuery, agreeInputQuery);
                     autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery, phone2InputQuery2, carrierInputQuery, agreeInputQuery);
+                } else if (window.location.hostname == 'www.onmydata.go.kr') {
+                    log('범정부 마이데이터');
+
+                    var nameInputQuery = "#userNm";
+                    var birthDate8DigitInputQuery = "#birthday";
+                    var birthDate6DigitInputQuery = null;
+                    var rrnInputQuery = null;
+                    var phone1InputQuery = "#USR_PHONE_1";
+                    var phone2InputQuery = "#USR_PHONE_2";
+                    var carrierInputQuery = "#USR_PHONE_0";
+                    var agreeInputQuery = "#total_chk";
+
+                    autofill_for_mois(selectedProfile, nameInputQuery, birthDate8DigitInputQuery, birthDate6DigitInputQuery, rrnInputQuery, phone1InputQuery, phone2InputQuery, carrierInputQuery, agreeInputQuery);
 
                 } else if (window.location.hostname == 'b2b.kakaobank.com') {
                     log('카카오뱅크');
