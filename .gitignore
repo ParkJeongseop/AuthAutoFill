@@ -134,3 +134,7 @@ iOSInjectionProject/
 **/xcshareddata/WorkspaceSettings.xcsettings
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,swift,xcode
+
+# Samsung Internet Extension
+samsung/apktool.jar
+samsung/debug-key.jks
