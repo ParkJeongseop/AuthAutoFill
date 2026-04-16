@@ -137,4 +137,5 @@ iOSInjectionProject/
 
 # Samsung Internet Extension
 samsung/apktool.jar
+samsung/bundletool.jar
 samsung/debug-key.jks
