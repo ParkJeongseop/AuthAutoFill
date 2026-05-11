@@ -10,6 +10,7 @@ A browser extension that autofills identity verification services in South Korea
 <a href="https://microsoftedge.microsoft.com/addons/detail/본인인증-자동완성-auth-autofill/lifloelaookkeeajgkoobphhdkinfhlp" target="_blank"><img src="https://imgur.com/vMcaXaw.png" width="64" height="64"></a>
 <a href="https://addons.opera.com/ko/extensions/details/bonininjeung-jadongwanseong-auth-autofill/" target="_blank"><img src="https://imgur.com/nSJ9htU.png" width="64" height="64"></a>
 <a href="https://apps.apple.com/kr/app/%EB%B3%B8%EC%9D%B8%EC%9D%B8%EC%A6%9D-%EC%9E%90%EB%8F%99%EC%99%84%EC%84%B1-for-safari/id1550426920" target="_blank"><img src="https://imgur.com/ENbaWUu.png" width="64" height="64"></a>
+<a href="https://play.google.com/store/apps/details?id=com.parkjeongseop.authautofill.samsung" target="_blank"><img src="./publish/img/samsung-internet.png" width="64" height="64"></a>
 
 ## 서비스 소개
 ![소개이미지](./publish/img/AuthAutofillScreen3.0.png)
