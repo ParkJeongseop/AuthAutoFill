@@ -1,10 +1,13 @@
 #!/bin/bash
 # Auth Autofill - Samsung Internet Extension Build Script
 # Usage:
-#   bash build.sh              # APK only
-#   bash build.sh --aab        # APK + AAB
-#   bash build.sh --install    # APK + install to device
-#   bash build.sh --aab --install
+#   bash build.sh                    # debug APK
+#   bash build.sh --release          # release APK (릴리스 서명)
+#   bash build.sh --aab              # debug APK + AAB
+#   bash build.sh --release --aab    # release APK + AAB
+#   bash build.sh --install          # APK + 기기 설치
+#   bash build.sh --release --aab --install
+#   bash build.sh --upload --aab    # Google Play 업로드용 (업로드 키 서명)
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 ANDROID_SDK="$HOME/AppData/Local/Android/Sdk"
@@ -16,6 +19,28 @@ AAPT2="$BUILD_TOOLS/aapt2.exe"
 cd "$SCRIPT_DIR"
 mkdir -p build
 
+# Signing config (passwords from environment variables or .env file)
+if [ -f .env ]; then
+    source .env
+fi
+
+if [[ "$*" == *"--upload"* ]]; then
+    KS="upload-key.jks"
+    KS_ALIAS="upload"
+    KS_PASS="${UPLOAD_KEY_PASS:?Error: UPLOAD_KEY_PASS not set. Set it in .env or environment variable.}"
+    echo "=== Upload build (Google Play) ==="
+elif [[ "$*" == *"--release"* ]]; then
+    KS="release-key.jks"
+    KS_ALIAS="release"
+    KS_PASS="${RELEASE_KEY_PASS:?Error: RELEASE_KEY_PASS not set. Set it in .env or environment variable.}"
+    echo "=== Release build ==="
+else
+    KS="debug-key.jks"
+    KS_ALIAS="debugkey"
+    KS_PASS="${DEBUG_KEY_PASS:-android}"
+    echo "=== Debug build ==="
+fi
+
 # Step 1: Build APK with apktool
 echo "=== Building APK ==="
 java -jar apktool.jar b . -o build/unsigned.apk || exit 1
@@ -24,8 +49,8 @@ echo "=== Aligning ==="
 "$ZIPALIGN" -f -p 4 build/unsigned.apk build/aligned.apk || exit 1
 
 echo "=== Signing APK ==="
-"$APKSIGNER" sign --ks debug-key.jks --ks-key-alias debugkey \
-    --ks-pass pass:android --key-pass pass:android \
+"$APKSIGNER" sign --ks "$KS" --ks-key-alias "$KS_ALIAS" \
+    --ks-pass "pass:$KS_PASS" --key-pass "pass:$KS_PASS" \
     --out build/AuthAutoFill-samsung.apk build/aligned.apk || exit 1
 
 rm -f build/unsigned.apk build/aligned.apk
@@ -43,13 +68,14 @@ if [[ "$*" == *"--aab"* ]]; then
     python build_aab.py || exit 1
 
     # Bundle
+    rm -f build/AuthAutoFill-samsung.aab
     java -jar bundletool.jar build-bundle \
         --modules=build/base_module.zip \
         --output=build/AuthAutoFill-samsung.aab || exit 1
 
     # Sign AAB
-    jarsigner -keystore debug-key.jks -storepass android -keypass android \
-        build/AuthAutoFill-samsung.aab debugkey 2>/dev/null
+    jarsigner -keystore "$KS" -storepass "$KS_PASS" -keypass "$KS_PASS" \
+        build/AuthAutoFill-samsung.aab "$KS_ALIAS" 2>/dev/null
 
     rm -f build/base_proto.zip build/base_module.zip
     echo "=== Done: build/AuthAutoFill-samsung.aab ==="

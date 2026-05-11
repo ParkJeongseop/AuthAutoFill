@@ -139,3 +139,6 @@ iOSInjectionProject/
 samsung/apktool.jar
 samsung/bundletool.jar
 samsung/debug-key.jks
+samsung/release-key.jks
+samsung/upload-key.jks
+samsung/.env
