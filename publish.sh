@@ -1,19 +1,13 @@
 #!/bin/bash
+set -euo pipefail
 
-# 개발용 manifest.json 삭제
-rm manifest.json
+# 배포 패키지 생성
+# manifest.json은 Chromium/Firefox 공용 단일 파일이므로 패키지도 하나로 충분합니다.
+# (Chrome은 Firefox 전용 키 browser_specific_settings/developer를 무시함)
 
-# Chromium 계열
-cp manifest_chromium.json manifest.json
-zip -r Chromium.zip _locales/* autofill.js icon.png manifest.json popup.html script.js style.css
-rm manifest.json
+FILES=(_locales autofill.js icon.png manifest.json popup.html script.js style.css)
 
-# Firefox 계열
-cp manifest_firefox.json manifest.json
-zip -r Firefox.zip _locales/* autofill.js icon.png manifest.json popup.html script.js style.css
-rm manifest.json
+rm -f AuthAutoFill.zip
+zip -r AuthAutoFill.zip "${FILES[@]}"
 
-# 개발용 파일 복사
-cp manifest_chromium.json manifest.json
-
-echo "Done"
+echo "Done: AuthAutoFill.zip"
